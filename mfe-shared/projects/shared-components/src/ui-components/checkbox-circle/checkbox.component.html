@@ -1,0 +1,32 @@
+<!-- checkbox.component.html -->
+<div class="checkbox-container" [class.disabled]="disabled">
+  <div [ngClass]="checkboxClasses" (click)="toggleCheck()" [attr.aria-checked]="checked" role="checkbox">
+    <div [ngClass]="{'checkbox-circle': type === 'circle', 'checkbox-square': type === 'square'}" [class.checked]="checked">
+      <svg *ngIf="checked" class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    
+    <input 
+      type="checkbox"
+      class="visually-hidden"
+      [id]="id"
+      [formControl]="formControl"
+      [checked]="checked"
+      [disabled]="disabled"
+      [required]="required"
+      [name]="name"
+      [attr.aria-label]="ariaLabel || label"
+      (change)="toggleCheck()"
+    />
+  </div>
+  
+  <label *ngIf="label" [for]="id" class="checkbox-label" [class.required]="required">
+    <ng-content></ng-content>
+    {{ label }}
+  </label>
+
+  <div *ngIf="showError" class="error-message">
+    {{ getErrorMessage() }}
+  </div>
+</div>

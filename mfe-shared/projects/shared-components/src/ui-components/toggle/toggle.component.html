@@ -1,0 +1,23 @@
+<div class="toggle-container" [class.disabled]="disabled">
+  <label *ngIf="label" class="toggle-label">{{ label }}</label>
+  
+  <div 
+    class="toggle-switch" 
+    [class.checked]="checked"
+    [class.disabled]="disabled"
+    [class.success]="color === 'success'"
+    [class.primary]="color === 'primary'"
+    [class.small]="size === 'small'"
+    [class.medium]="size === 'medium'"
+    [class.large]="size === 'large'"
+    (click)="toggle()"
+    (keydown)="onKeyDown($event)"
+    role="switch"
+    [attr.aria-checked]="checked"
+    [attr.aria-disabled]="disabled"
+    [attr.aria-label]="ariaLabel || label"
+    [attr.name]="name"
+    tabindex="0">
+    <div class="toggle-thumb"></div>
+  </div>
+</div>

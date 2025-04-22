@@ -1,0 +1,95 @@
+/* checkbox.component.scss */
+.checkbox-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  padding: 2px;
+  cursor: pointer;
+
+  &.error {
+    .checkbox-circle, .checkbox-square {
+      border-color: #FF0000;
+    }
+  }
+
+  &.ng-touched.ng-invalid {
+    .checkbox-circle, .checkbox-square {
+      border-color: #FF0000;
+    }
+  }
+}
+
+.checkbox-circle, .checkbox-square {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #D1D9E6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  
+  &.checked {
+    background-color: #0965A7;
+    border-color: #0965A7;
+  }
+}
+
+.checkbox-circle {
+  border-radius: 50%;
+}
+
+.checkbox-square {
+  border-radius: 6px; // Square with slightly rounded corners
+}
+
+.check-icon {
+  width: 12px;
+  height: 12px;
+  stroke: white;
+  stroke-width: 3;
+}
+
+.checkbox-label {
+  font-size: 15px;
+  line-height: 20px;
+  user-select: none;
+  font-weight: 500;
+  
+  &.required::after {
+    content: '*';
+    color: #FF0000;
+  }
+}
+
+.error-message {
+  color: #FF0000;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-left: 32px;
+}
+
+// Visually hide the actual checkbox input (accessibility)
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,6 @@
+<!-- calendar.component.html -->
+<!-- Hidden input to attach the datepicker -->
+<input type="hidden" [matDatepicker]="picker" [value]="selectedDate" (dateChange)="onDateSelection($event.value)">
+
+<!-- Datepicker reference (not directly visible) -->
+<mat-datepicker #picker></mat-datepicker>

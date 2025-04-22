@@ -1,0 +1,16 @@
+<div class="investor-slider">
+    <div class="investor-header">
+      <h3>{{ title }}</h3>
+      <p>{{ description }}</p>
+    </div>
+  
+    <div class="slider-container">
+      <button class="decrement" (click)="decrement()">-</button>
+      <div class="slider-bar">
+        <div class="progress" [style.width.%]="value"></div>
+        <div class="thumb" [style.left.%]="value"></div>
+      </div>
+      <button class="increment" (click)="increment()">+</button>
+    </div>
+  </div>
+  

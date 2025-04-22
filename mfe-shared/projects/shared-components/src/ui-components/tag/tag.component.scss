@@ -1,0 +1,54 @@
+/* tag.component.scss */
+.rounded-2xl {
+  border-radius: 16px;
+  font-size: 10px;
+}
+:host {
+  display: inline-block;
+}
+
+.padding {
+  padding: 4px 8px 4px 8px;
+}
+// These are only necessary if you want to customize beyond what Tailwind provides
+// or if you're not using Tailwind
+
+// Default (Gray)
+.bg-gray-100 {
+  background-color: #EEF2F6;
+}
+.text-gray-800 {
+  color: #364152;
+}
+
+// Primary (Blue)
+.bg-blue-100 {
+  background-color: #E7F1FF;
+}
+.text-blue-800 {
+  color: #004AB3;
+}
+
+// Success (Green)
+.bg-green-100 {
+  background-color: #D0F1D1;
+}
+.text-green-800 {
+  color: #1B5E20;
+}
+
+// Danger (Red)
+.bg-red-100 {
+  background-color: #FFD9DD;
+}
+.text-red-800 {
+  color: #B71C1C;
+}
+
+// Warning (Yellow)
+.bg-yellow-100 {
+  background-color: #FFE9C8;
+}
+.text-yellow-800 {
+  color: #A05A00;
+}

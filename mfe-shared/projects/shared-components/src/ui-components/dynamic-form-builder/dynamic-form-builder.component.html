@@ -1,0 +1,6 @@
+<dynamic-form-group [formGroup]="form">
+    <dynamic-form-control label="Name" [control]="form.controls['name']"></dynamic-form-control>
+    <dynamic-form-control label="Email" [control]="form.controls['email']" type="email"></dynamic-form-control>
+    <button (click)="submitForm()">Submit</button>
+  </dynamic-form-group>
+  

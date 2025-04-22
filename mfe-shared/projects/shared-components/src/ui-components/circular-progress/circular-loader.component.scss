@@ -1,0 +1,62 @@
+:host {
+  display: inline-block;
+}
+
+.circular-loader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  // Base colors
+  --bg-color: #E3E8EF;
+  --progress-color: #419B21;
+  --completed-color: #4CD964;
+  --inactive-color: #C7CDD4;
+  
+  // Adjustments for different states
+  &.completed {
+    --bg-color: transparent;
+  }
+  
+  &.inactive {
+    --progress-color: var(--inactive-color);
+  }
+  
+  .circle-bg {
+    fill: var(--bg-color);
+    stroke: var(--bg-color);
+    stroke-linecap: round;
+  }
+  
+  .circle-progress {
+    fill: transparent;
+    stroke: var(--progress-color);
+    stroke-linecap: round;
+    transform-origin: center;
+    transition: stroke-dashoffset 0.3s ease;
+  }
+  
+  .circle-completed {
+    fill: var(--completed-color);
+    stroke: transparent;
+  }
+  
+  .loader-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: calc(var(--size, 60px) / 3);
+    font-weight: 600;
+    color: #12344D;
+    
+    .completed & {
+      color: white;
+    }
+    
+    .inactive & {
+      color: var(--inactive-color);
+    }
+  }
+}

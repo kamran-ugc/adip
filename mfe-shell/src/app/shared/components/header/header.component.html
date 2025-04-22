@@ -1,0 +1,71 @@
+<mat-toolbar class="header">
+  <div class="header-left d-flex align-items-center">
+    <div class="d-flex align-items-center">
+      <img
+        src="assets/images/FAA Logo.svg"
+        alt="ADIP Logo"
+        class="logo-image"
+      />
+      <div class="">
+        <h4 class="logo-text mb-1 text-truncate text-center">ADIP</h4>
+        <p class="tagline mb-0 text-center">
+          Airport Data and Information Portal
+        </p>
+      </div>
+    </div>
+
+    <nav class="main-nav d-flex align-items-center">
+      <a mat-button class="nav-item" routerLink="/home">Portal Home</a>
+      <a mat-button class="nav-item" routerLink="/dashboard"
+        >Facility Dashboard</a
+      >
+      <a mat-button class="nav-item" routerLink="/checklist"
+        >GA Airport Checklist</a
+      >
+      <a mat-button class="nav-item" routerLink="/admin">Admin</a>
+    </nav>
+  </div>
+
+  <div class="header-right d-flex align-items-center">
+    <!-- <mat-form-field appearance="outline" class="search-container me-3">
+      <input matInput placeholder="ADIP Search" class="search-input" />
+      <mat-select panelClass="search-type-panel" value="ALL">
+        <mat-option value="ALL">ALL</mat-option>
+        <mat-option value="FACILITIES">FACILITIES</mat-option>
+        <mat-option value="DOCUMENTS">DOCUMENTS</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+    <div class="user-profile d-flex align-items-center">
+      <button mat-icon-button [matBadge]="4" matBadgeColor="warn" class="me-2">
+        <mat-icon>notifications</mat-icon>
+      </button>
+
+      <button
+        mat-button
+        [matMenuTriggerFor]="userMenu"
+        class="user-menu-button"
+      >
+        <div class="avatar d-flex align-items-center justify-content-center">
+          <span class="avatar-text">SA</span>
+        </div>
+      </button>
+
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Sign Out</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

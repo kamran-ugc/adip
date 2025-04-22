@@ -1,0 +1,31 @@
+<!-- radio-button.component.html -->
+<div class="radio-container" [class.disabled]="disabled">
+  <div [ngClass]="radioClasses">
+    <label [for]="id" class="radio-label" [class.disabled]="disabled">
+      <div class="radio-input-wrapper" (click)="onRadioChange()">
+        <div class="radio-outer-circle" [class.checked]="checked">
+          <div class="radio-inner-circle" *ngIf="checked"></div>
+        </div>
+      </div>
+      <span class="radio-text" *ngIf="label">{{ label }}</span>
+      <span *ngIf="required" class="required-indicator">*</span>
+    </label>
+
+    <input 
+      type="radio"
+      class="visually-hidden"
+      [id]="id"
+      [name]="name"
+      [value]="value"
+      [checked]="checked"
+      [disabled]="disabled"
+      [required]="required"
+      [formControl]="formControl"
+      (change)="onRadioChange()"
+    />
+  </div>
+
+  <div *ngIf="showError" class="error-message">
+    {{ getErrorMessage() }}
+  </div>
+</div>

@@ -1,0 +1,78 @@
+
+
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+body, html {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom datepicker styles */
+.custom-datepicker-panel {
+  padding-bottom: 0 !important;
+}
+
+.datepicker-actions-overlay {
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+/* Make sure the overlay attaches correctly to the bottom of the datepicker */
+.cdk-overlay-connected-position-bounding-box {
+  z-index: 1000 !important;
+}
+
+.tab-selection {
+  &__option {
+    @apply transition-all duration-200;
+    
+    &--idle {
+      @apply border border-gray-200 rounded-lg;
+    }
+    
+    &--hover {
+      @apply bg-blue-50;
+    }
+    
+    &--selected {
+      @apply border-blue-500 bg-blue-50;
+    }
+  }
+  
+  &__icon-container {
+    @apply flex items-center justify-center rounded-full bg-blue-100 text-blue-600;
+    
+    &--selected {
+      @apply border-2 border-blue-500;
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: 640px) {
+    &__option {
+      @apply py-3 px-2;
+    }
+    
+    &__icon-container {
+      @apply w-8 h-8;
+    }
+  }
+}
+
+// Animation for selection state change
+@keyframes selectionPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+.tab-selection__option--selected {
+  animation: selectionPulse 0.8s;
+}

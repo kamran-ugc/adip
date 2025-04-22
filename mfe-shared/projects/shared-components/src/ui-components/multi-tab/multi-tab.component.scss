@@ -1,0 +1,39 @@
+.tab-container {
+}
+
+.main-tabs {
+  display: flex;
+  gap: 32px;
+}
+
+button {
+  position: relative;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #364152;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #1E417C;
+  }
+
+  &.active {
+    color: #1E417C;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #1E417C;
+    }
+  }
+}
+  

@@ -1,0 +1,18 @@
+<div class="flex flex-col gap-4">
+  <div *ngFor="let option of options; let i = index" 
+       [ngClass]="[
+         'tab-option',
+         isSelected(option) ? 'tab-option--selected' : 'tab-option--idle'
+       ]"
+       (click)="toggleSelection(option)">
+    <div class="tab-icon-container">
+      <ng-container *ngIf="option.icon && option.icon !== ''">
+        <app-icon [name]="option.icon"></app-icon>
+      </ng-container>
+      <ng-container *ngIf="option.letter && !option.icon">
+        <span class="text-lg font-medium">{{ option.letter }}</span>
+      </ng-container>
+    </div>
+    <span class="tab-label">{{ option.label }}</span>
+  </div>
+</div>

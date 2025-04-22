@@ -1,0 +1,22 @@
+<!-- step-progress-bar.component.html -->
+<!-- Pill variant (default) with progress border -->
+<div *ngIf="variant === 'pill'" [ngClass]="progressBarClasses" [style.--progress]="progress + '%'">
+  <div class="app-step-progress-bar__content">
+    <div class="app-step-progress-bar__row">
+      <div>
+        <span class="app-step-progress-bar__label">{{ stepNumber }}.</span>
+        <span class="app-step-progress-bar__title">{{ stepTitle }}</span>
+      </div>
+      
+      <div class="app-step-progress-bar__row">
+        <span class="app-step-progress-bar__divider"></span>
+        <span *ngIf="showPercentage" class="app-step-progress-bar__percentage">{{ progress }}%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Circle variant -->
+<div *ngIf="variant === 'circle'" [ngClass]="circleClasses">
+  {{ stepNumber }}
+</div>

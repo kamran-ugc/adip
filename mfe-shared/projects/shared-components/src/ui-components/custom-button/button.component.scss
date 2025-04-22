@@ -1,0 +1,370 @@
+// button.component.scss
+:host {
+  display: inline-block;
+  
+  &:has(button:disabled) {
+    pointer-events: none;
+  }
+
+  &:has(.app-button--full-width) {
+    display: block;
+  }
+}
+
+// Base button styles
+.app-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  min-width: fit-content;
+  height: 48px;
+
+  // Width utility classes
+  &--width-200 { width: 200px; }
+  &--width-300 { width: 300px; }
+  &--width-400 { width: 400px; }
+  &--width-500 { width: 500px; }
+  &--width-600 { width: 600px; }
+  &--width-700 { width: 700px; }
+  &--width-800 { width: 800px; }
+  &--width-900 { width: 900px; }
+  &--width-1000 { width: 1000px; }
+
+  &--width-25 { width: 25%; }
+  &--width-50 { width: 50%; }
+  &--width-75 { width: 75%; }
+  &--width-100 { width: 100%; }
+
+  &--width-10rem { width: 10rem; }
+  &--width-15rem { width: 15rem; }
+  &--width-20rem { width: 20rem; }
+  &--width-25rem { width: 25rem; }
+  &--width-30rem { width: 30rem; }
+
+  // Variants
+  &--primary {
+    background-color: var(--primary-color, #007bff);
+    color: white;
+
+    &:hover:not(.app-button--disabled) {
+      background-color: var(--primary-hover-color, #0056b3);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--secondary-color, #6c757d);
+    color: white;
+
+    &:hover:not(.app-button--disabled) {
+      background-color: var(--secondary-hover-color, #5a6268);
+    }
+  }
+
+  &--text {
+    background-color: transparent;
+    color: var(--text-color, #333);
+
+    &:hover:not(.app-button--disabled) {
+      background-color: var(--text-hover-bg, rgba(0, 0, 0, 0.05));
+    }
+  }
+
+  &--underlined {
+    background-color: transparent;
+    color: var(--text-color, #333);
+
+    &:hover:not(.app-button--disabled) {
+      color: var(--text-hover-color, #000);
+    }
+  }
+
+  &--icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--icon-color, #333);
+
+    &:hover:not(.app-button--disabled) {
+      background-color: var(--icon-hover-bg, rgba(0, 0, 0, 0.05));
+    }
+    
+    &.app-button--icon-only {
+      app-icon {
+        margin: 0;
+      }
+    }
+  }
+
+  // States
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &--error {
+    background-color: var(--error-color, #dc3545);
+    color: white;
+  }
+
+  // Icon only
+  &--icon-only {
+    padding: 8px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  // Full width
+  &--full-width {
+    width: 100%;
+  }
+
+  // Icon presence
+  &--has-prefix {
+    padding-left: 12px;
+  }
+
+  &--has-postfix {
+    padding-right: 12px;
+  }
+
+  // Icon styles
+  &__prefix-icon,
+  &__postfix-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__prefix-icon {
+    margin-right: 4px;
+  }
+
+  &__postfix-icon {
+    margin-left: 4px;
+  }
+}
+
+// Icon styles
+.app-button__icon {
+  width: 20px;
+  height: 20px;
+}
+
+// Arrow icon styles
+.app-button__arrow {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+}
+
+// Primary variant
+.app-button--primary {
+  background-color: #1E417C; // Dark blue from design
+  color: white;
+  border-radius: 8px;
+  
+  &:hover:not(:disabled) {
+    background-color: #1E417C; // Slightly lighter blue for hover
+  }
+  
+  &:active:not(:disabled) {
+    background-color: #00AEEF; // Even lighter blue for active state
+  }
+}
+
+// Secondary variant
+.app-button--secondary {
+  background-color: white;
+  color: #1E417C;
+  border: 1px solid #1E417C;
+  border-radius: 8px;
+  
+  &:hover:not(:disabled) {
+    color: #1E417C;
+    border-color: #1E417C;
+  }
+  
+  &:active:not(:disabled) {
+    color: #00AEEF;
+    border-color: #00AEEF;
+    background-color: rgba(51, 97, 175, 0.05);
+  }
+}
+
+// Text button variant
+.app-button--text {
+  background-color: transparent;
+  color: #1E417C;
+  padding: 8px 0;
+  
+  &:hover:not(:disabled) {
+    color: #1E417C;
+  }
+  
+  &:active:not(:disabled) {
+    color: #00AEEF;
+  }
+}
+
+// Underlined variant
+.app-button--underlined {
+  background-color: transparent;
+  color: #1E417C;
+  padding: 0px 0px 4px 0px;
+  border-bottom: 1px solid #1E417C;
+  border-radius: 0;
+  height: unset;
+  
+  &:hover:not(:disabled) {
+    color: #1E417C;
+    border-bottom-color: #1E417C;
+  }
+  
+  &:active:not(:disabled) {
+    color: #00AEEF;
+    border-bottom-color: #00AEEF;
+  }
+}
+
+// Icon button variant
+.app-button--icon {
+  background-color: transparent;
+  color: #1E417C;
+  border: 1px solid #1E417C;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  padding: 8px;
+  
+  &:hover:not(:disabled) {
+    color: #1E417C;
+    border-color: #1E417C;
+  }
+  
+  &:active:not(:disabled) {
+    color: #00AEEF;
+    border-color: #00AEEF;
+    background-color: rgba(51, 97, 175, 0.05);
+  }
+}
+
+// Icon only modifier
+.app-button--icon-only {
+  height: 24px;
+  width: 24px;
+  padding: 8px;
+}
+
+// Full width modifier
+.app-button--full-width {
+  width: 100%;
+}
+
+// State: Hover (applied through component logic)
+.app-button--hover {
+  &.app-button--primary {
+    background-color: #1E417C;
+  }
+  
+  &.app-button--secondary {
+    color: #1E417C;
+    border-color: #1E417C;
+  }
+  
+  &.app-button--text,
+  &.app-button--underlined {
+    color: #1E417C;
+  }
+  
+  &.app-button--underlined {
+    border-bottom-color: #1E417C;
+  }
+  
+  &.app-button--icon {
+    color: #1E417C;
+    border-color: #1E417C;
+  }
+}
+
+// State: Active/Pressed
+.app-button--active {
+  &.app-button--primary {
+    background-color: #00AEEF;
+  }
+  
+  &.app-button--secondary {
+    color: #00AEEF;
+    border-color: #00AEEF;
+    background-color: rgba(51, 97, 175, 0.05);
+  }
+  
+  &.app-button--text,
+  &.app-button--underlined {
+    color: #00AEEF;
+  }
+  
+  &.app-button--underlined {
+    border-bottom-color: #00AEEF;
+  }
+  
+  &.app-button--icon {
+    color: #00AEEF;
+    border-color: #00AEEF;
+    background-color: rgba(51, 97, 175, 0.05);
+  }
+}
+
+// State: Disabled
+.app-button--disabled,
+.app-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+// State: Error
+.app-button--error {
+  &.app-button--primary {
+    background-color: #DC2626;
+  }
+  
+  &.app-button--secondary {
+    color: #DC2626;
+    border-color: #DC2626;
+  }
+  
+  &.app-button--text,
+  &.app-button--underlined {
+    color: #DC2626;
+  }
+  
+  &.app-button--underlined {
+    border-bottom-color: #DC2626;
+  }
+  
+  &.app-button--icon {
+    color: #DC2626;
+    border-color: #DC2626;
+  }
+}
+
+// State: Clicked/Inputting (same as active for now)
+.app-button--clicked {
+  @extend .app-button--active;
+}

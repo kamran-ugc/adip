@@ -1,0 +1,13 @@
+<div 
+  class="progress-bar-container"
+  [class.disabled]="disabled"
+  [attr.aria-valuenow]="progress"
+  [attr.aria-valuemin]="0"
+  [attr.aria-valuemax]="100"
+  role="progressbar"
+>
+  <div 
+    class="progress-bar-fill"
+    [style.width.%]="progress"
+  ></div>
+</div>

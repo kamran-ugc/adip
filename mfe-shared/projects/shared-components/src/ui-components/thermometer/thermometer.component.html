@@ -1,0 +1,47 @@
+<div class="thermometer-container">
+  <ng-container *ngFor="let option of options; let i = index">
+    <div class="option-container" [class.selected]="option.id === selectedOptionId">
+      <div class="option-card">
+        <h3 class="option-title">{{ option.title }}</h3>
+        <p class="option-description">{{ option.description }}</p>
+      </div>
+      
+      <div class="thermometer-slider-container">
+        <button 
+          class="control-button decrement" 
+          (click)="decrementOption()"
+          [disabled]="option.id !== selectedOptionId || getCurrentOptionIndex() === 0"
+          aria-label="Decrease risk level">
+          <span>&minus;</span>
+        </button>
+        
+        <div class="thermometer-track">
+          <div class="thermometer-segments">
+            <div class="segment segment-1"></div>
+            <div class="segment segment-2"></div>
+            <div class="segment segment-3"></div>
+            <div class="segment segment-4"></div>
+            <div class="segment segment-5"></div>
+          </div>
+          
+          <div *ngIf="option.id === selectedOptionId" class="knob-pointer"></div>
+          
+          <div 
+            class="knob" 
+            [style.left.%]="getKnobPosition()"
+            [class.active]="option.id === selectedOptionId"
+            (click)="selectOption(option.id)">
+          </div>
+        </div>
+        
+        <button 
+          class="control-button increment" 
+          (click)="incrementOption()"
+          [disabled]="option.id !== selectedOptionId || getCurrentOptionIndex() === options.length - 1"
+          aria-label="Increase risk level">
+          <span>+</span>
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>

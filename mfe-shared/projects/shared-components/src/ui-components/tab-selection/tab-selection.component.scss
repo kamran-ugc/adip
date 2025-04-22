@@ -1,0 +1,85 @@
+:host {
+  display: block;
+}
+
+.tab-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-width: 402px;
+  min-height: 80px;
+
+  &--idle {
+    background-color: #FFFFFF;
+    border-color: #CDD5DF;
+
+    &:hover {
+      background-color: #EEF2F6;
+    }
+  }
+
+  &--selected {
+    background-color: #1E417C1A;
+    border-color: #0074AD;
+  }
+}
+
+.tab-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background-color: #D9E0E9;
+  color: #0965A7;
+  
+  .icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+}
+
+.tab-label {
+  color: #0D121C;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+// Animation for selection change
+@keyframes selectionPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(9, 101, 167, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 4px rgba(9, 101, 167, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(9, 101, 167, 0);
+  }
+}
+
+.tab-option--selected {
+  animation: selectionPulse 0.8s;
+}
+
+// Responsive styles
+@media (max-width: 640px) {
+  .tab-option {
+    min-width: 100%;
+    padding: 12px;
+  }
+
+  .tab-icon-container {
+    width: 32px;
+    height: 32px;
+  }
+}

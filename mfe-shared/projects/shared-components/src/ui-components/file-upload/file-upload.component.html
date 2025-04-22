@@ -1,0 +1,79 @@
+<!-- file-upload.component.html -->
+<div 
+  [class]="computedClasses"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+  (drop)="onDrop($event)"
+  (click)="customClick.observed ? onCustomClick() : fileInput.click()">
+  
+  <!-- Hidden file input -->
+  <input 
+    #fileInput
+    type="file"
+    [id]="id"
+    [accept]="accept"
+    [multiple]="multiple"
+    [disabled]="disabled"
+    [required]="required"
+    (change)="onFileSelected($event)"
+    class="app-file-upload__input">
+  
+  <!-- Upload icon -->
+  <div class="app-file-upload__icon-container">
+    <app-icon [name]="prefixIcon" [size]="'large'"></app-icon>
+  </div>
+  
+  <!-- Content Area -->
+  <div class="app-file-upload__content">
+    <!-- Display file name when uploaded -->
+    <div *ngIf="hasFiles" class="app-file-upload__file-info">
+      <span class="app-file-upload__file-name">{{ displayFileName }}</span>
+      <span *ngIf="displayFileSize" class="app-file-upload__file-size">{{ displayFileSize }}</span>
+    </div>
+    
+    <!-- Display upload text when no file -->
+    <div *ngIf="!hasFiles" class="app-file-upload__labels">
+      <div class="fs-16 app-file-upload__label">{{ label }}</div>
+      <div *ngIf="supportingText && size === 'large'" class="app-file-upload__supporting-text">{{ supportingText }}</div>
+    </div>
+  </div>
+  
+  <!-- Action button (plus or close) -->
+  <div class="app-file-upload__action">
+    <!-- Remove button when file is uploaded -->
+    <button 
+      *ngIf="hasFiles" 
+      type="button" 
+      class="app-file-upload__remove-button"
+      (click)="removeFile(uploadedFiles[0], $event)"
+      [disabled]="disabled">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <!-- Plus button when no file -->
+    <div *ngIf="!hasFiles" class="app-file-upload__add-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- Thumbnail preview for small version (as shown in your design) -->
+<div *ngIf="size === 'small' && hasFiles && uploadedFiles[0].url" class="app-file-upload__thumbnail">
+  <img [src]="uploadedFiles[0].url" alt="Upload preview" class="app-file-upload__preview-image">
+  <button 
+    type="button" 
+    class="app-file-upload__thumbnail-remove"
+    (click)="removeFile(uploadedFiles[0], $event)"
+    [disabled]="disabled">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+</div>

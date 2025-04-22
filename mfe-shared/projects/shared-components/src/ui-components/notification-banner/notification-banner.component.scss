@@ -1,0 +1,151 @@
+.notification-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: var(--notification-border-radius, 8px);
+  padding: var(--notification-padding, 8px 12px);
+  margin-bottom: var(--notification-margin-bottom, 8px);
+  animation: slideIn 0.3s ease-out;
+  
+  // Default variables that can be overridden with custom styling
+  --info-bg-color: #E7F1FF;
+  --info-text-color: #004AB3;
+  --warning-bg-color: #FFD9DD;
+  --warning-text-color: #B71C1C;
+  --success-bg-color: #D0F1D1;
+  --success-text-color: #1B5E20;
+  --note-bg-color: #FFE9C8;
+  --note-text-color: #A05A00;
+  --custom-bg-color: #f0f0f0;
+  --custom-text-color: #333333;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 24px;
+    margin-right: var(--notification-icon-margin, 8px);
+    
+    app-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__message {
+    margin: 0;
+    font-size: var(--notification-font-size, 14px);
+    line-height: var(--notification-line-height, 1.4);
+    flex-grow: 1;
+  }
+
+  &__dismiss {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: inherit;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: 8px;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    }
+  }
+}
+
+// Types styling
+.notification-banner {
+  // Info (Blue)
+  &--info {
+    background-color: var(--info-bg-color);
+    color: var(--info-text-color);
+    
+    .notification-banner__icon--info {
+      color: var(--info-text-color);
+    }
+  }
+
+  // Warning (Red)
+  &--warning {
+    background-color: var(--warning-bg-color);
+    color: var(--warning-text-color);
+    
+    .notification-banner__icon--warning {
+      color: var(--warning-text-color);
+    }
+  }
+
+  // Success (Green)
+  &--success {
+    background-color: var(--success-bg-color);
+    color: var(--success-text-color);
+    
+    .notification-banner__icon--success {
+      color: var(--success-text-color);
+    }
+  }
+
+  // Note (Orange/Amber)
+  &--note {
+    background-color: var(--note-bg-color);
+    color: var(--note-text-color);
+    
+    .notification-banner__icon--note {
+      color: var(--note-text-color);
+    }
+  }
+  
+  // Custom type - uses inline styles but has fallbacks
+  &--custom {
+    background-color: var(--custom-bg-color);
+    color: var(--custom-text-color);
+    
+    .notification-banner__icon--custom {
+      color: var(--custom-text-color);
+    }
+  }
+}
+
+// Notification content container
+.notification-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+// Slide-in animation
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+  .notification-banner {
+    border-radius: var(--notification-mobile-border-radius, 6px);
+  }
+}

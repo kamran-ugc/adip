@@ -1,0 +1,10 @@
+<div class="rating-container" [class.dark]="theme === 'dark'">
+    <span *ngFor="let star of [].constructor(maxStars); let i = index"
+          class="star"
+          [class.filled]="i < rating"
+          (click)="setRating(i)"
+          [style.fontSize.px]="size">
+      ★
+    </span>
+  </div>
+  

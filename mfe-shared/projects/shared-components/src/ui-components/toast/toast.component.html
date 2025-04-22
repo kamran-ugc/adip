@@ -1,0 +1,17 @@
+<div class="toast-container" [ngClass]="sentiment">
+  <div class="toast-content">
+    <div class="icon-wrapper">
+      <app-icon [name]="displayIconSrc" class="icon" [color]="'black'"></app-icon>
+      <!-- <img [src]="displayIconSrc" alt="" class="icon" /> -->
+    </div>
+    <div class="text-content">
+      <h3 class="title">{{ title }}</h3>
+      <p class="message">{{ message }}</p>
+    </div>
+  </div>
+  <button class="dismiss-button" (click)="onDismiss()" aria-label="Dismiss">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>

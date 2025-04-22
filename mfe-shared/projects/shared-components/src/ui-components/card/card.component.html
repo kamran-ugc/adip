@@ -1,0 +1,23 @@
+<div class="card" [ngClass]="type">
+  <div class="card-header" *ngIf="subtitle">
+    <p class="card-subtitle">{{ subtitle }}</p>
+  </div>
+
+  <div class="card-image" *ngIf="imageUrl">
+    <img [src]="imageUrl" [alt]="title" />
+  </div>
+
+  <div class="card-content">
+    <h3 class="card-title">{{ title }}</h3>
+    <p *ngIf="description" class="card-description">{{ description }}</p>
+
+    <div *ngIf="amount || percentage" class="card-info">
+      <span class="amount">{{ amount }}</span>
+      <span class="percentage" *ngIf="percentage">{{ percentage }}</span>
+    </div>
+  </div>
+
+  <div class="card-footer" *ngIf="actionText && actionLink">
+    <a [href]="actionLink" class="card-button">{{ actionText }}</a>
+  </div>
+</div>

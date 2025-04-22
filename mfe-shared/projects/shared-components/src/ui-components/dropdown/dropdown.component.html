@@ -1,0 +1,19 @@
+<!-- dropdown.component.html -->
+<div class="dropdown-container" [class.disabled]="disabled">
+  <label *ngIf="label" class="dropdown-label">{{ label }}</label>
+  <div class="dropdown-box" (click)="toggleDropdown()" [class.open]="isOpen">
+    <span [ngClass]="!selectedValue ? 'placeholder-text' : ''">{{ selectedValue || placeholder }}</span>
+    <app-icon [name]="isOpen ? 'arrow-up' : 'arrow-down'" class="arrow" [height]="18" [width]="18"></app-icon>
+  </div>
+  <ul *ngIf="isOpen" class="dropdown-list">
+    <li *ngFor="let option of options" 
+        (click)="selectOption(option)" 
+        [class.selected]="option === selectedValue">
+      <span class="option-text">{{ option }}</span>
+      <app-icon *ngIf="option === selectedValue" name="check" class="check-icon" [height]="18" [width]="18" [size]="'custom'"></app-icon>
+    </li>
+  </ul>
+  <div *ngIf="showError" class="error-message">
+    {{ getErrorMessage() }}
+  </div>
+</div>

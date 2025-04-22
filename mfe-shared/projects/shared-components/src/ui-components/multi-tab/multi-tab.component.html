@@ -1,0 +1,11 @@
+<div class="tab-container">
+  <div class="main-tabs">
+    <button
+      *ngFor="let tab of mainTabs"
+      (click)="setMainTab(tab)"
+      [class.active]="tab === activeMainTab"
+    >
+      {{ tab }}
+    </button>
+  </div>
+</div>

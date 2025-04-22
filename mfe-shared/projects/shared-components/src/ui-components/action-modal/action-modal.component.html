@@ -1,0 +1,24 @@
+<div [ngClass]="getModalClasses()">
+  <div [ngClass]="getContentClasses()">
+    <!-- Icon (if provided) -->
+    <div [ngClass]="getIconClasses()" *ngIf="hasIcon">
+      <app-icon name="play" class="icon"></app-icon>
+    </div>
+    
+    <!-- Content -->
+    <div class="content">
+      <h2 [ngClass]="getTitleClasses()">{{ title }}</h2>
+      <p [ngClass]="getDescriptionClasses()">{{ description }}</p>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button 
+          *ngFor="let button of buttons" 
+          [ngClass]="getButtonClasses(button.color)"
+          (click)="onButtonClick(button.action)">
+          {{ button.label }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

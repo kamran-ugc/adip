@@ -1,0 +1,15 @@
+<div class="shell-layout">
+  <app-header class="shell-header"></app-header>
+
+  <mat-sidenav-container class="shell-container">
+    <mat-sidenav mode="side" opened class="shell-sidebar">
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="shell-main">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <app-footer class="shell-footer"></app-footer>
+</div>

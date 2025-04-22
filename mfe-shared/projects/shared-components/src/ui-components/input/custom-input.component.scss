@@ -1,0 +1,124 @@
+// Import Inter font
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --default-border: #E3E8EF;
+  --hover-border: #C8D3E5;
+  --focus-border: #364152;
+  --error-color: #B71C1C;
+  --disabled-bg: #F8FAFC;
+  --disabled-text: #94A3B8;
+  --label-color: #0D121C;
+  --placeholder-color: #9AA4B2;
+  --text-color: #384250;
+  --supporting-text-color: #667085;
+}
+
+.custom-input-container {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  
+  &.disabled {
+    opacity: 0.9;
+    cursor: not-allowed;
+    
+    .custom-input {
+      background-color: var(--disabled-bg);
+      color: var(--disabled-text);
+      pointer-events: none;
+      border-color: var(--default-border);
+    }
+  }
+  
+  .label {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--label-color);
+  }
+  
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+  }
+  
+  .custom-input {
+    width: 100%;
+    padding: 10px 8px;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-color);
+    background-color: white;
+    border: 1px solid var(--default-border) !important; /* Force border to be visible */
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+    display: block;
+    
+    &::placeholder {
+      color: var(--placeholder-color);
+    }
+    
+    &:hover:not(:disabled):not(.error) {
+      border-color: var(--hover-border) !important;
+    }
+    
+    &:focus:not(:disabled):not(.error) {
+      border-color: var(--focus-border) !important;
+    }
+    
+    &.error, &.ng-invalid.ng-touched {
+      border-color: var(--error-color) !important;
+    }
+
+    &.with-check {
+      padding-right: 32px;
+    }
+  }
+  
+  .checkmark {
+    position: absolute;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  
+  .supporting-text {
+    display: flex;
+    align-items: flex-start;
+    font-size: 10px;
+    line-height: 13px;
+    font-weight: 400;
+    
+    .helper-text, .error-text {
+      display: flex;
+      align-items: center;
+      margin-top: 6px;
+      
+      svg {
+        margin-right: 4px;
+        flex-shrink: 0;
+      }
+    }
+    
+    .helper-text {
+      color: var(--supporting-text-color);
+    }
+    
+    .error-text {
+      color: var(--error-color);
+    }
+  }
+}
+
+// For proper styling when inside Angular forms
+:host-context(.ng-invalid.ng-touched) {
+  .custom-input:not(:disabled) {
+    border-color: var(--error-color) !important;
+  }
+}

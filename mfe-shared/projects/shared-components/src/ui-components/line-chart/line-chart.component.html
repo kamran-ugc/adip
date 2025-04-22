@@ -1,0 +1,13 @@
+<div class="chart-wrapper">
+  <div class="d-flex justify-content-end mb-3 gap-2">
+    <app-chip
+      *ngFor="let range of datasets"
+      [label]="range.label"
+      [variant]="selectedRange === range.label ? 'selected' : 'outlined'"
+      (click)="onRangeSelect(range.label)"
+    ></app-chip>
+  </div>
+  <div [style.width]="width" [style.height]="height">
+    <canvas #chartCanvas class="w-full h-64"></canvas>
+  </div>
+</div>

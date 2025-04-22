@@ -1,0 +1,25 @@
+.rating-container {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+  
+    &.dark {
+      background: #181818; /* Dark background */
+      padding: 10px;
+      border-radius: 5px;
+    }
+  
+    .star {
+      transition: color 0.2s;
+      color: #777; /* Default empty star color */
+  
+      &.filled {
+        color: #FFD700; /* Gold for filled stars */
+      }
+  
+      &:hover {
+        color: lighten(#FFD700, 20%);
+      }
+    }
+  }
+  

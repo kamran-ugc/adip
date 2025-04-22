@@ -1,0 +1,110 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "host-app",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "projects/host-app/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "ngx-build-plus:browser",
+      "options": {
+        "outputPath": "dist/host-app",
+        "index": "projects/host-app/src/index.html",
+        "polyfills": [
+          "zone.js"
+        ],
+        "tsConfig": "projects/host-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "projects/host-app/src/assets",
+            "output": "assets"
+          }
+        ],
+        "styles": [
+          "projects/host-app/src/styles.scss"
+        ],
+        "scripts": [],
+        "main": "projects/host-app/src/main.ts",
+        "extraWebpackConfig": "projects/host-app/webpack.config.js",
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2mb",
+              "maximumError": "5MB"
+            }
+          ],
+          "outputHashing": "all",
+          "extraWebpackConfig": "projects/host-app/webpack.prod.config.js"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
+    "serve": {
+      "executor": "ngx-build-plus:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "host-app:build:production",
+          "extraWebpackConfig": "projects/host-app/webpack.prod.config.js"
+        },
+        "development": {
+          "buildTarget": "host-app:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4000,
+        "publicHost": "http://localhost:4000",
+        "extraWebpackConfig": "projects/host-app/webpack.config.js"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ],
+        "tsConfig": "projects/host-app/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "projects/host-app/src/assets",
+            "output": "assets"
+          }
+        ],
+        "styles": [
+          "projects/host-app/src/styles.scss"
+        ],
+        "scripts": []
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+trigger:
+  tags:
+    include:
+      - 'v*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '18.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      npm install
+      npm run build
+    displayName: 'Build Library'
+
+  - script: |
+      git checkout dist-releases
+      rm -rf dist
+      cp -r dist/ dist/
+      git add dist
+      git commit -m "Update dist for $(Build.SourceVersion)"
+      git push origin dist-releases
+    displayName: 'Push Dist to dist-releases'

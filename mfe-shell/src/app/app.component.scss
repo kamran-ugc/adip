@@ -1,0 +1,114 @@
+.layout {
+  height: 100vh;
+  display: flex;
+}
+
+.sidenav {
+  display: flex;
+  width: 260px;
+  height: 768px;
+  padding: 24px 16px 16px 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 0px 24px 24px 0px;
+  border: 1.5px solid var(--neutral-100);
+  background: #FFF;
+}
+
+.user-profile {
+  padding: 8px 12px;
+}
+
+.brand-section {
+  text-align: center;
+  padding-bottom: 24px;
+}
+
+.brand-logo {
+  max-width: 120px;
+}
+
+.nav-menu {
+  margin-top: 10px;
+}
+
+.chat-btn {
+  padding: 8px 12px;
+  border-radius: 27px;
+  border: none;
+  background: linear-gradient(155deg, #0074BA 0%, #1E417C 82.5%);
+}
+
+.sidebar-item {
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background-color: #f3f4f6;
+}
+
+.sidebar-item.active {
+  background-color: #f3f4f6;
+}
+
+.sidebar-item i {
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.submenu {
+  margin-left: 2.5rem;
+  display: none;
+}
+
+.submenu.show {
+  display: block;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: #6b7280;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.submenu-item:hover {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+.submenu-item.active {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+.sidebar-item .arrow {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-item.expanded .arrow {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 1021px) {
+  .sidenav {
+    display: none;
+  }
+}

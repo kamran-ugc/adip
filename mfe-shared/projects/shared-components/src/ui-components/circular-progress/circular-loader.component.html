@@ -1,0 +1,52 @@
+<div 
+  class="circular-loader" 
+  [ngClass]="state"
+  [style.width.px]="size" 
+  [style.height.px]="size"
+  role="progressbar"
+  [attr.aria-valuenow]="state === 'in-progress' ? progress : (state === 'completed' ? 100 : 0)"
+  aria-valuemin="0"
+  aria-valuemax="100"
+>
+  <svg 
+    [attr.width]="size" 
+    [attr.height]="size" 
+    [attr.viewBox]="'0 0 ' + size + ' ' + size"
+  >
+    <!-- Background circle -->
+    <circle 
+      class="circle-bg"
+      [attr.cx]="size / 2" 
+      [attr.cy]="size / 2" 
+      [attr.r]="radius" 
+      [attr.stroke-width]="strokeWidth"
+    />
+    
+    <!-- Progress circle for in-progress state -->
+    <circle 
+      *ngIf="state === 'in-progress'"
+      class="circle-progress"
+      [attr.cx]="size / 2" 
+      [attr.cy]="size / 2" 
+      [attr.r]="radius" 
+      [attr.stroke-width]="strokeWidth"
+      [attr.stroke-dasharray]="circumference"
+      [attr.stroke-dashoffset]="strokeDashOffset"
+    />
+    
+    <!-- Completed circle -->
+    <circle 
+      *ngIf="state === 'completed'"
+      class="circle-completed"
+      [attr.cx]="size / 2" 
+      [attr.cy]="size / 2" 
+      [attr.r]="radius" 
+      [attr.stroke-width]="strokeWidth"
+    />
+  </svg>
+  
+  <!-- Label in the center -->
+  <div class="loader-label" *ngIf="label">
+    {{ label }}
+  </div>
+</div>

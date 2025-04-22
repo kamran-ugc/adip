@@ -1,0 +1,56 @@
+.icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.svg-icon {
+  filter: brightness(0) saturate(100%);
+  width: 100%;
+  height: 100%;
+}
+
+// Size classes now just define the class names
+// The actual dimensions are applied via HostBinding in the component
+.xs {
+  // Styles maintained for backwards compatibility
+  // The component will override these with HostBinding
+}
+
+.sm {
+  // Styles maintained for backwards compatibility
+}
+
+.md {
+  // Styles maintained for backwards compatibility
+}
+
+.lg {
+  // Styles maintained for backwards compatibility
+}
+
+.xl {
+  // Styles maintained for backwards compatibility
+}
+
+// Apply color to SVG icons
+:host {
+  display: inline-flex;
+  
+  &[color="primary"] .svg-icon {
+    filter: invert(39%) sepia(40%) saturate(2035%) hue-rotate(205deg) brightness(101%) contrast(96%);
+  }
+  
+  &[color="success"] .svg-icon {
+    filter: invert(58%) sepia(86%) saturate(366%) hue-rotate(92deg) brightness(93%) contrast(91%);
+  }
+  
+  &[color="warning"] .svg-icon {
+    filter: invert(84%) sepia(28%) saturate(1115%) hue-rotate(339deg) brightness(101%) contrast(101%);
+  }
+  
+  &[color="danger"] .svg-icon {
+    filter: invert(37%) sepia(75%) saturate(1951%) hue-rotate(328deg) brightness(89%) contrast(95%);
+  }
+}

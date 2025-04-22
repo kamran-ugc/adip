@@ -1,0 +1,18 @@
+<div [class]="getBannerClasses()" [ngStyle]="getCustomStyles()">
+  <div class="notification-content">
+    <div [class]="getIconClasses()" [ngStyle]="type === 'custom' && textColor ? {'color': textColor} : {}">
+      <!-- Use IconComponent when customIcon is provided -->
+      <app-icon 
+        *ngIf="customIcon || defaultIcon" 
+        [name]="icon" 
+        [width]="iconSize"
+        [height]="iconSize">
+      </app-icon>
+    </div>
+    <p [class]="getMessageClasses()">{{ message }}</p>
+  </div>
+
+  <button *ngIf="dismissible" [class]="getDismissClasses()" (click)="onDismiss()" aria-label="Dismiss">
+    <app-icon name="x" [width]="iconSize" [height]="iconSize"></app-icon>
+  </button>
+</div>

@@ -1,0 +1,115 @@
+.toggle-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.toggle-label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  
+  .disabled & {
+    cursor: not-allowed;
+  }
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: background-color 0.2s ease;
+  background-color: #C4C9D2;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.3);
+  }
+  
+  &.disabled {
+    cursor: not-allowed;
+  }
+  
+  // Size variations
+  &.small {
+    width: 34px;
+    height: 18px;
+    
+    .toggle-thumb {
+      width: 14px;
+      height: 14px;
+    }
+    
+    &.checked .toggle-thumb {
+      left: calc(100% - 17px);
+    }
+  }
+  
+  &.medium {
+    width: 46px;
+    height: 24px;
+    
+    .toggle-thumb {
+      width: 18px;
+      height: 18px;
+    }
+    
+    &.checked .toggle-thumb {
+      left: calc(100% - 21px);
+    }
+  }
+  
+  &.large {
+    width: 56px;
+    height: 30px;
+    
+    .toggle-thumb {
+      width: 22px;
+      height: 22px;
+    }
+    
+    &.checked .toggle-thumb {
+      left: calc(100% - 25px);
+    }
+  }
+  
+  // Color variations
+  &.primary.checked {
+    background-color: #1877F2; // Facebook blue color
+  }
+  
+  &.success.checked {
+    background-color: #10B981; // Green color
+  }
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+// Specific styling for checked state
+.toggle-switch.checked {
+  .toggle-thumb {
+    background-color: white;
+  }
+}
+
+// Add subtle hover effect
+.toggle-switch:not(.disabled):hover {
+  .toggle-thumb {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+}

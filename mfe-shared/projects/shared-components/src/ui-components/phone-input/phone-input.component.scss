@@ -1,0 +1,197 @@
+.phone-input-container {
+  --error-color: #B71C1C;
+  --disabled-bg: #F8FAFC;
+  --disabled-text: #94A3B8;
+  --label-color: #0D121C;
+  --placeholder-color: #9AA4B2;
+  --text-color: #384250;
+  --supporting-text-color: #667085;
+  --border-color: #E3E8EF;
+  --hover-bg: #F8FAFC;
+  --selected-bg: #F1F5F9;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.label {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--label-color);
+}
+
+.input-wrapper {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 44px;
+  width: 100%;
+  margin-top: 6px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.input-wrapper.error {
+  border-color: var(--error-color);
+}
+
+.input-wrapper.disabled {
+  background-color: var(--disabled-bg);
+  cursor: not-allowed;
+}
+
+.country-code {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  height: 100%;
+  font-size: 14px;
+  color: var(--text-color);
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.country-code:hover {
+  background-color: var(--hover-bg);
+}
+
+.input-wrapper.disabled .country-code {
+  color: var(--disabled-text);
+  cursor: not-allowed;
+}
+
+.country-flag-code {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  color: var(--supporting-text-color);
+}
+
+.phone-input {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  padding: 0 12px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  background-color: white;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+.phone-input::placeholder {
+  color: var(--placeholder-color);
+}
+
+.phone-input:disabled {
+  background-color: var(--disabled-bg);
+  color: var(--disabled-text);
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 12px;
+  margin-top: 6px;
+  width: 100%;
+}
+
+/* Country dropdown styling */
+.country-dropdown-container {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.country-dropdown {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  max-height: 250px;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.country-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.country-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+.country-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.country-item.selected {
+  background-color: var(--selected-bg);
+}
+
+.country-flag {
+  margin-right: 8px;
+}
+
+.country-name {
+  flex: 1;
+}
+
+.country-native-name {
+  color: var(--supporting-text-color);
+  font-size: 12px;
+}
+
+.country-dial-code {
+  color: var(--supporting-text-color);
+  margin-left: 8px;
+}
+
+/* Add this to ensure all elements inherit box-sizing */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Host element */
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .country-dropdown-container {
+    width: 100%;
+  }
+  
+  .country-item {
+    padding: 8px 10px;
+  }
+}

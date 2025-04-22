@@ -1,0 +1,30 @@
+<!-- button.component.html -->
+<button
+  [type]="type"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel"
+  [attr.aria-disabled]="disabled"
+  [class]="computedClasses"
+  (click)="onClick($event)">
+  
+  <!-- Prefix Icon -->
+  <app-icon
+    *ngIf="prefixIcon"
+    [name]="prefixIcon"
+    [width]="iconSize"
+    [height]="iconSize"
+    class="app-button__prefix-icon">
+  </app-icon>
+
+  <!-- Button Content -->
+  <ng-content></ng-content>
+
+  <!-- Postfix Icon -->
+  <app-icon
+    *ngIf="postfixIcon"
+    [name]="postfixIcon"
+    [width]="iconSize"
+    [height]="iconSize"
+    class="app-button__postfix-icon">
+  </app-icon>
+</button>

@@ -1,0 +1,11 @@
+<div *ngIf="isOpen"
+     [ngClass]="['modal-overlay', overlayClass]"
+     (click)="onOverlayClick()" 
+     (keydown)="onKeyDown($event)">
+  <div [ngClass]="['modal-container', modalClass]" [ngStyle]="{'max-width': modalWidth}"
+       (click)="onModalContentClick($event)">
+    <div class="modal-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

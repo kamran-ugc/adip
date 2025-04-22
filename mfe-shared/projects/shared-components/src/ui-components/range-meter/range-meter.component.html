@@ -1,0 +1,23 @@
+<div class="range-meter-container" [class]="customClass">
+  <div class="app-range-meter">
+    <div class="app-range-meter__labels" *ngIf="label || supportingText">
+      <span class="app-range-meter__label" *ngIf="label">{{ label }}</span>
+      <span class="app-range-meter__supporting-text" *ngIf="supportingText">{{ supportingText }}</span>
+    </div>
+    
+    <div class="app-range-meter__value-container">
+      <div class="app-range-meter__value">
+        {{ formatValue(value) }}
+      </div>
+    </div>
+
+    <div class="app-range-meter__track-container">
+      <div class="app-range-meter__track">
+        <div class="app-range-meter__progress" [style.width.%]="percentage"></div>
+      </div>
+      <div class="app-range-meter__indicator" [style.left.%]="percentage">
+        <div class="app-range-meter__triangle"></div>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+    <div formArrayName="items">
+      <div *ngFor="let item of items.controls; let i = index" [formGroup]="item">
+        <input formControlName="value" />
+        <button (click)="removeItem(i)">Remove</button>
+      </div>
+    </div>
+    <button (click)="addItem()">Add Item</button>
+    <button (click)="submitForm()">Submit</button>
+  </form>
+  

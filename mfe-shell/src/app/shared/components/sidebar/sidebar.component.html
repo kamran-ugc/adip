@@ -1,0 +1,113 @@
+<div class="sidebar">
+  <div class="search-section mb-4">
+    <h3 class="section-title mb-10">Facility Search</h3>
+    <mat-form-field appearance="outline" class="w-100 custom-search-field">
+      <div class="d-flex align-items-center">
+        <mat-icon class="me-2 search-icon">flight</mat-icon>
+        <input matInput placeholder="Facility Name or LOC ID" />
+        <mat-icon class="search-icon">search</mat-icon>
+      </div>
+    </mat-form-field>
+  </div>
+
+  <mat-nav-list class="nav-section mb-4 cursor-pointer" routerLink="/dashboard">
+    <div class="d-flex align-items-center gap-3">
+      <mat-icon class="me-2">dashboard</mat-icon>
+      <span>Dashboard</span>
+      <span class="ms-2 badge bg-primary">3</span>
+    </div>
+  </mat-nav-list>
+
+  <mat-card appearance="outlined" class="favorites-section mb-4">
+    <mat-card-content>
+      <div class="">
+        <div class="d-flex gap-3 align-items-center">
+          <mat-icon class="search-icon">star</mat-icon>
+          <h3 class="section-title mb-0">Favourite Apps</h3>
+        </div>
+
+        <mat-card appearance="outlined" class="favorite-items-section">
+          <mat-card-content>
+            <div
+              class="d-flex align-items-center justify-content-between cursor-pointer mb-10"
+              routerLink="/adm"
+            >
+              <div class="d-flex align-items-center">
+                <mat-icon matListItemIcon class="">business</mat-icon>
+                <span matListItemTitle class="ms-12">ADM</span>
+              </div>
+
+              <mat-icon matListItemIcon class="fs-13 fw-bold"
+                >arrow_forward_ios</mat-icon
+              >
+            </div>
+            <div
+              class="d-flex align-items-center justify-content-between cursor-pointer mb-10"
+              routerLink="/ram"
+            >
+              <div class="d-flex align-items-center">
+                <mat-icon matListItemIcon>sync</mat-icon>
+                <span matListItemTitle class="ms-12">RAM</span>
+              </div>
+
+              <mat-icon matListItemIcon class="fs-13 fw-bold"
+                >arrow_forward_ios</mat-icon
+              >
+            </div>
+            <div
+              class="d-flex align-items-center justify-content-between cursor-pointer mb-10"
+              routerLink="/agis"
+            >
+              <div class="d-flex align-items-center">
+                <mat-icon matListItemIcon>assignment</mat-icon>
+                <span matListItemTitle class="ms-12">RSA</span>
+              </div>
+
+              <mat-icon matListItemIcon class="fs-13 fw-bold"
+                >arrow_forward_ios</mat-icon
+              >
+            </div>
+            <div
+              class="d-flex align-items-center justify-content-between cursor-pointer"
+              routerLink="/rim"
+            >
+              <div class="d-flex align-items-center">
+                <mat-icon matListItemIcon>edit</mat-icon>
+                <span matListItemTitle class="ms-12">RIM</span>
+              </div>
+
+              <mat-icon matListItemIcon class="fs-13 fw-bold"
+                >arrow_forward_ios</mat-icon
+              >
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div></mat-card-content
+    >
+  </mat-card>
+
+  <div class="all-apps-section mb-4">
+    <button mat-stroked-button class="w-100">
+      <mat-icon>apps</mat-icon>
+      <span class="ms-2 fs-13 fw-bold">All Applications</span>
+    </button>
+  </div>
+
+  <div class="resources-section">
+    <h3 class="section-title mb-3">Resources</h3>
+    <mat-nav-list class="resource-items">
+      <a mat-list-item class="resource-item">
+        <mat-icon matListItemIcon>help</mat-icon>
+        <span matListItemTitle>Help Desk</span>
+      </a>
+      <a mat-list-item class="resource-item">
+        <mat-icon matListItemIcon>description</mat-icon>
+        <span matListItemTitle>Documents & Downloads</span>
+      </a>
+      <a mat-list-item class="resource-item">
+        <mat-icon matListItemIcon>menu_book</mat-icon>
+        <span matListItemTitle>Users Guides</span>
+      </a>
+    </mat-nav-list>
+  </div>
+</div>
