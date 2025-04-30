@@ -1,20 +1,31 @@
 <div class="sidebar">
-  <div class="search-section mb-4">
-    <h3 class="section-title mb-10">Facility Search</h3>
-    <mat-form-field appearance="outline" class="w-100 custom-search-field">
-      <div class="d-flex align-items-center">
-        <mat-icon class="me-2 search-icon">flight</mat-icon>
-        <input matInput placeholder="Facility Name or LOC ID" />
-        <mat-icon class="search-icon">search</mat-icon>
-      </div>
-    </mat-form-field>
-  </div>
+  <button mat-mini-fab color="secondary" class="mb-40">
+    <mat-icon>menu</mat-icon>
+  </button>
 
-  <mat-nav-list class="nav-section mb-4 cursor-pointer" routerLink="/dashboard">
-    <div class="d-flex align-items-center gap-3">
-      <mat-icon class="me-2">dashboard</mat-icon>
-      <span>Dashboard</span>
-      <span class="ms-2 badge bg-primary">3</span>
+  <mat-form-field appearance="outline" class="custom-search-field fs-12 mb-40">
+    <mat-icon matPrefix>flight</mat-icon>
+    <input matInput class="fs-12" placeholder="Facility Name or LOC ID" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-nav-list
+    class="nav-section mb-40 cursor-pointer"
+    routerLink="/dashboard"
+  >
+    <div class="d-flex justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <mat-icon class="me-2">dashboard</mat-icon>
+        <span>Dashboard</span>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="ms-2 badge bg-primary">3</span>
+        <mat-icon matSuffix
+          ><span class="material-symbols-outlined">
+            keyboard_arrow_down
+          </span></mat-icon
+        >
+      </div>
     </div>
   </mat-nav-list>
 
@@ -29,7 +40,7 @@
         <mat-card appearance="outlined" class="favorite-items-section">
           <mat-card-content>
             <div
-              class="d-flex align-items-center justify-content-between cursor-pointer mb-10"
+              class="d-flex align-items-center justify-content-between cursor-pointer mb-12"
               routerLink="/adm"
             >
               <div class="d-flex align-items-center">
@@ -42,7 +53,7 @@
               >
             </div>
             <div
-              class="d-flex align-items-center justify-content-between cursor-pointer mb-10"
+              class="d-flex align-items-center justify-content-between cursor-pointer mb-12"
               routerLink="/ram"
             >
               <div class="d-flex align-items-center">
@@ -55,7 +66,7 @@
               >
             </div>
             <div
-              class="d-flex align-items-center justify-content-between cursor-pointer mb-10"
+              class="d-flex align-items-center justify-content-between cursor-pointer mb-12"
               routerLink="/agis"
             >
               <div class="d-flex align-items-center">

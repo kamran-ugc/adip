@@ -23,6 +23,21 @@
         >GA Airport Checklist</a
       >
       <a mat-button class="nav-item" routerLink="/admin">Admin</a>
+      <a mat-button class="nav-item">
+        <mat-icon color="secondary" [matMenuTriggerFor]="moreMenu"
+          >more_horiz</mat-icon
+        ></a
+      >
+      <mat-menu #moreMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+      </mat-menu>
     </nav>
   </div>
 
@@ -37,19 +52,17 @@
     </mat-form-field> -->
 
     <div class="user-profile d-flex align-items-center">
-      <button mat-icon-button [matBadge]="4" matBadgeColor="warn" class="me-2">
-        <mat-icon>notifications</mat-icon>
+      <button
+        color="secondary"
+        mat-fab
+        [matBadge]="4"
+        matBadgeColor="primary"
+        class="me-4"
+      >
+        <mat-icon color="primary">notifications</mat-icon>
       </button>
 
-      <button
-        mat-button
-        [matMenuTriggerFor]="userMenu"
-        class="user-menu-button"
-      >
-        <div class="avatar d-flex align-items-center justify-content-center">
-          <span class="avatar-text">SA</span>
-        </div>
-      </button>
+      <button mat-fab color="primary" [matMenuTriggerFor]="userMenu">SA</button>
 
       <mat-menu #userMenu="matMenu">
         <button mat-menu-item>
