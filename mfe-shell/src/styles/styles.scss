@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./color-override.scss";
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "./light_variables.scss";
+@import "./typography.scss";
 
 // Mixins
 @mixin respond-to($breakpoint) {
@@ -78,10 +81,18 @@
   }
 }
 
-@mixin generate-text-color-classes($values) {
-  @each $color, $value in $values {
-    .text-#{$color} {
-      color: $value;
+@mixin generate-text-color-classes($color-map) {
+  @each $name, $color in $color-map {
+    .text-#{$name} {
+      color: $color !important;
+    }
+  }
+}
+
+@mixin generate-bg-color-classes($color-map) {
+  @each $name, $color in $color-map {
+    .bg-#{$name} {
+      background-color: $color;
     }
   }
 }
@@ -157,46 +168,109 @@ $line-height-values: (
   180: 180%,
 );
 
-// Text color values
-$text-color-values: (
-  "info-100": var(--info-100),
-  "info-300": var(--info-300),
-  "info-900": var(--info-900),
-  "red-100": var(--red-100),
-  "red-600": var(--red-600),
-  "red-900": var(--red-900),
-  "green-100": var(--green-100),
-  "green-500": var(--green-500),
-  "green-600": var(--green-600),
-  "green-900": var(--green-900),
-  "yellow-100": var(--yellow-100),
-  "yellow-500": var(--yellow-500),
-  "yellow-900": var(--yellow-900),
-  "gray-100": var(--gray-100),
-  "gray-350": var(--gray-350),
-  "gray-700": var(--gray-700),
-  "profit": var(--profit),
-  "neutral-1000": var(--neutral-1000),
-  "neutral-950": var(--neutral-950),
-  "neutral-900": var(--neutral-900),
-  "neutral-800": var(--neutral-800),
-  "neutral-700": var(--neutral-700),
-  "neutral-600": var(--neutral-600),
-  "neutral-500": var(--neutral-500),
-  "neutral-400": var(--neutral-400),
-  "neutral-300": var(--neutral-300),
-  "neutral-200": var(--neutral-200),
-  "neutral-100": var(--neutral-100),
-  "neutral-25": var(--neutral-25),
-  "neutral-00": var(--neutral-00),
-  "primary": var(--primary),
-  "secondary": #424242,
-  "secondary-700": var(--secondary-700),
-  "secondary-600": var(--secondary-600),
-  "secondary-500": var(--secondary-500),
-  "secondary-700-10": var(--secondary-700-10),
-  "gray-70": #8c99b3,
-  "gray-60": #737f99,
+$theme-colors: (
+  // Primary
+  "primary": $primary,
+  "primary-light-1": $primary-light-1,
+  "primary-light-2": $primary-light-2,
+  "primary-dark-1": $primary-dark-1,
+  "primary-dark-2": $primary-dark-2,
+
+  // Grayscale
+  "gray-10": $gray-10,
+  "gray-15": $gray-15,
+  "gray-20": $gray-20,
+  "gray-25": $gray-25,
+  "gray-30": $gray-30,
+  "gray-35": $gray-35,
+  "gray-40": $gray-40,
+  "gray-45": $gray-45,
+  "gray-50": $gray-50,
+  "gray-55": $gray-55,
+  "gray-60": $gray-60,
+  "gray-65": $gray-65,
+  "gray-70": $gray-70,
+  "gray-75": $gray-75,
+  "gray-80": $gray-80,
+  "gray-85": $gray-85,
+  "gray-90": $gray-90,
+  "gray-91": $gray-91,
+  "gray-92": $gray-92,
+  "gray-93": $gray-93,
+  "gray-94": $gray-94,
+  "gray-95": $gray-95,
+  "gray-96": $gray-96,
+  "gray-97": $gray-97,
+  "gray-98": $gray-98,
+  "gray-99": $gray-99,
+  "gray-100": $gray-100,
+
+  // Orange
+  "orange": $orange,
+  "orange-light-1": $orange-light-1,
+  "orange-light-2": $orange-light-2,
+  "orange-dark-1": $orange-dark-1,
+  "orange-dark-2": $orange-dark-2,
+
+  // Purple
+  "purple": $purple,
+  "purple-light-1": $purple-light-1,
+  "purple-light-2": $purple-light-2,
+  "purple-dark-1": $purple-dark-1,
+  "purple-dark-2": $purple-dark-2,
+
+  // Red
+  "red": $red,
+  "red-light-1": $red-light-1,
+  "red-light-2": $red-light-2,
+  "red-dark-1": $red-dark-1,
+  "red-dark-2": $red-dark-2,
+
+  // Yellow
+  "yellow": $yellow,
+  "yellow-light-1": $yellow-light-1,
+  "yellow-light-2": $yellow-light-2,
+  "yellow-dark-1": $yellow-dark-1,
+  "yellow-dark-2": $yellow-dark-2,
+
+  // Green
+  "green": $green,
+  "green-light-1": $green-light-1,
+  "green-light-2": $green-light-2,
+  "green-dark-1": $green-dark-1,
+  "green-dark-2": $green-dark-2,
+
+  // Teal Blue
+  "teal-blue": $teal-blue,
+  "teal-blue-light-1": $teal-blue-light-1,
+  "teal-blue-light-2": $teal-blue-light-2,
+  "teal-blue-dark-1": $teal-blue-dark-1,
+  "teal-blue-dark-2": $teal-blue-dark-2,
+
+  // Pink
+  "pink": $pink,
+  "pink-light-1": $pink-light-1,
+  "pink-light-2": $pink-light-2,
+  "pink-dark-1": $pink-dark-1,
+  "pink-dark-2": $pink-dark-2,
+
+  // Bronze
+  "bronze": $bronze,
+  "bronze-light-1": $bronze-light-1,
+  "bronze-light-2": $bronze-light-2,
+  "bronze-dark-1": $bronze-dark-1,
+  "bronze-dark-2": $bronze-dark-2,
+
+  // Tiffany
+  "tiffany": $tiffany,
+  "tiffany-light-1": $tiffany-light-1,
+  "tiffany-light-2": $tiffany-light-2,
+  "tiffany-dark-1": $tiffany-dark-1,
+  "tiffany-dark-2": $tiffany-dark-2,
+
+  // Black/White
+  "white": $white,
+  "black": $black
 );
 
 // Generate margin classes
@@ -223,7 +297,10 @@ $text-color-values: (
 @include generate-line-height-classes($line-height-values);
 
 // Generate text color classes
-@include generate-text-color-classes($text-color-values);
+@include generate-text-color-classes($theme-colors);
+
+// Generate background color classes
+@include generate-bg-color-classes($theme-colors);
 
 html,
 body {
@@ -247,3 +324,27 @@ body {
 .cursor-pointer {
   cursor: pointer !important;
 }
+
+// .mat-mdc-form-field {
+//   line-height: 45px; // Match the height
+
+//   .mat-mdc-text-field-wrapper {
+//     height: 45px;
+//   }
+
+//   .mat-mdc-form-field-flex {
+//     height: 100%;
+//   }
+
+//   .mat-mdc-form-field-infix {
+//     min-height: 45px;
+//     height: 45px;
+//     padding: 10px 0 !important;
+//   }
+
+//   .mat-mdc-text-field-wrapper
+//     .mat-mdc-form-field-flex
+//     .mat-mdc-floating-label:not(.mdc-floating-label--float-above) {
+//     top: 50%;
+//   }
+// }

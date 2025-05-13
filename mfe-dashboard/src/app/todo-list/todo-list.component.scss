@@ -8,3 +8,22 @@
     }
   }
 }
+
+.header {
+  background-image: url("/assets/images/dashboard_Banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // border-radius: 16px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.inner-content {
+  width: 100%;
+  padding: 2rem;
+  border-radius: inherit;
+}
+.description {
+  max-width: 342px;
+}

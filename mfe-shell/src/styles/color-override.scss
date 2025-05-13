@@ -1,0 +1,1010 @@
+@import "./light_variables.scss";
+:root {
+  --primary: #{$primary};
+  // /* Change this HEX color to whatever primary color you want */
+  // --mat-primary: var(--primary);
+
+  // /* Override Angular Material primary color variables */
+  // --mdc-filled-button-container-color: var(--mat-primary);
+  // --mdc-filled-button-focus-container-color: var(--mat-primary);
+  // --mdc-filled-button-hover-container-color: var(--mat-primary);
+  // --mdc-filled-button-disabled-container-color: rgba(0, 0, 0, 0.12);
+
+  // /* For outlined/text buttons */
+  // --mdc-outlined-button-outline-color: var(--mat-primary);
+  // --mdc-text-button-label-text-color: var(--mat-primary);
+
+  // /* For form controls */
+  // --mdc-checkbox-selected-icon-color: var(--mat-primary);
+  // --mdc-radio-selected-icon-color: var(--mat-primary);
+  // --mdc-switch-selected-track-color: var(--mat-primary);
+  // --mdc-switch-selected-handle-color: var(--mat-primary);
+
+  // /* For progress indicators */
+  // --mdc-linear-progress-active-indicator-color: var(--mat-primary);
+  // --mdc-circular-progress-active-indicator-color: var(--mat-primary);
+}
+.mat-ripple-element {
+  background-color: var(--mat-ripple-color, rgba(0, 0, 0, 0.1));
+}
+
+.cdk-overlay-backdrop {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.mat-app-background {
+  background-color: var(
+    --mat-app-background-color,
+    var(--mat-app-background, transparent)
+  );
+  color: var(--mat-app-text-color, var(--mat-app-on-background, inherit));
+}
+
+html {
+  --mat-ripple-color: rgba(0, 0, 0, 0.1);
+}
+
+html {
+  --mat-option-selected-state-label-text-color: var(--primary);
+  --mat-option-label-text-color: rgba(0, 0, 0, 0.87);
+  --mat-option-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-option-focus-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-option-selected-state-layer-color: rgba(0, 0, 0, 0.04);
+}
+
+.mat-accent {
+  --mat-option-selected-state-label-text-color: #ff4081;
+  --mat-option-label-text-color: rgba(0, 0, 0, 0.87);
+  --mat-option-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-option-focus-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-option-selected-state-layer-color: rgba(0, 0, 0, 0.04);
+}
+
+.mat-warn {
+  --mat-option-selected-state-label-text-color: #f44336;
+  --mat-option-label-text-color: rgba(0, 0, 0, 0.87);
+  --mat-option-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-option-focus-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-option-selected-state-layer-color: rgba(0, 0, 0, 0.04);
+}
+
+html {
+  --mat-optgroup-label-text-color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-primary {
+  --mat-full-pseudo-checkbox-selected-icon-color: var(--primary);
+  --mat-full-pseudo-checkbox-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mat-full-pseudo-checkbox-disabled-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-disabled-unselected-icon-color: #b0b0b0;
+  --mat-full-pseudo-checkbox-disabled-selected-icon-color: #b0b0b0;
+  --mat-minimal-pseudo-checkbox-selected-checkmark-color: var(--primary);
+  --mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color: #b0b0b0;
+}
+
+html {
+  --mat-full-pseudo-checkbox-selected-icon-color: #ff4081;
+  --mat-full-pseudo-checkbox-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mat-full-pseudo-checkbox-disabled-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-disabled-unselected-icon-color: #b0b0b0;
+  --mat-full-pseudo-checkbox-disabled-selected-icon-color: #b0b0b0;
+  --mat-minimal-pseudo-checkbox-selected-checkmark-color: #ff4081;
+  --mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color: #b0b0b0;
+}
+
+.mat-accent {
+  --mat-full-pseudo-checkbox-selected-icon-color: #ff4081;
+  --mat-full-pseudo-checkbox-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mat-full-pseudo-checkbox-disabled-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-disabled-unselected-icon-color: #b0b0b0;
+  --mat-full-pseudo-checkbox-disabled-selected-icon-color: #b0b0b0;
+  --mat-minimal-pseudo-checkbox-selected-checkmark-color: #ff4081;
+  --mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color: #b0b0b0;
+}
+
+.mat-warn {
+  --mat-full-pseudo-checkbox-selected-icon-color: #f44336;
+  --mat-full-pseudo-checkbox-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mat-full-pseudo-checkbox-disabled-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-disabled-unselected-icon-color: #b0b0b0;
+  --mat-full-pseudo-checkbox-disabled-selected-icon-color: #b0b0b0;
+  --mat-minimal-pseudo-checkbox-selected-checkmark-color: #f44336;
+  --mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color: #b0b0b0;
+}
+
+html {
+  --mat-app-background-color: #fafafa;
+  --mat-app-text-color: rgba(0, 0, 0, 0.87);
+}
+
+html {
+  --mdc-elevated-card-container-color: white;
+  --mdc-outlined-card-outline-color: rgba(0, 0, 0, 0.12);
+  --mdc-outlined-card-container-color: white;
+  --mat-card-subtitle-text-color: rgba(0, 0, 0, 0.54);
+}
+
+.mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-color: var(--primary);
+  --mdc-linear-progress-track-color: rgba(63, 81, 181, 0.25);
+}
+
+.mat-mdc-progress-bar.mat-accent {
+  --mdc-linear-progress-active-indicator-color: #ff4081;
+  --mdc-linear-progress-track-color: rgba(255, 64, 129, 0.25);
+}
+
+.mat-mdc-progress-bar.mat-warn {
+  --mdc-linear-progress-active-indicator-color: #f44336;
+  --mdc-linear-progress-track-color: rgba(244, 67, 54, 0.25);
+}
+
+html {
+  --mdc-plain-tooltip-container-color: #616161;
+  --mdc-plain-tooltip-supporting-text-color: #fff;
+}
+
+html {
+  --mdc-filled-text-field-caret-color: var(--primary);
+  --mdc-filled-text-field-focus-active-indicator-color: var(--primary);
+  --mdc-filled-text-field-focus-label-text-color: rgba(63, 81, 181, 0.87);
+  --mdc-filled-text-field-container-color: whitesmoke;
+  --mdc-filled-text-field-disabled-container-color: #fafafa;
+  --mdc-filled-text-field-label-text-color: rgba(0, 0, 0, 0.6);
+  --mdc-filled-text-field-hover-label-text-color: rgba(0, 0, 0, 0.6);
+  --mdc-filled-text-field-disabled-label-text-color: rgba(0, 0, 0, 0.38);
+  --mdc-filled-text-field-input-text-color: rgba(0, 0, 0, 0.87);
+  --mdc-filled-text-field-disabled-input-text-color: rgba(0, 0, 0, 0.38);
+  --mdc-filled-text-field-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
+  --mdc-filled-text-field-error-hover-label-text-color: #f44336;
+  --mdc-filled-text-field-error-focus-label-text-color: #f44336;
+  --mdc-filled-text-field-error-label-text-color: #f44336;
+  --mdc-filled-text-field-error-caret-color: #f44336;
+  --mdc-filled-text-field-active-indicator-color: rgba(0, 0, 0, 0.42);
+  --mdc-filled-text-field-disabled-active-indicator-color: rgba(0, 0, 0, 0.06);
+  --mdc-filled-text-field-hover-active-indicator-color: rgba(0, 0, 0, 0.87);
+  --mdc-filled-text-field-error-active-indicator-color: #f44336;
+  --mdc-filled-text-field-error-focus-active-indicator-color: #f44336;
+  --mdc-filled-text-field-error-hover-active-indicator-color: #f44336;
+  --mdc-outlined-text-field-caret-color: var(--primary);
+  --mdc-outlined-text-field-focus-outline-color: var(--primary);
+  --mdc-outlined-text-field-focus-label-text-color: rgba(63, 81, 181, 0.87);
+  --mdc-outlined-text-field-label-text-color: rgba(0, 0, 0, 0.6);
+  --mdc-outlined-text-field-hover-label-text-color: rgba(0, 0, 0, 0.6);
+  --mdc-outlined-text-field-disabled-label-text-color: rgba(0, 0, 0, 0.38);
+  --mdc-outlined-text-field-input-text-color: rgba(0, 0, 0, 0.87);
+  --mdc-outlined-text-field-disabled-input-text-color: rgba(0, 0, 0, 0.38);
+  --mdc-outlined-text-field-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
+  --mdc-outlined-text-field-error-caret-color: #f44336;
+  --mdc-outlined-text-field-error-focus-label-text-color: #f44336;
+  --mdc-outlined-text-field-error-label-text-color: #f44336;
+  --mdc-outlined-text-field-error-hover-label-text-color: #f44336;
+  --mdc-outlined-text-field-outline-color: rgba(0, 0, 0, 0.38);
+  --mdc-outlined-text-field-disabled-outline-color: rgba(0, 0, 0, 0.06);
+  --mdc-outlined-text-field-hover-outline-color: rgba(0, 0, 0, 0.87);
+  --mdc-outlined-text-field-error-focus-outline-color: #f44336;
+  --mdc-outlined-text-field-error-hover-outline-color: #f44336;
+  --mdc-outlined-text-field-error-outline-color: #f44336;
+  --mat-form-field-focus-select-arrow-color: rgba(63, 81, 181, 0.87);
+  --mat-form-field-disabled-input-text-placeholder-color: rgba(0, 0, 0, 0.38);
+  --mat-form-field-state-layer-color: rgba(0, 0, 0, 0.87);
+  --mat-form-field-error-text-color: #f44336;
+  --mat-form-field-select-option-text-color: inherit;
+  --mat-form-field-select-disabled-option-text-color: GrayText;
+  --mat-form-field-leading-icon-color: unset;
+  --mat-form-field-disabled-leading-icon-color: unset;
+  --mat-form-field-trailing-icon-color: unset;
+  --mat-form-field-disabled-trailing-icon-color: unset;
+  --mat-form-field-error-focus-trailing-icon-color: unset;
+  --mat-form-field-error-hover-trailing-icon-color: unset;
+  --mat-form-field-error-trailing-icon-color: unset;
+  --mat-form-field-enabled-select-arrow-color: rgba(0, 0, 0, 0.54);
+  --mat-form-field-disabled-select-arrow-color: rgba(0, 0, 0, 0.38);
+}
+
+.mat-mdc-form-field.mat-accent {
+  --mdc-filled-text-field-caret-color: #ff4081;
+  --mdc-filled-text-field-focus-active-indicator-color: #ff4081;
+  --mdc-filled-text-field-focus-label-text-color: rgba(255, 64, 129, 0.87);
+  --mdc-outlined-text-field-caret-color: #ff4081;
+  --mdc-outlined-text-field-focus-outline-color: #ff4081;
+  --mdc-outlined-text-field-focus-label-text-color: rgba(255, 64, 129, 0.87);
+  --mat-form-field-focus-select-arrow-color: rgba(255, 64, 129, 0.87);
+}
+
+.mat-mdc-form-field.mat-warn {
+  --mdc-filled-text-field-caret-color: #f44336;
+  --mdc-filled-text-field-focus-active-indicator-color: #f44336;
+  --mdc-filled-text-field-focus-label-text-color: rgba(244, 67, 54, 0.87);
+  --mdc-outlined-text-field-caret-color: #f44336;
+  --mdc-outlined-text-field-focus-outline-color: #f44336;
+  --mdc-outlined-text-field-focus-label-text-color: rgba(244, 67, 54, 0.87);
+  --mat-form-field-focus-select-arrow-color: rgba(244, 67, 54, 0.87);
+}
+
+html {
+  --mat-select-panel-background-color: white;
+  --mat-select-enabled-trigger-text-color: rgba(0, 0, 0DirectionalLight, 0.87);
+  --mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.38);
+  --mat-select-placeholder-text-color: rgba(0, 0, 0, 0.6);
+  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.54);
+  --mat-select-disabled-arrow-color: rgba(0, 0, 0, 0.38);
+  --mat-select-focused-arrow-color: rgba(63, 81, 181, 0.87);
+  --mat-select-invalid-arrow-color: rgba(244, 67, 54, 0.87);
+}
+
+html .mat-mdc-form-field.mat-accent {
+  --mat-select-panel-background-color: white;
+  --mat-select-enabled-trigger-text-color: rgba(0, 0, 0, 0.87);
+  --mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.38);
+  --mat-select-placeholder-text-color: rgba(0, 0, 0, 0.6);
+  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.54);
+  --mat-select-disabled-arrow-color: rgba(0, 0, 0, 0.38);
+  --mat-select-focused-arrow-color: rgba(255, 64, 129, 0.87);
+  --mat-select-invalid-arrow-color: rgba(244, 67, 54, 0.87);
+}
+
+html .mat-mdc-form-field.mat-warn {
+  --mat-select-panel-background-color: white;
+  --mat-select-enabled-trigger-text-color: rgba(0, 0, 0, 0.87);
+  --mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.38);
+  --mat-select-placeholder-text-color: rgba(0, 0, 0, 0.6);
+  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.54);
+  --mat-select-disabled-arrow-color: rgba(0, 0, 0, 0.38);
+  --mat-select-focused-arrow-color: rgba(244, 67, 54, 0.87);
+  --mat-select-invalid-arrow-color: rgba(244, 67, 54, 0.87);
+}
+
+html {
+  --mat-autocomplete-background-color: white;
+}
+
+html {
+  --mdc-dialog-container-color: white;
+  --mdc-dialog-subhead-color: rgba(0, 0, 0, 0.87);
+  --mdc-dialog-supporting-text-color: rgba(0, 0, 0, 0.6);
+}
+
+.mat-mdc-standard-chip {
+  --mdc-chip-outline-color: transparent;
+  --mdc-chip-disabled-outline-color: transparent;
+  --mdc-chip-focus-outline-color: transparent;
+  --mat-chip-trailing-action-state-layer-color: transparent;
+  --mat-chip-selected-trailing-action-state-layer-color: transparent;
+}
+
+.mat-mdc-standard-chip {
+  --mdc-chip-disabled-label-text-color: #212121;
+  --mdc-chip-elevated-container-color: #e0e0e0;
+  --mdc-chip-elevated-selected-container-color: #e0e0e0;
+  --mdc-chip-elevated-disabled-container-color: #e0e0e0;
+  --mdc-chip-flat-disabled-selected-container-color: #e0e0e0;
+  --mdc-chip-focus-state-layer-color: black;
+  --mdc-chip-hover-state-layer-color: black;
+  --mdc-chip-selected-hover-state-layer-color: black;
+  --mdc-chip-selected-focus-state-layer-color: black;
+  --mdc-chip-label-text-color: #212121;
+  --mdc-chip-selected-label-text-color: #212121;
+  --mdc-chip-with-icon-icon-color: #212121;
+  --mdc-chip-with-icon-disabled-icon-color: #212121;
+  --mdc-chip-with-icon-selected-icon-color: #212121;
+  --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: #212121;
+  --mdc-chip-with-trailing-icon-trailing-icon-color: #212121;
+  --mat-chip-selected-disabled-trailing-icon-color: #212121;
+  --mat-chip-selected-trailing-icon-color: #212121;
+}
+
+.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary,
+.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary {
+  --mdc-chip-disabled-label-text-color: white;
+  --mdc-chip-elevated-container-color: var(--primary);
+  --mdc-chip-elevated-selected-container-color: var(--primary);
+  --mdc-chip-elevated-disabled-container-color: var(--primary);
+  --mdc-chip-flat-disabled-selected-container-color: var(--primary);
+  --mdc-chip-focus-state-layer-color: black;
+  --mdc-chip-hover-state-layer-color: black;
+  --mdc-chip-selected-hover-state-layer-color: black;
+  --mdc-chip-selected-focus-state-layer-color: black;
+  --mdc-chip-label-text-color: white;
+  --mdc-chip-selected-label-text-color: white;
+  --mdc-chip-with-icon-icon-color: white;
+  --mdc-chip-with-icon-disabled-icon-color: white;
+  --mdc-chip-with-icon-selected-icon-color: white;
+  --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: white;
+  --mdc-chip-with-trailing-icon-trailing-icon-color: white;
+  --mat-chip-selected-disabled-trailing-icon-color: white;
+  --mat-chip-selected-trailing-icon-color: white;
+}
+
+.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent,
+.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent {
+  --mdc-chip-disabled-label-text-color: white;
+  --mdc-chip-elevated-container-color: #ff4081;
+  --mdc-chip-elevated-selected-container-color: #ff4081;
+  --mdc-chip-elevated-disabled-container-color: #ff4081;
+  --mdc-chip-flat-disabled-selected-container-color: #ff4081;
+  --mdc-chip-focus-state-layer-color: black;
+  --mdc-chip-hover-state-layer-color: black;
+  --mdc-chip-selected-hover-state-layer-color: black;
+  --mdc-chip-selected-focus-state-layer-color: black;
+  --mdc-chip-label-text-color: white;
+  --mdc-chip-selected-label-text-color: white;
+  --mdc-chip-with-icon-icon-color: white;
+  --mdc-chip-with-icon-disabled-icon-color: white;
+  --mdc-chip-with-icon-selected-icon-color: white;
+  --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: white;
+  --mdc-chip-with-trailing-icon-trailing-icon-color: white;
+  --mat-chip-selected-disabled-trailing-icon-color: white;
+  --mat-chip-selected-trailing-icon-color: white;
+}
+
+.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-warn,
+.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-warn {
+  --mdc-chip-disabled-label-text-color: white;
+  --mdc-chip-elevated-container-color: #f44336;
+  --mdc-chip-elevated-selected-container-color: #f44336;
+  --mdc-chip-elevated-disabled-container-color: #f44336;
+  --mdc-chip-flat-disabled-selected-container-color: #f44336;
+  --mdc-chip-focus-state-layer-color: black;
+  --mdc-chip-hover-state-layer-color: black;
+  --mdc-chip-selected-hover-state-layer-color: black;
+  --mdc-chip-selected-focus-state-layer-color: black;
+  --mdc-chip-label-text-color: white;
+  --mdc-chip-selected-label-text-color: white;
+  --mdc-chip-with-icon-icon-color: white;
+  --mdc-chip-with-icon-disabled-icon-color: white;
+  --mdc-chip-with-icon-selected-icon-color: white;
+  --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: white;
+  --mdc-chip-with-trailing-icon-trailing-icon-color: white;
+  --mat-chip-selected-disabled-trailing-icon-color: white;
+  --mat-chip-selected-trailing-icon-color: white;
+}
+
+html {
+  --mdc-switch-selected-focus-state-layer-color: #3949ab;
+  --mdc-switch-selected-handle-color: #3949ab;
+  --mdc-switch-selected-hover-state-layer-color: #3949ab;
+  --mdc-switch-selected-pressed-state-layer-color: #3949ab;
+  --mdc-switch-selected-focus-handle-color: #1a237e;
+  --mdc-switch-selected-hover-handle-color: #1a237e;
+  --mdc-switch-selected-pressed-handle-color: #1a237e;
+  --mdc-switch-selected-focus-track-color: #7986cb;
+  --mdc-switch-selected-hover-track-color: #7986cb;
+  --mdc-switch-selected-pressed-track-color: #7986cb;
+  --mdc-switch-selected-track-color: #7986cb;
+  --mdc-switch-disabled-selected-handle-color: #424242;
+  --mdc-switch-disabled-selected-icon-color: #fff;
+  --mdc-switch-disabled-selected-track-color: #424242;
+  --mdc-switch-disabled-unselected-handle-color: #424242;
+  --mdc-switch-disabled-unselected-icon-color: #fff;
+  --mdc-switch-disabled-unselected-track-color: #424242;
+  --mdc-switch-handle-surface-color: #fff;
+  --mdc-switch-selected-icon-color: #fff;
+  --mdc-switch-unselected-focus-handle-color: #212121;
+  --mdc-switch-unselected-focus-state-layer-color: #424242;
+  --mdc-switch-unselected-focus-track-color: #e0e0e0;
+  --mdc-switch-unselected-handle-color: #616161;
+  --mdc-switch-unselected-hover-handle-color: #212121;
+  --mdc-switch-unselected-hover-state-layer-color: #424242;
+  --mdc-switch-unselected-hover-track-color: #e0e0e0;
+  --mdc-switch-unselected-icon-color: #fff;
+  --mdc-switch-unselected-pressed-handle-color: #212121;
+  --mdc-switch-unselected-pressed-state-layer-color: #424242;
+  --mdc-switch-unselected-pressed-track-color: #e0e0e0;
+  --mdc-switch-unselected-track-color: #e0e0e0;
+  --mdc-switch-disabled-label-text-color: rgba(0, 0, 0, 0.38);
+}
+
+html .mat-mdc-slide-toggle {
+  --mat-switch-label-text-color: rgba(0, 0, 0, 0.87);
+}
+
+html .mat-mdc-slide-toggle.mat-accent {
+  --mdc-switch-selected-focus-state-layer-color: #d81b60;
+  --mdc-switch-selected-handle-color: #d81b60;
+  --mdc-switch-selected-hover-state-layer-color: #d81b60;
+  --mdc-switch-selected-pressed-state-layer-color: #d81b60;
+}
+
+html {
+  --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
+  --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.38);
+  --mdc-checkbox-selected-checkmark-color: white;
+  --mdc-checkbox-selected-focus-icon-color: #ff4081;
+  --mdc-checkbox-selected-hover-icon-color: #ff4081;
+  --mdc-checkbox-selected-icon-color: #ff4081;
+  --mdc-checkbox-selected-pressed-icon-color: #ff4081;
+  --mdc-checkbox-unselected-focus-icon-color: #212121;
+  --mdc-checkbox-unselected-hover-icon-color: #212121;
+  --mdc-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mdc-checkbox-selected-focus-state-layer-color: #ff4081;
+  --mdc-checkbox-selected-hover-state-layer-color: #ff4081;
+  --mdc-checkbox-selected-pressed-state-layer-color: #ff4081;
+  --mdc-checkbox-unselected-focus-state-layer-color: black;
+  --mdc-checkbox-unselected-hover-state-layer-color: black;
+  --mdc-checkbox-unselected-pressed-state-layer-color: black;
+  --mat-checkbox-disabled-label-color: rgba(0, 0, 0, 0.38);
+  --mat-checkbox-label-text-color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-mdc-checkbox.mat-primary {
+  --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
+  --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.38);
+  --mdc-checkbox-selected-checkmark-color: white;
+  --mdc-checkbox-selected-focus-icon-color: var(--primary);
+  --mdc-checkbox-selected-hover-icon-color: var(--primary);
+  --mdc-checkbox-selected-icon-color: var(--primary);
+  --mdc-checkbox-selected-pressed-icon-color: var(--primary);
+  --mdc-checkbox-unselected-focus-icon-color: #212121;
+  --mdc-checkbox-unselected-hover-icon-color: #212121;
+  --mdc-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mdc-checkbox-selected-focus-state-layer-color: var(--primary);
+  --mdc-checkbox-selected-hover-state-layer-color: var(--primary);
+  --mdc-checkbox-selected-pressed-state-layer-color: var(--primary);
+  --mdc-checkbox-unselected-focus-state-layer-color: black;
+  --mdc-checkbox-unselected-hover-state-layer-color: black;
+  --mdc-checkbox-unselected-pressed-state-layer-color: black;
+}
+
+.mat-mdc-checkbox.mat-warn {
+  --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
+  --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.38);
+  --mdc-checkbox-selected-checkmark-color: white;
+  --mdc-checkbox-selected-focus-icon-color: #f44336;
+  --mdc-checkbox-selected-hover-icon-color: #f44336;
+  --mdc-checkbox-selected-icon-color: #f44336;
+  --mdc-checkbox-selected-pressed-icon-color: #f44336;
+  --mdc-checkbox-unselected-focus-icon-color: #212121;
+  --mdc-checkbox-unselected-hover-icon-color: #212121;
+  --mdc-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mdc-checkbox-selected-focus-state-layer-color: #f44336;
+  --mdc-checkbox-selected-hover-state-layer-color: #f44336;
+  --mdc-checkbox-selected-pressed-state-layer-color: #f44336;
+  --mdc-checkbox-unselected-focus-state-layer-color: black;
+  --mdc-checkbox-unselected-hover-state-layer-color: black;
+  --mdc-checkbox-unselected-pressed-state-layer-color: black;
+}
+
+html {
+  --mdc-text-button-label-text-color: black;
+  --mdc-text-button-disabled-label-text-color: rgba(0, 0, 0, 0.38);
+  --mat-text-button-state-layer-color: black;
+  --mat-text-button-disabled-state-layer-color: black;
+  --mat-text-button-ripple-color: rgba(0, 0, 0, 0.1);
+  --mdc-filled-button-container-color: white;
+  --mdc-filled-button-label-text-color: black;
+  --mdc-filled-button-disabled-container-color: rgba(0, 0, 0, 0.12);
+  --mdc-filled-button-disabled-label-text-color: rgba(0, 0, 0, 0.38);
+  --mat-filled-button-state-layer-color: black;
+  --mat-filled-button-disabled-state-layer-color: black;
+  --mat-filled-button-ripple-color: rgba(0, 0, 0, 0.1);
+  --mdc-protected-button-container-color: white;
+  --mdc-protected-button-label-text-color: black;
+  --mdc-protected-button-disabled-container-color: rgba(0, 0, 0, 0.12);
+  --mdc-protected-button-disabled-label-text-color: rgba(0, 0, 0, 0.38);
+  --mat-protected-button-state-layer-color: black;
+  --mat-protected-button-disabled-state-layer-color: black;
+  --mat-protected-button-ripple-color: rgba(0, 0, 0, 0.1);
+  --mdc-outlined-button-disabled-outline-color: rgba(0, 0, 0, 0.12);
+  --mdc-outlined-button-disabled-label-text-color: rgba(0, 0, 0, 0.38);
+  --mdc-outlined-button-label-text-color: black;
+  --mdc-outlined-button-outline-color: rgba(0, 0, 0, 0.12);
+  --mat-outlined-button-state-layer-color: black;
+  --mat-outlined-button-disabled-state-layer-color: black;
+  --mat-outlined-button-ripple-color: rgba(0, 0, 0, 0.1);
+}
+
+.mat-mdc-button.mat-primary {
+  --mdc-text-button-label-text-color: var(--primary);
+  --mat-text-button-state-layer-color: var(--primary);
+  --mat-text-button-ripple-color: rgba(63, 81, 181, 0.1);
+}
+
+.mat-mdc-button.mat-accent {
+  --mdc-text-button-label-text-color: #ff4081;
+  --mat-text-button-state-layer-color: #ff4081;
+  --mat-text-button-ripple-color: rgba(255, 64, 129, 0.1);
+}
+
+.mat-mdc-button.mat-warn {
+  --mdc-text-button-label-text-color: #f44336;
+  --mat-text-button-state-layer-color: #f44336;
+  --mat-text-button-ripple-color: rgba(244, 67, 54, 0.1);
+}
+
+.mat-mdc-unelevated-button.mat-primary {
+  --mdc-filled-button-container-color: var(--primary);
+  --mdc-filled-button-label-text-color: white;
+  --mat-filled-button-state-layer-color: white;
+  --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+.mat-mdc-unelevated-button.mat-accent {
+  --mdc-filled-button-container-color: #ff4081;
+  --mdc-filled-button-label-text-color: white;
+  --mat-filled-button-state-layer-color: white;
+  --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+.mat-mdc-unelevated-button.mat-warn {
+  --mdc-filled-button-container-color: #f44336;
+  --mdc-filled-button-label-text-color: white;
+  --mat-filled-button-state-layer-color: white;
+  --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+.mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-container-color: var(--primary);
+  --mdc-protected-button-label-text-color: white;
+  --mat-protected-button-state-layer-color: white;
+  --mat-protected-button-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+.mat-mdc-raised-button.mat-accent {
+  --mdc-protected-button-container-color: #ff4081;
+  --mdc-protected-button-label-text-color: white;
+  --mat-protected-button-state-layer-color: white;
+  --mat-protected-button-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+.mat-mdc-raised-button.mat-warn {
+  --mdc-protected-button-container-color: #f44336;
+  --mdc-protected-button-label-text-color: white;
+  --mat-protected-button-state-layer-color: white;
+  --mat-protected-button-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+.mat-mdc-outlined-button.mat-primary {
+  --mdc-outlined-button-label-text-color: var(--primary);
+  --mdc-outlined-button-outline-color: rgba(0, 0, 0, 0.12);
+  --mat-outlined-button-state-layer-color: var(--primary);
+  --mat-outlined-button-ripple-color: rgba(63, 81, 181, 0.1);
+}
+
+.mat-mdc-outlined-button.mat-accent {
+  --mdc-outlined-button-label-text-color: #ff4081;
+  --mdc-outlined-button-outline-color: rgba(0, 0, 0, 0.12);
+  --mat-outlined-button-state-layer-color: #ff4081;
+  --mat-outlined-button-ripple-color: rgba(255, 64, 129, 0.1);
+}
+
+.mat-mdc-outlined-button.mat-warn {
+  --mdc-outlined-button-label-text-color: #f44336;
+  --mdc-outlined-button-outline-color: rgba(0, 0, 0, 0.12);
+  --mat-outlined-button-state-layer-color: #f44336;
+  --mat-outlined-button-ripple-color: rgba(244, 67, 54, 0.1);
+}
+
+html {
+  --mdc-icon-button-icon-color: inherit;
+  --mdc-icon-button-disabled-icon-color: rgba(0, 0, 0, 0.38);
+  --mat-icon-button-state-layer-color: black;
+  --mat-icon-button-disabled-state-layer-color: black;
+  --mat-icon-button-ripple-color: rgba(0, 0, 0, 0.1);
+}
+
+html .mat-mdc-icon-button.mat-primary {
+  --mdc-icon-button-icon-color: var(--primary);
+  --mat-icon-button-state-layer-color: var(--primary);
+  --mat-icon-button-ripple-color: rgba(63, 81, 181, 0.1);
+}
+
+html .mat-mdc-icon-button.mat-accent {
+  --mdc-icon-button-icon-color: #ff4081;
+  --mat-icon-button-state-layer-color: #ff4081;
+  --mat-icon-button-ripple-color: rgba(255, 64, 129, 0.1);
+}
+
+html .mat-mdc-icon-button.mat-warn {
+  --mdc-icon-button-icon-color: #f44336;
+  --mat-icon-button-state-layer-color: #f44336;
+  --mat-icon-button-ripple-color: rgba(244, 67, 54, 0.1);
+}
+
+html {
+  --mdc-fab-container-color: white;
+  --mat-fab-foreground-color: black;
+  --mat-fab-state-layer-color: black;
+  --mat-fab-disabled-state-layer-color: black;
+  --mat-fab-ripple-color: rgba(0, 0, 0, 0.1);
+  --mat-fab-disabled-state-container-color: rgba(0, 0, 0, 0.12);
+  --mat-fab-disabled-state-foreground-color: rgba(0, 0, 0, 0.38);
+  --mdc-fab-small-container-color: white;
+  --mat-fab-small-foreground-color: black;
+  --mat-fab-small-state-layer-color: black;
+  --mat-fab-small-disabled-state-layer-color: black;
+  --mat-fab-small-ripple-color: rgba(0, 0, 0, 0.1);
+  --mat-fab-small-disabled-state-container-color: rgba(0, 0, 0, 0.12);
+  --mat-fab-small-disabled-state-foreground-color: rgba(0, 0, 0, 0.38);
+}
+
+html .mat-mdc-fab.mat-primary {
+  --mdc-fab-container-color: var(--primary);
+  --mat-fab-foreground-color: white;
+  --mat-fab-state-layer-color: white;
+  --mat-fab-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+html .mat-mdc-fab.mat-accent {
+  --mdc-fab-container-color: #ff4081;
+  --mat-fab-foreground-color: white;
+  --mat-fab-state-layer-color: white;
+  --mat-fab-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+html .mat-mdc-fab.mat-warn {
+  --mdc-fab-container-color: #f44336;
+  --mat-fab-foreground-color: white;
+  --mat-fab-state-layer-color: white;
+  --mat-fab-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+html .mat-mdc-mini-fab.mat-primary {
+  --mdc-fab-small-container-color: var(--primary);
+  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-state-layer-color: white;
+  --mat-fab-small-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+html .mat-mdc-mini-fab.mat-accent {
+  --mdc-fab-small-container-color: #ff4081;
+  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-state-layer-color: white;
+  --mat-fab-small-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+html .mat-mdc-mini-fab.mat-warn {
+  --mdc-fab-small-container-color: #f44336;
+  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-state-layer-color: white;
+  --mat-fab-small-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+html {
+  --mdc-snackbar-container-color: #333333;
+  --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+  --mat-snack-bar-button-color: #ff4081;
+}
+
+html {
+  --mat-table-background-color: white;
+  --mat-table-header-headline-color: rgba(0, 0, 0, 0.87);
+  --mat-table-row-item-label-text-color: rgba(0, 0, 0, 0.87);
+  --mat-table-row-item-outline-color: rgba(0, 0, 0, 0.12);
+}
+
+html {
+  --mdc-circular-progress-active-indicator-color: var(--primary);
+}
+
+html .mat-accent {
+  --mdc-circular-progress-active-indicator-color: #ff4081;
+}
+
+html .mat-warn {
+  --mdc-circular-progress-active-indicator-color: #f44336;
+}
+
+html {
+  --mat-badge-background-color: var(--primary);
+  --mat-badge-text-color: white;
+  --mat-badge-disabled-state-background-color: #b9b9b9;
+  --mat-badge-disabled-state-text-color: rgba(0, 0, 0, 0.38);
+}
+
+.mat-badge-accent {
+  --mat-badge-background-color: #ff4081;
+  --mat-badge-text-color: white;
+}
+
+.mat-badge-warn {
+  --mat-badge-background-color: #f44336;
+  --mat-badge-text-color: white;
+}
+
+html {
+  --mat-bottom-sheet-container-text-color: rgba(0, 0, 0, 0.87);
+  --mat-bottom-sheet-container-background-color: white;
+}
+
+html {
+  --mat-legacy-button-toggle-text-color: rgba(0, 0, 0, 0.38);
+  --mat-legacy-button-toggle-state-layer-color: rgba(0, 0, 0, 0.12);
+  --mat-legacy-button-toggle-selected-state-text-color: rgba(0, 0, 0, 0.54);
+  --mat-legacy-button-toggle-selected-state-background-color: #e0e0e0;
+  --mat-legacy-button-toggle-disabled-state-text-color: rgba(0, 0, 0, 0.26);
+  --mat-legacy-button-toggle-disabled-state-background-color: #eeeeee;
+  --mat-legacy-button-toggle-disabled-selected-state-background-color: #bdbdbd;
+  --mat-standard-button-toggle-text-color: rgba(0, 0, 0, 0.87);
+  --mat-standard-button-toggle-background-color: white;
+  --mat-standard-button-toggle-state-layer-color: black;
+  --mat-standard-button-toggle-selected-state-background-color: #e0e0e0;
+  --mat-standard-button-toggle-selected-state-text-color: rgba(0, 0, 0, 0.87);
+  --mat-standard-button-toggle-disabled-state-text-color: rgba(0, 0, 0, 0.26);
+  --mat-standard-button-toggle-disabled-state-background-color: white;
+  --mat-standard-button-toggle-disabled-selected-state-text-color: rgba(
+    0,
+    0,
+    0,
+    0.87
+  );
+  --mat-standard-button-toggle-disabled-selected-state-background-color: #bdbdbd;
+  --mat-standard-button-toggle-divider-color: #e0e0e0;
+}
+
+html {
+  --mat-datepicker-calendar-date-selected-state-text-color: white;
+  --mat-datepicker-calendar-date-selected-state-background-color: var(
+    --primary
+  );
+  --mat-datepicker-calendar-date-selected-disabled-state-background-color: rgba(
+    63,
+    81,
+    181,
+    0.4
+  );
+  --mat-datepicker-calendar-date-today-selected-state-outline-color: white;
+  --mat-datepicker-calendar-date-focus-state-background-color: rgba(
+    63,
+    81,
+    181,
+    0.3
+  );
+  --mat-datepicker-calendar-date-hover-state-background-color: rgba(
+    63,
+    81,
+    181,
+    0.3
+  );
+  --mat-datepicker-toggle-active-state-icon-color: var(--primary);
+  --mat-datepicker-calendar-date-in-range-state-background-color: rgba(
+    63,
+    81,
+    181,
+    0.2
+  );
+  --mat-datepicker-calendar-date-in-comparison-range-state-background-color: rgba(
+    249,
+    171,
+    0,
+    0.2
+  );
+  --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #a8dab5;
+  --mat-datepicker-calendar-date-in-overlap-range-selected-state-background-color: #46a35e;
+  --mat-datepicker-toggle-icon-color: rgba(0, 0, 0, 0.54);
+  --mat-datepicker-calendar-body-label-text-color: rgba(0, 0, 0, 0.54);
+  --mat-datepicker-calendar-period-button-text-color: black;
+  --mat-datepicker-calendar-period-button-icon-color: rgba(0, 0, 0, 0.54);
+  --mat-datepicker-calendar-navigation-button-icon-color: rgba(0, 0, 0, 0.54);
+  --mat-datepicker-calendar-header-divider-color: rgba(0, 0, 0, 0.12);
+  --mat-datepicker-calendar-header-text-color: rgba(0, 0, 0, 0.54);
+  --mat-datepicker-calendar-date-today-outline-color: rgba(0, 0, 0, 0.38);
+  --mat-datepicker-calendar-date-today-disabled-state-outline-color: rgba(
+    0,
+    0,
+    0,
+    0.18
+  );
+  --mat-datepicker-calendar-date-text-color: rgba(0, 0, 0, 0.87);
+  --mat-datepicker-calendar-date-outline-color: transparent;
+  --mat-datepicker-calendar-date-disabled-state-text-color: rgba(0, 0, 0, 0.38);
+  --mat-datepicker-calendar-date-preview-state-outline-color: rgba(
+    0,
+    0,
+    0,
+    0.24
+  );
+  --mat-datepicker-range-input-separator-color: rgba(0, 0, 0, 0.87);
+  --mat-datepicker-range-input-disabled-state-separator-color: rgba(
+    0,
+    0,
+    0,
+    0.38
+  );
+  --mat-datepicker-range-input-disabled-state-text-color: rgba(0, 0, 0, 0.38);
+  --mat-datepicker-calendar-container-background-color: white;
+  --mat-datepicker-calendar-container-text-color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-datepicker-content.mat-accent {
+  --mat-datepicker-calendar-date-selected-state-text-color: white;
+  --mat-datepicker-calendar-date-selected-state-background-color: #ff4081;
+  --mat-datepicker-calendar-date-selected-disabled-state-background-color: rgba(
+    255,
+    64,
+    129,
+    0.4
+  );
+  --mat-datepicker-calendar-date-today-selected-state-outline-color: white;
+  --mat-datepicker-calendar-date-focus-state-background-color: rgba(
+    255,
+    64,
+    129,
+    0.3
+  );
+  --mat-datepicker-calendar-date-hover-state-background-color: rgba(
+    255,
+    64,
+    129,
+    0.3
+  );
+  --mat-datepicker-calendar-date-in-range-state-background-color: rgba(
+    255,
+    64,
+    129,
+    0.2
+  );
+  --mat-datepicker-calendar-date-in-comparison-range-state-background-color: rgba(
+    249,
+    171,
+    0,
+    0.2
+  );
+  --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #a8dab5;
+  --mat-datepicker-calendar-date-in-overlap-range-selected-state-background-color: #46a35e;
+}
+
+.mat-datepicker-content.mat-warn {
+  --mat-datepicker-calendar-date-selected-state-text-color: white;
+  --mat-datepicker-calendar-date-selected-state-background-color: #f44336;
+  --mat-datepicker-calendar-date-selected-disabled-state-background-color: rgba(
+    244,
+    67,
+    54,
+    0.4
+  );
+  --mat-datepicker-calendar-date-today-selected-state-outline-color: white;
+  --mat-datepicker-calendar-date-focus-state-background-color: rgba(
+    244,
+    67,
+    54,
+    0.3
+  );
+  --mat-datepicker-calendar-date-hover-state-background-color: rgba(
+    244,
+    67,
+    54,
+    0.3
+  );
+  --mat-datepicker-calendar-date-in-range-state-background-color: rgba(
+    244,
+    67,
+    54,
+    0.2
+  );
+  --mat-datepicker-calendar-date-in-comparison-range-state-background-color: rgba(
+    249,
+    171,
+    0,
+    0.2
+  );
+  --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #a8dab5;
+  --mat-datepicker-calendar-date-in-overlap-range-selected-state-background-color: #46a35e;
+}
+
+.mat-datepicker-toggle-active.mat-accent {
+  --mat-datepicker-toggle-active-state-icon-color: #ff4081;
+}
+
+.mat-datepicker-toggle-active.mat-warn {
+  --mat-datepicker-toggle-active-state-icon-color: #f44336;
+}
+
+html {
+  --mat-divider-color: rgba(0, 0, 0, 0.12);
+}
+
+html {
+  --mat-expansion-container-background-color: white;
+  --mat-expansion-container-text-color: rgba(0, 0, 0, 0.87);
+  --mat-expansion-actions-divider-color: rgba(0, 0, 0, 0.12);
+  --mat-expansion-header-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-expansion-header-focus-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-expansion-header-disabled-state-text-color: rgba(0, 0, 0, 0.26);
+  --mat-expansion-header-text-color: rgba(0, 0, 0, 0.87);
+  --mat-expansion-header-description-color: rgba(0, 0, 0, 0.54);
+  --mat-expansion-header-indicator-color: rgba(0, 0, 0, 0.54);
+}
+
+html {
+  --mat-icon-color: inherit;
+}
+
+.mat-icon.mat-primary {
+  --mat-icon-color: var(--primary);
+}
+
+.mat-icon.mat-accent {
+  --mat-icon-color: #ff4081;
+}
+
+.mat-icon.mat-warn {
+  --mat-icon-color: #f44336;
+}
+
+html {
+  --mat-sidenav-container-divider-color: rgba(0, 0, 0, 0.12);
+  --mat-sidenav-container-background-color: white;
+  --mat-sidenav-container-text-color: rgba(0, 0, 0, 0.87);
+  --mat-sidenav-content-background-color: #fafafa;
+  --mat-sidenav-content-text-color: rgba(0, 0, 0, 0.87);
+  --mat-sidenav-scrim-color: rgba(0, 0, 0, 0.6);
+}
+
+html {
+  --mat-stepper-header-icon-foreground-color: white;
+  --mat-stepper-header-selected-state-icon-background-color: var(--primary);
+  --mat-stepper-header-selected-state-icon-foreground-color: white;
+  --mat-stepper-header-done-state-icon-background-color: var(--primary);
+  --mat-stepper-header-done-state-icon-foreground-color: white;
+  --mat-stepper-header-edit-state-icon-background-color: var(--primary);
+  --mat-stepper-header-edit-state-icon-foreground-color: white;
+  --mat-stepper-container-color: white;
+  --mat-stepper-line-color: rgba(0, 0, 0, 0.12);
+  --mat-stepper-header-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-stepper-header-focus-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-stepper-header-label-text-color: rgba(0, 0, 0, 0.54);
+  --mat-stepper-header-optional-label-text-color: rgba(0, 0, 0, 0.54);
+  --mat-stepper-header-selected-state-label-text-color: rgba(0, 0, 0, 0.87);
+  --mat-stepper-header-error-state-label-text-color: #f44336;
+  --mat-stepper-header-icon-background-color: rgba(0, 0, 0, 0.54);
+  --mat-stepper-header-error-state-icon-foreground-color: #f44336;
+  --mat-stepper-header-error-state-icon-background-color: transparent;
+}
+
+html .mat-step-header.mat-accent {
+  --mat-stepper-header-icon-foreground-color: white;
+  --mat-stepper-header-selected-state-icon-background-color: #ff4081;
+  --mat-stepper-header-selected-state-icon-foreground-color: white;
+  --mat-stepper-header-done-state-icon-background-color: #ff4081;
+  --mat-stepper-header-done-state-icon-foreground-color: white;
+  --mat-stepper-header-edit-state-icon-background-color: #ff4081;
+  --mat-stepper-header-edit-state-icon-foreground-color: white;
+}
+
+html .mat-step-header.mat-warn {
+  --mat-stepper-header-icon-foreground-color: white;
+  --mat-stepper-header-selected-state-icon-background-color: #f44336;
+  --mat-stepper-header-selected-state-icon-foreground-color: white;
+  --mat-stepper-header-done-state-icon-background-color: #f44336;
+  --mat-stepper-header-done-state-icon-foreground-color: white;
+  --mat-stepper-header-edit-state-icon-background-color: #f44336;
+  --mat-stepper-header-edit-state-icon-foreground-color: white;
+}
+
+html {
+  --mat-sort-arrow-color: #757575;
+}
+
+html {
+  --mat-toolbar-container-background-color: whitesmoke;
+  --mat-toolbar-container-text-color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-toolbar.mat-primary {
+  --mat-toolbar-container-background-color: var(--primary);
+  --mat-toolbar-container-text-color: white;
+}
+
+.mat-toolbar.mat-accent {
+  --mat-toolbar-container-background-color: #ff4081;
+  --mat-toolbar-container-text-color: white;
+}
+
+.mat-toolbar.mat-warn {
+  --mat-toolbar-container-background-color: #f44336;
+  --mat-toolbar-container-text-color: white;
+}
+
+html {
+  --mat-tree-container-background-color: white;
+  --mat-tree-node-text-color: rgba(0, 0, 0, 0.87);
+}

@@ -18,11 +18,27 @@
 }
 
 .shell-sidebar {
-  width: 330px;
+  width: 360px;
+  transition: width 0.3s ease;
+  margin-top: 100px;
+
+  &.mat-drawer-side {
+    width: 360px;
+  }
+
+  &.mat-drawer-side.minimized {
+    width: 80px;
+  }
 }
 
 .shell-main {
   padding: 20px;
+  transition: margin-left 0.3s ease;
+  margin-left: 360px !important;
+
+  .mat-drawer-side.minimized ~ & {
+    margin-left: 80px !important;
+  }
 }
 
 .shell-footer {

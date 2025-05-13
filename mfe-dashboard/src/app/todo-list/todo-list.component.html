@@ -1,14 +1,21 @@
-<div class="row mb-5 pb-5">
-  <div class="col-md-9">
-    <div class="header p-4 text-end border rounded-3">
-      <h1>Next Level Object Detection</h1>
-      <p class="my-5">
-        Enhance the search functionality and notification system as per your
-        requirements.
-      </p>
-      <button mat-fab extended color="primary">Learn More</button>
+<div class="row">
+  <div class="col-12 px-0 w-100 px-3">
+    <div class="header text-end">
+      <div class="inner-content">
+        <div class="d-flex flex-column justify-content-end align-items-end">
+          <h1 class="bold-36 text-white lh-base">
+            Next Level Object Detection
+          </h1>
+          <p class="mb-5 bold-12 description text-white">
+            Enhance the search functionality and notification system as per your
+            requirements
+          </p>
+        </div>
+        <button mat-fab extended color="primary">Learn More</button>
+      </div>
     </div>
-    <div class="row mt-40">
+
+    <div class="row mt-40 d-none">
       <div class="col-md-12">
         <label class="fw-bold fs-12 text-gray-70"> Active Projects</label>
         <div class="d-flex justify-content-between px-4 mt-16">
@@ -72,7 +79,7 @@
       </div>
     </div>
 
-    <div class="row mt-40">
+    <div class="row mt-40 d-none">
       <div class="col-md-12">
         <label class="fw-bold fs-12 text-gray-70 mb-16"
           >Needs Your Attention</label
@@ -291,13 +298,15 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-    <label class="fw-bold fs-12 text-gray-70 mb-16"> Activity Insights </label>
+</div>
+<div class="row mt-30 mb-5 pb-5">
+  <label class="bold-12 text-gray-60 mb-16"> Activity Insights </label>
+  <div class="col-md-3 col-12">
     <div class="card mb-40">
       <div class="card-header p-3">
         <div class="d-flex flex-column justify-content-between">
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> Projects </label>
-          <h1 class="fw-bold text-gray-60">ADM</h1>
+          <label class="bold-12 text-gray-70 mb-16"> Projects </label>
+          <h1 class="bold-24 text-gray-50">ADM</h1>
           <canvas
             baseChart
             [data]="chartData"
@@ -311,131 +320,127 @@
       <div class="card-body">
         <div class="d-flex justify-content-between mb-16">
           <h1
-            class="fw-bold text-gray-60 fs-14 p-2 rounded-3"
-            style="color: #83f; background-color: rgb(229, 219, 243)"
+            class="black-12 text-purple p-2 rounded-3"
+            style="background-color: rgb(229, 219, 243)"
           >
             Revisions Needed
           </h1>
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> 45 </label>
+          <label class="bold-12 text-gray-60 mb-16"> 45 </label>
         </div>
         <div class="d-flex justify-content-between mb-16">
           <h1
-            class="fw-bold text-gray-60 fs-14 p-2 rounded-3"
-            style="
-              color: rgb(102, 102, 20);
-              background-color: rgb(255, 255, 219);
-            "
+            class="black-12 text-yellow-dark-2 p-2 rounded-3"
+            style="background-color: rgb(255, 255, 219)"
           >
             Submissions in Progress
           </h1>
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> 23 </label>
+          <label class="bold-12 text-gray-60 mb-16"> 23 </label>
         </div>
         <div class="d-flex justify-content-between">
           <h1
-            class="fw-bold text-gray-60 fs-14 p-2 rounded-3"
-            style="color: red; background-color: rgb(255, 219, 219)"
+            class="black-12 text-red p-2 rounded-3"
+            style="background-color: rgb(255, 219, 219)"
           >
             Blocked Item
           </h1>
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> 2 </label>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-40">
-      <div class="card-header p-3">
-        <div class="d-flex flex-column justify-content-between">
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> Projects </label>
-          <h1 class="fw-bold text-gray-60">RAM</h1>
-          <canvas
-            baseChart
-            [data]="chartData"
-            [labels]="chartLabels"
-            [options]="chartOptions"
-            [type]="chartType"
-          >
-          </canvas>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="d-flex justify-content-between mb-16">
-          <h1
-            class="fw-bold text-gray-60 fs-14 p-2 rounded-3"
-            style="color: #83f; background-color: rgb(229, 219, 243)"
-          >
-            Revisions Needed
-          </h1>
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> 45 </label>
-        </div>
-        <div class="d-flex justify-content-between mb-16">
-          <h1
-            class="fw-bold text-gray-60 fs-14 p-2 rounded-3"
-            style="
-              color: rgb(102, 102, 20);
-              background-color: rgb(255, 255, 219);
-            "
-          >
-            Submissions in Progress
-          </h1>
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> 23 </label>
-        </div>
-        <div class="d-flex justify-content-between">
-          <h1
-            class="fw-bold text-gray-60 fs-14 p-2 rounded-3"
-            style="color: red; background-color: rgb(255, 219, 219)"
-          >
-            Blocked Item
-          </h1>
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> 2 </label>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-40">
-      <div class="card-header p-3">
-        <div class="d-flex flex-column justify-content-between">
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> Projects </label>
-          <h1 class="fw-bold text-gray-60">RSA</h1>
-          <canvas
-            baseChart
-            [data]="chartData"
-            [labels]="chartLabels"
-            [options]="chartOptions"
-            [type]="chartType"
-          >
-          </canvas>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="d-flex justify-content-between mb-16">
-          <h1
-            class="fw-bold text-gray-60 fs-14 p-2 rounded-3"
-            style="color: #83f; background-color: rgb(229, 219, 243)"
-          >
-            Revisions Needed
-          </h1>
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> 45 </label>
-        </div>
-        <div class="d-flex justify-content-between mb-16">
-          <h1
-            class="fw-bold text-gray-60 fs-14 p-2 rounded-3"
-            style="
-              color: rgb(102, 102, 20);
-              background-color: rgb(255, 255, 219);
-            "
-          >
-            Submissions in Progress
-          </h1>
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> 23 </label>
-        </div>
-        <div class="d-flex justify-content-between">
-          <h1
-            class="fw-bold text-gray-60 fs-14 p-2 rounded-3"
-            style="color: red; background-color: rgb(255, 219, 219)"
-          >
-            Blocked Item
-          </h1>
-          <label class="fw-bold fs-12 text-gray-70 mb-16"> 2 </label>
+          <label class="bold-12 text-gray-60 mb-16"> 2 </label>
         </div>
       </div>
     </div>
   </div>
+  <div class="col-md-3 col-12">
+    <div class="card mb-40">
+      <div class="card-header p-3">
+        <div class="d-flex flex-column justify-content-between">
+          <label class="bold-12 text-gray-70 mb-16"> Projects </label>
+          <h1 class="bold-24 text-gray-50">RAM</h1>
+          <canvas
+            baseChart
+            [data]="chartData"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [type]="chartType"
+          >
+          </canvas>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between mb-16">
+          <h1
+            class="black-12 text-purple p-2 rounded-3"
+            style="background-color: rgb(229, 219, 243)"
+          >
+            Revisions Needed
+          </h1>
+          <label class="bold-12 text-gray-60 mb-16"> 45 </label>
+        </div>
+        <div class="d-flex justify-content-between mb-16">
+          <h1
+            class="black-12 text-yellow-dark-2 p-2 rounded-3"
+            style="background-color: rgb(255, 255, 219)"
+          >
+            Submissions in Progress
+          </h1>
+          <label class="bold-12 text-gray-60 mb-16"> 23 </label>
+        </div>
+        <div class="d-flex justify-content-between">
+          <h1
+            class="black-12 text-red p-2 rounded-3"
+            style="background-color: rgb(255, 219, 219)"
+          >
+            Blocked Item
+          </h1>
+          <label class="bold-12 text-gray-60 mb-16"> 2 </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-12">
+    <div class="card mb-40">
+      <div class="card-header p-3">
+        <div class="d-flex flex-column justify-content-between">
+          <label class="bold-12 text-gray-70 mb-16"> Projects </label>
+          <h1 class="bold-24 text-gray-50">RSA</h1>
+          <canvas
+            baseChart
+            [data]="chartData"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [type]="chartType"
+          >
+          </canvas>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between mb-16">
+          <h1
+            class="black-12 text-purple p-2 rounded-3"
+            style="background-color: rgb(229, 219, 243)"
+          >
+            Revisions Needed
+          </h1>
+          <label class="bold-12 text-gray-60 mb-16"> 45 </label>
+        </div>
+        <div class="d-flex justify-content-between mb-16">
+          <h1
+            class="black-12 text-yellow-dark-2 p-2 rounded-3"
+            style="background-color: rgb(255, 255, 219)"
+          >
+            Submissions in Progress
+          </h1>
+          <label class="bold-12 text-gray-60 mb-16"> 23 </label>
+        </div>
+        <div class="d-flex justify-content-between">
+          <h1
+            class="black-12 text-red p-2 rounded-3"
+            style="background-color: rgb(255, 219, 219)"
+          >
+            Blocked Item
+          </h1>
+          <label class="bold-12 text-gray-60 mb-16"> 2 </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-12"></div>
 </div>

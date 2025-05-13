@@ -27,29 +27,11 @@
 .logo-text {
   font-size: 20px;
   font-weight: 600;
-  color: #4d5e80;
-  line-height: 130%;
-}
-
-.tagline {
-  font-size: 8px;
-  color: #4d5e80;
-  font-weight: 700;
   line-height: 130%;
 }
 
 .main-nav {
   gap: 24px;
-
-  .nav-item {
-    color: #737f99;
-    font-size: 13px;
-    font-weight: 700;
-    &:hover {
-      background-color: none;
-      color: #4285f4;
-    }
-  }
 }
 
 .header-right {

@@ -18,15 +18,22 @@ import { MatDividerModule } from "@angular/material/divider";
 import { AppComponent } from "./app.component";
 import { ShellLayoutComponent } from "./layout/shell-layout/shell-layout.component";
 import { SharedModule } from "./shared/shared.module";
+import { TestComponent } from './test/test.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TestComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([]),
     SharedModule,
     ShellLayoutComponent,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

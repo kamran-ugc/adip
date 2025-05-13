@@ -1,0 +1,356 @@
+<mat-card appearance="outlined" class="create-project-card">
+  <mat-card-content class="d-flex flex-column p-4">
+    <label class="bold-13 text-gray-70 mb-10 w-auto">Select Facility</label>
+    <button
+      mat-raised-button
+      color="primary"
+      class="create-project-button bold-12"
+      routerLink="/ram/create-project"
+    >
+      <mat-icon matPrefix class="text-white">add_circle</mat-icon>
+      Create RAM Project
+    </button>
+  </mat-card-content>
+</mat-card>
+<div class="mb-40">
+  <mat-card appearance="outlined" class="project-card mt-30">
+    <mat-card-content>
+      <div class="d-flex justify-content-between">
+        <h3 class="bold-18 text-gray-50">Active RAM Projects</h3>
+        <div>
+          <mat-icon matPrefix class="text-gray-80 me-1">fullscreen</mat-icon>
+          <mat-icon matPrefix class="text-gray-80">more_horiz</mat-icon>
+        </div>
+      </div>
+      <div class="row mt-20">
+        <div class="col-md-6 col-12">
+          <button
+            mat-raised-button
+            color=""
+            class="bold-12 text-gray-60 me-10 mt-1"
+          >
+            All
+          </button>
+          <button mat-raised-button color="primary" class="bold-12 me-10 mt-1">
+            Active
+          </button>
+          <button
+            mat-raised-button
+            color=""
+            class="bold-12 text-gray-60 me-10 mt-1"
+          >
+            Completed
+          </button>
+          <button
+            mat-raised-button
+            color=""
+            class="bold-12 text-gray-60 me-10 mt-1"
+          >
+            Partial Completed
+          </button>
+          <button
+            mat-raised-button
+            color=""
+            class="bold-12 text-gray-60 me-10 mt-1"
+          >
+            Terminated
+          </button>
+        </div>
+        <div class="col-md-6 col-12 d-flex justify-content-end fs-1">
+          <mat-form-field appearance="outline">
+            <mat-select
+              placeholder="Filter By"
+              [(ngModel)]="selectedFilter"
+              (ngModelChange)="onFilterByChange()"
+            >
+              <mat-option
+                *ngFor="let option of filterOptions"
+                [value]="option.value"
+              >
+                {{ option.viewValue }}
+              </mat-option>
+            </mat-select>
+            <!-- <mat-label
+              ><mat-icon class="me-1">filter_list</mat-icon>
+              <strong>Field</strong>
+            </mat-label> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="custom-height-form-field">
+            <input
+              matInput
+              placeholder="Filter Text"
+              [(ngModel)]="filterText"
+              (ngModelChange)="applyTableFilter()"
+            />
+          </mat-form-field>
+          <div class="input-group mb-3 w-auto">
+            <!-- <div class="input-group-prepend">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle bold-12 text-gray-60 d-flex align-items-center"
+                type="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <mat-icon matPrefix class="text-gray-60 me-1">
+                  filter_list
+                </mat-icon>
+                RAM ID
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </div> -->
+            <!-- <input
+              type="text"
+              class="form-control bold-12 text-gray-60 w-auto"
+              aria-label="Text input with dropdown button"
+            /> -->
+          </div>
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="!filterText"
+            class="bold-12 ms-2"
+          >
+            Apply Filter
+          </button>
+        </div>
+      </div>
+      <div class="row mt-20">
+        <div class="col-md-3 col-12 w-100">
+          <div class="table-responsive">
+            <table
+              mat-table
+              [dataSource]="dataSource"
+              matSort
+              style="width: 100%"
+            >
+              <!-- RAM ID Column -->
+              <ng-container matColumnDef="ramId">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  RAM ID
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-primary"
+                >
+                  {{ element.ramId }}
+                </td>
+              </ng-container>
+
+              <!-- Facility ID Column -->
+              <ng-container matColumnDef="facilityId">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  Facility ID
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  {{ element.facilityId }}
+                </td>
+              </ng-container>
+
+              <!-- Facility Name Column -->
+              <ng-container matColumnDef="facilityName">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  Facility Name
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  {{ element.facilityName }}
+                </td>
+              </ng-container>
+
+              <!-- State Column -->
+              <ng-container matColumnDef="state">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  State
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  {{ element.state }}
+                </td>
+              </ng-container>
+
+              <!-- Type Column -->
+              <ng-container matColumnDef="type">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  Type
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  {{ element.type }}
+                </td>
+              </ng-container>
+
+              <!-- Total Objects Column -->
+              <ng-container matColumnDef="totalObjects">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  Total Objects
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  {{ element.totalObjects }}
+                </td>
+              </ng-container>
+
+              <!-- Created By Column -->
+              <ng-container matColumnDef="createdBy">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  Created By
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  {{ element.createdBy }}
+                </td>
+              </ng-container>
+
+              <!-- Created On Column -->
+              <ng-container matColumnDef="createdOn">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  Created On
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  {{ element.createdOn }}
+                </td>
+              </ng-container>
+
+              <!-- Last Updated By Column -->
+              <ng-container matColumnDef="lastUpdatedBy">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  Last Updated By
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  {{ element.lastUpdatedBy }}
+                </td>
+              </ng-container>
+
+              <!-- Last Modified Column -->
+              <ng-container matColumnDef="lastModified">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  Last Modified
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  {{ element.lastModified }}
+                </td>
+              </ng-container>
+
+              <!-- Workflow Status Column -->
+              <ng-container matColumnDef="workflowStatus">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header
+                  class="bold-12 text-gray-70"
+                >
+                  Workflow Status
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  class="bold-12 text-gray-50"
+                >
+                  <button mat-stroked-button class="bold-12 text-gray-60">
+                    {{ element.workflowStatus }}
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of projects"
+  ></mat-paginator>
+</div>

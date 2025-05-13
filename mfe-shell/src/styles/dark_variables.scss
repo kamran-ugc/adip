@@ -1,0 +1,290 @@
+// Primary Colors (Primary, Primary Light 1, Primary Light 2, Primary Dark 1, Primary Dark 2) - Dark Theme
+$primary: #4d75ff;
+$primary-light-1: #4d74ff;
+$primary-light-2: #9980ff;
+$primary-dark-1: #4d75ff;
+$primary-dark-2: #3361ff;
+// Primary Opacity Shades (Primary 90% to Primary 5%) - Dark Theme
+$primary-90p: rgba($primary-dark-2, 0.9);
+$primary-80p: rgba($primary-dark-2, 0.8);
+$primary-70p: rgba($primary-dark-2, 0.7);
+$primary-60p: rgba($primary-dark-2, 0.6);
+$primary-50p: rgba($primary-dark-2, 0.5);
+$primary-40p: rgba($primary-dark-2, 0.4);
+$primary-30p: rgba($primary-dark-2, 0.3);
+$primary-20p: rgba($primary-dark-2, 0.2);
+$primary-15p: rgba($primary-dark-2, 0.15);
+$primary-10p: rgba($primary-dark-2, 0.1);
+$primary-5p: rgba($primary-dark-2, 0.05);
+// Grayscale (Gray 10 to Gray 100) - Dark Theme
+$gray-10: #ffffff;
+$gray-15: #ffffff;
+$gray-20: #ffffff;
+$gray-25: #edf2f2;
+$gray-30: #dadde6;
+$gray-35: #c3cad9;
+$gray-40: #adbccc;
+$gray-45: #9dabbf;
+$gray-50: #8c99b3;
+$gray-55: #808da6;
+$gray-60: #737f99;
+$gray-65: #62708c;
+$gray-70: #4d5e80;
+$gray-75: #3f5073;
+$gray-80: #334466;
+$gray-85: #2d3c59;
+$gray-90: #222e45;
+$gray-91: #202c42;
+$gray-92: #1c2838;
+$gray-93: #182738;
+$gray-94: #1a2536;
+$gray-95: #182333;
+$gray-96: #171f30;
+$gray-97: #161f2e;
+$gray-98: #151d28;
+$gray-99: #141829;
+$gray-100: #131926;
+
+// Grayscale Alpha (Gray 90% to Gray 5%) - Dark Theme (on light backgrounds)
+$gray-90p: rgba(255, 255, 255, 0.9);
+$gray-80p: rgba(255, 255, 255, 0.8);
+$gray-70p: rgba(255, 255, 255, 0.7);
+$gray-60p: rgba(255, 255, 255, 0.6);
+$gray-50p: rgba(255, 255, 255, 0.5);
+$gray-40p: rgba(255, 255, 255, 0.4);
+$gray-30p: rgba(255, 255, 255, 0.3);
+$gray-20p: rgba(255, 255, 255, 0.2);
+$gray-15p: rgba(255, 255, 255, 0.15);
+$gray-10p: rgba(255, 255, 255, 0.1);
+$gray-5p: rgba(255, 255, 255, 0.05);
+
+// Base Colors (Orange, Orange Light 1, Orange Light 2, Orange Dark 1, Orange Dark 2) - Dark Theme
+$orange: #ff794d;
+$orange-light-1: #ff794d;
+$orange-light-2: #ff8d66;
+$orange-dark-1: #e64b17;
+$orange-dark-2: #cc4314;
+
+// Alpha Shades (Orange 90% to Orange 5%) - Dark Theme
+$orange-90p: rgba(#ff6633, 0.9);
+$orange-80p: rgba(#ff6633, 0.8);
+$orange-70p: rgba(#ff6633, 0.7);
+$orange-60p: rgba(#ff6633, 0.6);
+$orange-50p: rgba(#ff6633, 0.5);
+$orange-40p: rgba(#ff6633, 0.4);
+$orange-30p: rgba(#ff6633, 0.3);
+$orange-25p: rgba(#ff6633, 0.25);
+$orange-20p: rgba(#ff6633, 0.2);
+$orange-15p: rgba(#ff6633, 0.15);
+$orange-10p: rgba(#ff6633, 0.1);
+$orange-5p: rgba(#ff6633, 0.05);
+
+// Base Colors(Purple, Purple Light 1, Purple Light 2, Purple Dark 1, Purple Dark 2) - Dark Theme
+$purple: #974dff;
+$purple-light-1: #974dff;
+$purple-light-2: #a666ff;
+$purple-dark-1: #7919ff;
+$purple-dark-2: #6a00ff;
+
+// Alpha Shades (Purple 90% to Purple 5%) - Dark Theme
+$purple-90p: rgba(#8833ff, 0.9);
+$purple-80p: rgba(#8833ff, 0.8);
+$purple-70p: rgba(#8833ff, 0.7);
+$purple-60p: rgba(#8833ff, 0.6);
+$purple-50p: rgba(#8833ff, 0.5);
+$purple-40p: rgba(#8833ff, 0.4);
+$purple-30p: rgba(#8833ff, 0.3);
+$purple-25p: rgba(#8833ff, 0.25);
+$purple-20p: rgba(#8833ff, 0.2);
+$purple-15p: rgba(#8833ff, 0.15);
+$purple-10p: rgba(#8833ff, 0.1);
+$purple-5p: rgba(#8833ff, 0.05);
+
+// Base Colors (Red, Red Light 1, Red Light 2, Red Dark 1, Red Dark 2) - Dark Theme
+$red: #e64545; // Red
+$red-light-1: #f24949; // Red Light 1
+$red-light-2: #ff6666; // Red Light 2
+$red-dark-1: #cc1414; // Red Dark 1
+$red-dark-2: #b20000; // Red Dark 2
+
+// Alpha Shades (Red 90% to Red 5%) - Dark Theme
+$red-90p: rgba(#e62e2e, 0.9); // Red 90%
+$red-80p: rgba(#e62e2e, 0.8); // Red 80%
+$red-70p: rgba(#e62e2e, 0.7); // Red 70%
+$red-60p: rgba(#e62e2e, 0.6); // Red 60%
+$red-50p: rgba(#e62e2e, 0.5); // Red 50%
+$red-40p: rgba(#e62e2e, 0.4); // Red 40%
+$red-30p: rgba(#e62e2e, 0.3); // Red 30%
+$red-25p: rgba(#e62e2e, 0.25); // Red 25%
+$red-20p: rgba(#e62e2e, 0.2); // Red 20%
+$red-15p: rgba(#e62e2e, 0.15); // Red 15%
+$red-10p: rgba(#e62e2e, 0.1); // Red 10%
+$red-5p: rgba(#e62e2e, 0.05); // Red 5%
+
+// Base Colors (Yellow, Yellow Light 1, Yellow Light 2, Yellow Dark 1, Yellow Dark 2) - Dark Theme
+$yellow: #ffd14d; // Yellow
+$yellow-light-1: #ffd559; // Yellow Light 1
+$yellow-light-2: #ffd559; // Yellow Light 2
+$yellow-dark-1: #e6b717; // Yellow Dark 1
+$yellow-dark-2: #d9a200; // Yellow Dark 2
+
+// Alpha Shades (Yellow 90% to Yellow 5%) - Dark Theme
+$yellow-90p: rgba(#ffcb33, 0.9); // Yellow 90%
+$yellow-80p: rgba(#ffcb33, 0.8); // Yellow 80%
+$yellow-70p: rgba(#ffcb33, 0.7); // Yellow 70%
+$yellow-60p: rgba(#ffcb33, 0.6); // Yellow 60%
+$yellow-50p: rgba(#ffcb33, 0.5); // Yellow 50%
+$yellow-40p: rgba(#ffcb33, 0.4); // Yellow 40%
+$yellow-30p: rgba(#ffcb33, 0.3); // Yellow 30%
+$yellow-25p: rgba(#ffcb33, 0.25); // Yellow 25%
+$yellow-20p: rgba(#ffcb33, 0.2); // Yellow 20%
+$yellow-15p: rgba(#ffcb33, 0.15); // Yellow 15%
+$yellow-10p: rgba(#ffcb33, 0.1); // Yellow 10%
+$yellow-5p: rgba(#ffcb33, 0.05); // Yellow 5%
+
+// Base Colors (Green, Green Light 1, Green Light 2, Green Dark 1, Green Dark 2) - Dark Theme
+$green: #3dcc4b; // Green
+$green-light-1: #45e655; // Green Light 1
+$green-light-2: #61f26f; // Green Light 2
+$green-dark-1: #13bf24; // Green Dark 1
+$green-dark-2: #00b211; // Green Dark 2
+
+// Alpha Shades (Green 90% to Green 5%) - Dark Theme
+$green-90p: rgba(#29cc39, 0.9); // Green 90%
+$green-80p: rgba(#29cc39, 0.8); // Green 80%
+$green-70p: rgba(#29cc39, 0.7); // Green 70%
+$green-60p: rgba(#29cc39, 0.6); // Green 60%
+$green-50p: rgba(#29cc39, 0.5); // Green 50%
+$green-40p: rgba(#29cc39, 0.4); // Green 40%
+$green-30p: rgba(#29cc39, 0.3); // Green 30%
+$green-25p: rgba(#29cc39, 0.25); // Green 25%
+$green-20p: rgba(#29cc39, 0.2); // Green 20%
+$green-15p: rgba(#29cc39, 0.15); // Green 15%
+$green-10p: rgba(#29cc39, 0.1); // Green 10%
+$green-5p: rgba(#29cc39, 0.05); // Green 5%
+
+// Base Colors (Teal Blue, Teal Blue Light 1, Teal Blue Light 2, Teal Blue Dark 1, Teal Blue Dark 2) - Dark Theme
+$teal-blue: #4dc7ff; // Teal Blue
+$teal-blue-light-1: #4dc7ff; // Teal Blue Light 1
+$teal-blue-light-2: #68cfff; // Teal Blue Light 2
+$teal-blue-dark-1: #17a5e6; // Teal Blue Dark 1
+$teal-blue-dark-2: #008ccc; // Teal Blue Dark 2
+
+// Alpha Shades (Teal Blue 90% to Teal Blue 5%) - Dark Theme
+$teal-blue-90p: rgba(#33bfff, 0.9); // Teal Blue 90%
+$teal-blue-80p: rgba(#33bfff, 0.8); // Teal Blue 80%
+$teal-blue-70p: rgba(#33bfff, 0.7); // Teal Blue 70%
+$teal-blue-60p: rgba(#33bfff, 0.6); // Teal Blue 60%
+$teal-blue-50p: rgba(#33bfff, 0.5); // Teal Blue 50%
+$teal-blue-40p: rgba(#33bfff, 0.4); // Teal Blue 40%
+$teal-blue-30p: rgba(#33bfff, 0.3); // Teal Blue 30%
+$teal-blue-25p: rgba(#33bfff, 0.25); // Teal Blue 25%
+$teal-blue-20p: rgba(#33bfff, 0.2); // Teal Blue 20%
+$teal-blue-15p: rgba(#33bfff, 0.15); // Teal Blue 15%
+$teal-blue-10p: rgba(#33bfff, 0.1); // Teal Blue 10%
+$teal-blue-5p: rgba(#33bfff, 0.05); // Teal Blue 5%
+
+// Base Colors (Pink, Pink Light 1, Pink Light 2, Pink Dark 1, Pink Dark 2) - Dark Theme
+$pink: #e64588; // Pink
+$pink-light-1: #f24990; // Pink Light 1
+$pink-light-2: #ff66a6; // Pink Light 2
+$pink-dark-1: #d91688; // Pink Dark 1
+$pink-dark-2: #cc0056; // Pink Dark 2
+
+// Alpha Shades (Pink 90% to Pink 5%) - Dark Theme
+$pink-90p: rgba(#e627b8, 0.9); // Pink 90%
+$pink-80p: rgba(#e627b8, 0.8); // Pink 80%
+$pink-70p: rgba(#e627b8, 0.7); // Pink 70%
+$pink-60p: rgba(#e627b8, 0.6); // Pink 60%
+$pink-50p: rgba(#e627b8, 0.5); // Pink 50%
+$pink-40p: rgba(#e627b8, 0.4); // Pink 40%
+$pink-30p: rgba(#e627b8, 0.3); // Pink 30%
+$pink-25p: rgba(#e627b8, 0.25); // Pink 25%
+$pink-20p: rgba(#e627b8, 0.2); // Pink 20%
+$pink-15p: rgba(#e627b8, 0.15); // Pink 15%
+$pink-10p: rgba(#e627b8, 0.1); // Pink 10%
+$pink-5p: rgba(#e627b8, 0.05); // Pink 5%
+
+// Base Colors (Bronze, Bronze Light 1, Bronze Light 2, Bronze Dark 1, Bronze Dark 2) - Dark Theme
+$bronze: #cc7f3d; // Bronze
+$bronze-light-1: #d98741; // Bronze Light 1
+$bronze-light-2: #e69b5c; // Bronze Light 2
+$bronze-dark-1: #b35c12; // Bronze Dark 1
+$bronze-dark-2: #994700; // Bronze Dark 2
+
+// Alpha Shades (Bronze 90% to Bronze 5%) - Dark Theme
+$bronze-90p: rgba(#cc7429, 0.9); // Bronze 90%
+$bronze-80p: rgba(#cc7429, 0.8); // Bronze 80%
+$bronze-70p: rgba(#cc7429, 0.7); // Bronze 70%
+$bronze-60p: rgba(#cc7429, 0.6); // Bronze 60%
+$bronze-50p: rgba(#cc7429, 0.5); // Bronze 50%
+$bronze-40p: rgba(#cc7429, 0.4); // Bronze 40%
+$bronze-30p: rgba(#cc7429, 0.3); // Bronze 30%
+$bronze-25p: rgba(#cc7429, 0.25); // Bronze 25%
+$bronze-20p: rgba(#cc7429, 0.2); // Bronze 20%
+$bronze-15p: rgba(#cc7429, 0.15); // Bronze 15%
+$bronze-10p: rgba(#cc7429, 0.1); // Bronze 10%
+$bronze-5p: rgba(#cc7429, 0.05); // Bronze 5%
+
+// Base Colors (Tiffany, Tiffany Light 1, Tiffany Light 2, Tiffany Dark 1, Tiffany Dark 2) - Dark Theme
+$tiffany: #2cd1bf; // Tiffany
+$tiffany-light-1: #4aedd9; // Tiffany Light 1
+$tiffany-light-2: #75ead8; // Tiffany Light 2
+$tiffany-dark-1: #21ada1; // Tiffany Dark 1
+$tiffany-dark-2: #218f86; // Tiffany Dark 2
+
+// Alpha Shades (Tiffany 90% to Tiffany 5%) - Dark Theme
+$tiffany-90p: rgba(#148ba6, 0.9); // Tiffany 90%
+$tiffany-80p: rgba(#148ba6, 0.8); // Tiffany 80%
+$tiffany-70p: rgba(#148ba6, 0.7); // Tiffany 70%
+$tiffany-60p: rgba(#148ba6, 0.6); // Tiffany 60%
+$tiffany-50p: rgba(#148ba6, 0.5); // Tiffany 50%
+$tiffany-40p: rgba(#148ba6, 0.4); // Tiffany 40%
+$tiffany-30p: rgba(#148ba6, 0.3); // Tiffany 30%
+$tiffany-25p: rgba(#148ba6, 0.25); // Tiffany 25%
+$tiffany-20p: rgba(#148ba6, 0.2); // Tiffany 20%
+$tiffany-15p: rgba(#148ba6, 0.15); // Tiffany 15%
+$tiffany-10p: rgba(#148ba6, 0.1); // Tiffany 10%
+$tiffany-5p: rgba(#148ba6, 0.05); // Tiffany 5%
+
+// Base Colors (White) - Dark Theme
+$white: #ffffff; // White
+
+// Alpha Shades (White 90% to White 5%) - Dark Theme
+$white-90p: rgba(#ffffff, 0.9); // White 90%
+$white-80p: rgba(#ffffff, 0.8); // White 80%
+$white-70p: rgba(#ffffff, 0.7); // White 70%
+$white-60p: rgba(#ffffff, 0.6); // White 60%
+$white-50p: rgba(#ffffff, 0.5); // White 50%
+$white-40p: rgba(#ffffff, 0.4); // White 40%
+$white-30p: rgba(#ffffff, 0.3); // White 30%
+$white-25p: rgba(#ffffff, 0.25); // White 25%
+$white-20p: rgba(#ffffff, 0.2); // White 20%
+$white-15p: rgba(#ffffff, 0.15); // White 15%
+$white-10p: rgba(#ffffff, 0.1); // White 10%
+$white-5p: rgba(#ffffff, 0.05); // White 5%
+
+// Base Colors (Black) - Dark Theme
+$black: #000000; // Black
+
+// Alpha Shades (Black 90% to Black 5%) - Dark Theme
+$black-90p: rgba(#000000, 0.9); // Black 90%
+$black-80p: rgba(#000000, 0.8); // Black 80%
+$black-70p: rgba(#000000, 0.7); // Black 70%
+$black-60p: rgba(#000000, 0.6); // Black 60%
+$black-50p: rgba(#000000, 0.5); // Black 50%
+$black-40p: rgba(#000000, 0.4); // Black 40%
+$black-30p: rgba(#000000, 0.3); // Black 30%
+$black-25p: rgba(#000000, 0.25); // Black 25%
+$black-20p: rgba(#000000, 0.2); // Black 20%
+$black-15p: rgba(#000000, 0.15); // Black 15%
+$black-10p: rgba(#000000, 0.1); // Black 10%
+$black-5p: rgba(#000000, 0.05); // Black 5%
+
+// Background Colors (White Background, Gray 99 to Gray 95 Background) - Dark Theme
+$white-bg: #06080d; // White Background
+$gray-99-bg: #0d111a; // Gray 99 Background
+$gray-98-bg: #0f141f; // Gray 98 Background
+$gray-97-bg: #111621; // Gray 97 Background
+$gray-96-bg: #121724; // Gray 96 Background
+$gray-95-bg: #0f141f; // Gray 95 Background

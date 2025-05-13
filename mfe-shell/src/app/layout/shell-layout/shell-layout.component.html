@@ -2,8 +2,14 @@
   <app-header class="shell-header"></app-header>
 
   <mat-sidenav-container class="shell-container">
-    <mat-sidenav mode="side" opened class="shell-sidebar">
-      <app-sidebar></app-sidebar>
+    <mat-sidenav
+      #snav
+      mode="side"
+      [fixedInViewport]="true"
+      opened
+      class="shell-sidebar mat-drawer-side"
+    >
+      <app-sidebar [sidenav]="snav"></app-sidebar>
     </mat-sidenav>
 
     <mat-sidenav-content class="shell-main">

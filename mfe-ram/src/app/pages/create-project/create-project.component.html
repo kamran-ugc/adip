@@ -1,0 +1,428 @@
+<div class="row">
+  <div class="col-md-4 col-6 text-center ps-0">
+    <button
+      mat-raised-button
+      color="primary"
+      class="create-project-button bold-12"
+      routerLink="/ram/create-project"
+    >
+      <mat-icon matPrefix class="text-white">add_circle</mat-icon>
+      Create RAM Project
+    </button>
+    <div class="mt-20 d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <mat-icon matPrefix class="text-gray-80">flight</mat-icon>
+        <h3 class="bold-24 text-primary mb-0">AK67</h3>
+        <label class="text-gray-60 bold-14">RAM Projects</label>
+      </div>
+      <mat-icon matPrefix class="text-gray-80">list</mat-icon>
+    </div>
+
+    <mat-nav-list class="nav-items">
+      <ng-container>
+        <mat-expansion-panel
+          class="mt-20"
+          [expanded]="true"
+          class="project-details-expansion-panel"
+          #projectDetailsPanel
+        >
+          <mat-expansion-panel-header class="p-1">
+            <mat-panel-title
+              [ngClass]="{
+                'text-primary': projectDetailsPanel.expanded,
+                'text-gray-50': !projectDetailsPanel.expanded
+              }"
+              class="bold-14"
+            >
+              <mat-icon matPrefix class="me-32 ms-16">info</mat-icon>
+              Project Details
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-card appearance="outlined">
+            <mat-card-content
+              ><div class="d-flex justify-content-between">
+                <div>
+                  <span class="bold-14 text-gray-70">ID:</span>
+                  <span class="bold-18 text-primary ms-1"
+                    >AK67-2022-OMP-109</span
+                  >
+                </div>
+
+                <mat-icon matPrefix class="text-gray-80">more_horiz</mat-icon>
+              </div>
+              <div class="d-flex justify-content-between mt-20">
+                <span class="bold-14 text-gray-70">Status:</span>
+
+                <mat-chip class="status-chip badge bg-secondary">
+                  <span class="bold-12 text-white">In Progress</span>
+                  <mat-icon class="text-white">rotate_right</mat-icon>
+                </mat-chip>
+              </div></mat-card-content
+            >
+          </mat-card>
+          <mat-card appearance="outlined" class="mt-20">
+            <mat-card-content>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <button
+                    mat-mini-fab
+                    class="number-button active text-white"
+                    color="secondary"
+                  >
+                    1
+                  </button>
+                  <span class="bold-14 text-gray-70 ms-10">Draft</span>
+                </div>
+                <mat-chip class="badge bg-success">
+                  <span class="bold-12 text-white">Completed</span>
+                </mat-chip>
+              </div>
+              <div class="d-flex justify-content-start mt-20">
+                <div>
+                  <button
+                    mat-mini-fab
+                    class="number-button text-white"
+                    disabled
+                    color="secondary"
+                  >
+                    2
+                  </button>
+                  <span class="bold-14 text-gray-90 ms-10">Sponsor Review</span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-start mt-20">
+                <div>
+                  <button
+                    mat-mini-fab
+                    class="number-button text-white"
+                    disabled
+                    color="secondary"
+                  >
+                    3
+                  </button>
+                  <span class="bold-14 text-gray-90 ms-10">
+                    Submitted to FAA
+                  </span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-expansion-panel>
+
+        <a mat-list-item class="nav-item p-1">
+          <mat-icon matListItemIcon class="text-gray-50">history</mat-icon>
+          <span matListItemTitle class="bold-14 text-gray-50"> History </span>
+        </a>
+        <a mat-list-item class="nav-item p-1">
+          <mat-icon matListItemIcon class="text-gray-50">download</mat-icon>
+          <span matListItemTitle class="bold-14 text-gray-50"> Download </span>
+        </a>
+      </ng-container>
+    </mat-nav-list>
+  </div>
+  <div class="col-md-4 col-6 px-0">
+    <mat-card appearance="outlined" class="project-card">
+      <mat-card-content>
+        <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <span class="bold-12" matBadge="16" matBadgeOverlap="false">
+                Migrations
+              </span>
+            </ng-template>
+            <div class="filters">
+              <div class="mt-20">
+                <div>
+                  <button
+                    *ngFor="let filter of migrationFilters"
+                    mat-raised-button
+                    [color]="filter.isActive ? 'primary' : ''"
+                    [class.text-gray-60]="!filter.isActive"
+                    class="bold-10 me-10 mt-2"
+                    (click)="toggleFilter(filter, 'migration')"
+                  >
+                    {{ filter.label }}
+                  </button>
+                </div>
+              </div>
+              <div class="mitigation-objects mt-20">
+                <div class="table-responsive">
+                  <table mat-table [dataSource]="dataSource" matSort>
+                    <!-- Obstacle ID Column -->
+                    <ng-container matColumnDef="obstacleId">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        Obstacle ID
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-primary"
+                      >
+                        {{ element.obstacleId }}
+                      </td>
+                    </ng-container>
+                    <!-- Type Column -->
+                    <ng-container matColumnDef="type">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        Type
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-gray-50"
+                      >
+                        {{ element.type }}
+                      </td>
+                    </ng-container>
+                    <!-- AMSL Column -->
+                    <ng-container matColumnDef="amsl">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        AMSL (FT)
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-gray-50"
+                      >
+                        {{ element.amsl }}
+                      </td>
+                    </ng-container>
+                    <!-- Mitigation Action Column -->
+                    <ng-container matColumnDef="mitigationAction">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        Mitigation Action
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-gray-50"
+                      >
+                        {{ element.mitigationAction }}
+                      </td>
+                    </ng-container>
+                    <!-- Completion Date Column -->
+                    <ng-container matColumnDef="completionDate">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        Completion Date
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-gray-70"
+                      >
+                        {{ element.completionDate }}
+                      </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr
+                      mat-row
+                      *matRowDef="let row; columns: displayedColumns"
+                    ></tr>
+                  </table>
+                </div>
+                <!-- <mat-paginator
+                  [showFirstLastButtons]="'false'"
+                  [hidePageSize]="'true'"
+                  [pageSizeOptions]="[5, 10, 20]"
+                  [pageSize]="defaultPageSize"
+                  showFirstLastButtons
+                ></mat-paginator> -->
+              </div>
+            </div>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <span class="bold-12" matBadge="15" matBadgeOverlap="false">
+                Objects
+              </span>
+            </ng-template>
+            <div class="filters">
+              <div class="mt-20">
+                <div>
+                  <button
+                    *ngFor="let filter of objectFilters"
+                    mat-raised-button
+                    [color]="filter.isActive ? 'primary' : ''"
+                    [class.text-gray-60]="!filter.isActive"
+                    class="bold-10 me-10 mt-2"
+                    (click)="toggleFilter(filter, 'object')"
+                  >
+                    {{ filter.label }}
+                  </button>
+                </div>
+              </div>
+              <div class="mitigation-objects mt-20">
+                <div class="table-responsive">
+                  <table mat-table [dataSource]="dataSource" matSort>
+                    <!-- Obstacle ID Column -->
+                    <ng-container matColumnDef="obstacleId">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        Obstacle ID
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-primary"
+                      >
+                        {{ element.obstacleId }}
+                      </td>
+                    </ng-container>
+                    <!-- Type Column -->
+                    <ng-container matColumnDef="type">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        Type
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-gray-50"
+                      >
+                        {{ element.type }}
+                      </td>
+                    </ng-container>
+                    <!-- AMSL Column -->
+                    <ng-container matColumnDef="amsl">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        AMSL (FT)
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-gray-50"
+                      >
+                        {{ element.amsl }}
+                      </td>
+                    </ng-container>
+                    <!-- Mitigation Action Column -->
+                    <ng-container matColumnDef="mitigationAction">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        Mitigation Action
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-gray-50"
+                      >
+                        {{ element.mitigationAction }}
+                      </td>
+                    </ng-container>
+                    <!-- Completion Date Column -->
+                    <ng-container matColumnDef="completionDate">
+                      <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        class="bold-12 text-gray-70"
+                      >
+                        Completion Date
+                      </th>
+                      <td
+                        mat-cell
+                        *matCellDef="let element"
+                        class="bold-12 text-gray-70"
+                      >
+                        {{ element.completionDate }}
+                      </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr
+                      mat-row
+                      *matRowDef="let row; columns: displayedColumns"
+                    ></tr>
+                  </table>
+                </div>
+                <!-- <mat-paginator
+                  [showFirstLastButtons]="'false'"
+                  [hidePageSize]="'true'"
+                  [pageSizeOptions]="[5, 10, 20]"
+                  [pageSize]="defaultPageSize"
+                  showFirstLastButtons
+                ></mat-paginator> -->
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-md-4 col-12 px-0">
+    <div class="map-container-wrapper">
+      <mat-form-field appearance="outline" class="w-100 map-form-field">
+        <mat-label>Map</mat-label>
+        <mat-select>
+          <mat-option value="option">ESRI World Imagery</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="map-container mt-1 flex-grow-1">
+        <div class="d-flex justify-content-between p-2">
+          <div class="d-flex flex-column gap-2">
+            <button
+              mat-raised-button
+              aria-label="Example icon button with a delete icon"
+            >
+              <mat-icon class="m-0">add</mat-icon>
+            </button>
+            <button
+              mat-raised-button
+              aria-label="Example icon button with a delete icon"
+            >
+              <mat-icon class="m-0">remove</mat-icon>
+            </button>
+          </div>
+          <button
+            mat-raised-button
+            aria-label="Example icon button with a delete icon"
+          >
+            <mat-icon class="m-0">open_in_full</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

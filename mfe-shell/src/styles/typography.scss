@@ -1,0 +1,403 @@
+// ========================
+// Font Tokens & Utilities
+// ========================
+
+// black-8
+// bold-8
+// medium-8
+// regular-8
+// light-8
+// black-10
+// bold-10
+// medium-10
+// regular-10
+// light-10
+// black-12
+// bold-12
+// medium-12
+// regular-12
+// light-12
+// black-13
+// bold-13
+// medium-13
+// regular-13
+// light-13
+// black-14
+// bold-14
+// medium-14
+// regular-14
+// light-14
+// black-15
+// bold-15
+// medium-15
+// regular-15
+// light-15
+// black-16
+// bold-16
+// medium-16
+// regular-16
+// light-16
+// black-18
+// bold-18
+// medium-18
+// regular-18
+// light-18
+// black-20
+// bold-20
+// medium-20
+// regular-20
+// light-20
+// black-22
+// bold-22
+// medium-22
+// regular-22
+// light-22
+// black-24
+// bold-24
+// medium-24
+// regular-24
+// light-24
+// black-28
+// bold-28
+// medium-28
+// regular-28
+// light-28
+// black-32
+// bold-32
+// medium-32
+// regular-32
+// light-32
+// black-36
+// bold-36
+// medium-36
+// regular-36
+// light-36
+// black-40
+// bold-40
+// medium-40
+// regular-40
+// light-40
+// black-48
+// bold-48
+// medium-48
+// regular-48
+// light-48
+// black-56
+// bold-56
+// medium-56
+// regular-56
+// light-56
+// black-64
+// bold-64
+// medium-64
+// regular-64
+// light-64
+
+// ## Heading Utilities
+
+// h1-black
+// h1-bold
+// h1-medium
+// h1-regular
+// h1-light
+// h2-black
+// h2-bold
+// h2-medium
+// h2-regular
+// h2-light
+// h3-black
+// h3-bold
+// h3-medium
+// h3-regular
+// h3-light
+// h4-black
+// h4-bold
+// h4-medium
+// h4-regular
+// h4-light
+// h5-black
+// h5-bold
+// h5-medium
+// h5-regular
+// h5-light
+// h6-black
+// h6-bold
+// h6-medium
+// h6-regular
+// h6-light
+
+// ## Display Utilities
+
+// display-1-black
+// display-1-bold
+// display-1-medium
+// display-1-regular
+// display-1-light
+// display-2-black
+// display-2-bold
+// display-2-medium
+// display-2-regular
+// display-2-light
+// display-3-black
+// display-3-bold
+// display-3-medium
+// display-3-regular
+// display-3-light
+// display-4-black
+// display-4-bold
+// display-4-medium
+// display-4-regular
+// display-4-light
+// display-5-black
+// display-5-bold
+// display-5-medium
+// display-5-regular
+// display-5-light
+// display-6-black
+// display-6-bold
+// display-6-medium
+// display-6-regular
+// display-6-light
+
+// ## Semantic Utilities
+
+// paragraph
+// lead
+// blockquotes
+// list
+// numbered-list
+
+// Font weights map
+$font-weights: (
+  black: 900,
+  bold: 700,
+  medium: 500,
+  regular: 400,
+  light: 300,
+);
+
+// Font sizes map (size name → [font-size, line-height])
+
+$font-sizes: (
+  8: (
+    0.5rem,
+    1.25rem,
+  ),
+  // 8px
+  10:
+    (
+      0.625rem,
+      1.25rem,
+    ),
+  // 10px
+  12:
+    (
+      0.75rem,
+      1.25rem,
+    ),
+  // 12px
+  13:
+    (
+      0.8125rem,
+      1.5625rem,
+    ),
+  // 13px
+  14:
+    (
+      0.875rem,
+      1.875,
+    ),
+  // 14px
+  15:
+    (
+      0.9375rem,
+      1.875,
+    ),
+  // 15px
+  16:
+    (
+      1rem,
+      1.875,
+    ),
+  // 16px
+  18:
+    (
+      1.125rem,
+      1.875,
+    ),
+  // 18px
+  20:
+    (
+      1.25rem,
+      1.875,
+    ),
+  // 20px
+  22:
+    (
+      1.375rem,
+      1.875,
+    ),
+  // 22px
+  24:
+    (
+      1.5rem,
+      1.875,
+    ),
+  // 24px
+  28:
+    (
+      1.75rem,
+      3.125,
+    ),
+  // 28px
+  30:
+    (
+      1.875rem,
+      3.125,
+    ),
+  // 30px
+  32:
+    (
+      2rem,
+      3.125,
+    ),
+  // 32px
+  36:
+    (
+      2.25rem,
+      3.75,
+    ),
+  // 36px
+  40:
+    (
+      2.5rem,
+      3.75,
+    ),
+  // 40px
+  48:
+    (
+      3rem,
+      4.375,
+    ),
+  // 48px
+  56:
+    (
+      3.5rem,
+      4.375,
+    ),
+  // 56px
+  64:
+    (
+      4rem,
+      5.625,
+    )
+    // 64px,,,,,,
+);
+
+$heading-sizes: (
+  h1: 36,
+  h2: 30,
+  h3: 24,
+  h4: 22,
+  h5: 20,
+  h6: 18,
+);
+
+$display-sizes: (
+  1: 64,
+  2: 48,
+  3: 36,
+  4: 30,
+  5: 24,
+  6: 22,
+);
+
+// Mixin to apply font styles
+@mixin font-style($font-size, $line-height, $weight) {
+  font-size: $font-size !important;
+  line-height: $line-height !important;
+  font-weight: $weight !important;
+}
+
+// Generate font utility classes
+@each $size-name, $props in $font-sizes {
+  $font-size: nth($props, 1);
+  $line-height: nth($props, 2);
+
+  @each $weight-name, $weight-value in $font-weights {
+    .#{$weight-name}-#{$size-name} {
+      @include font-style($font-size, $line-height, $weight-value);
+    }
+  }
+}
+
+@mixin heading-style($level, $weight-name) {
+  $size: map-get($heading-sizes, $level);
+  $font: map-get($font-sizes, $size);
+
+  $font-size: nth($font, 1);
+  $line-height: nth($font, 2);
+  $font-weight: map-get($font-weights, $weight-name);
+
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+@each $level, $size in $heading-sizes {
+  @each $weight-name, $weight-value in $font-weights {
+    .#{$level}-#{$weight-name} {
+      @include heading-style($level, $weight-name);
+    }
+  }
+}
+
+@mixin display-style($level, $weight-name) {
+  $size: map-get($display-sizes, $level);
+  $font: map-get($font-sizes, $size);
+  $font-size: nth($font, 1);
+  $line-height: nth($font, 2);
+  $font-weight: map-get($font-weights, $weight-name);
+
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+@each $level, $size in $display-sizes {
+  @each $weight-name, $weight-value in $font-weights {
+    .display-#{$level}-#{$weight-name} {
+      @include display-style($level, $weight-name);
+    }
+  }
+}
+
+@mixin font-style-v2($size, $weight-name) {
+  $font: map-get($font-sizes, $size);
+  $font-size: nth($font, 1);
+  $line-height: nth($font, 2);
+  $weight-value: map-get($font-weights, $weight-name);
+
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $weight-value;
+}
+.paragraph {
+  @include font-style-v2(14, medium);
+}
+
+.lead {
+  @include font-style-v2(16, bold);
+}
+
+.blockquotes {
+  @include font-style-v2(16, bold);
+}
+
+.list {
+  @include font-style-v2(14, medium);
+}
+
+.numbered-list {
+  @include font-style-v2(14, medium);
+}

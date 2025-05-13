@@ -7,23 +7,27 @@
         class="logo-image"
       />
       <div class="">
-        <h4 class="logo-text mb-1 text-truncate text-center">ADIP</h4>
-        <p class="tagline mb-0 text-center">
+        <h4 class="logo-text text-gray-50 mb-1 text-truncate text-center">
+          ADIP
+        </h4>
+        <p class="mb-0 text-center bold-8 text-gray-50">
           Airport Data and Information Portal
         </p>
       </div>
     </div>
 
     <nav class="main-nav d-flex align-items-center">
-      <a mat-button class="nav-item" routerLink="/home">Portal Home</a>
-      <a mat-button class="nav-item" routerLink="/dashboard"
+      <a mat-button class="bold-13 text-gray-60" routerLink="/home"
+        >Portal Home</a
+      >
+      <a mat-button class="bold-13 text-gray-60" routerLink="/dashboard"
         >Facility Dashboard</a
       >
-      <a mat-button class="nav-item" routerLink="/checklist"
+      <a mat-button class="bold-13 text-gray-60" routerLink="/checklist"
         >GA Airport Checklist</a
       >
-      <a mat-button class="nav-item" routerLink="/admin">Admin</a>
-      <a mat-button class="nav-item">
+      <a mat-button class="bold-13 text-gray-60" routerLink="/admin">Admin</a>
+      <a mat-button class="bold-13 text-gray-60">
         <mat-icon color="secondary" [matMenuTriggerFor]="moreMenu"
           >more_horiz</mat-icon
         ></a
@@ -55,14 +59,15 @@
       <button
         color="secondary"
         mat-fab
-        [matBadge]="4"
+        [matBadge]="45"
         matBadgeColor="primary"
         class="me-4"
       >
-        <mat-icon color="primary">notifications</mat-icon>
+        <mat-icon class="text-gray-70">notifications</mat-icon>
       </button>
 
       <button mat-fab color="primary" [matMenuTriggerFor]="userMenu">SA</button>
+      <span class="text-gray-50 bold-13 ms-2">Stephane Azevedo</span>
 
       <mat-menu #userMenu="matMenu">
         <button mat-menu-item>

@@ -1,124 +1,179 @@
-<div class="sidebar">
-  <button mat-mini-fab color="secondary" class="mb-40">
-    <mat-icon>menu</mat-icon>
+<div class="sidebar" [class.minimized]="isMinimized">
+  <button
+    mat-mini-fab
+    color="text-gray-70"
+    class="mb-40"
+    (click)="toggleSidebar()"
+  >
+    <mat-icon class="text-gray-70">{{
+      isMinimized ? "menu" : "menu_open"
+    }}</mat-icon>
   </button>
 
-  <mat-form-field appearance="outline" class="custom-search-field fs-12 mb-40">
-    <mat-icon matPrefix>flight</mat-icon>
-    <input matInput class="fs-12" placeholder="Facility Name or LOC ID" />
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
+  <div class="sidebar-content" *ngIf="!isMinimized">
+    <h3 class="bold-12 mb-3 text-gray-70">Facility Search</h3>
 
-  <mat-nav-list
-    class="nav-section mb-40 cursor-pointer"
-    routerLink="/dashboard"
-  >
-    <div class="d-flex justify-content-between">
-      <div class="d-flex align-items-center gap-3">
-        <mat-icon class="me-2">dashboard</mat-icon>
-        <span>Dashboard</span>
-      </div>
-      <div class="d-flex align-items-center gap-3">
-        <span class="ms-2 badge bg-primary">3</span>
-        <mat-icon matSuffix
-          ><span class="material-symbols-outlined">
-            keyboard_arrow_down
-          </span></mat-icon
+    <mat-form-field class="custom-search-field mb-20">
+      <mat-icon matPrefix class="text-gray-80">flight</mat-icon>
+      <input
+        matInput
+        class="text-gray-70 bold-12"
+        placeholder="Facility Name or LOC ID"
+      />
+      <mat-icon matSuffix class="text-gray-80">search</mat-icon>
+    </mat-form-field>
+
+    <mat-nav-list class="nav-items">
+      <ng-container *ngFor="let item of navItems">
+        <!-- Item without children -->
+        <a
+          mat-list-item
+          class="nav-item"
+          *ngIf="!item.children"
+          [routerLink]="item.route"
+          routerLinkActive="bg-primary"
+          [routerLinkActiveOptions]="{ exact: true }"
         >
-      </div>
-    </div>
-  </mat-nav-list>
+          <mat-icon
+            matListItemIcon
+            [ngClass]="isRouteActive(item) ? 'text-white' : 'text-gray-70'"
+            >{{ item.icon }}</mat-icon
+          >
+          <span
+            matListItemTitle
+            class="bold-13"
+            [ngClass]="isRouteActive(item) ? 'text-white' : 'text-gray-70'"
+          >
+            {{ item.label }}</span
+          >
+        </a>
 
-  <mat-card appearance="outlined" class="favorites-section mb-4">
-    <mat-card-content>
-      <div class="">
-        <div class="d-flex gap-3 align-items-center">
-          <mat-icon class="search-icon">star</mat-icon>
-          <h3 class="section-title mb-0">Favourite Apps</h3>
-        </div>
-
-        <mat-card appearance="outlined" class="favorite-items-section">
-          <mat-card-content>
-            <div
-              class="d-flex align-items-center justify-content-between cursor-pointer mb-12"
-              routerLink="/adm"
-            >
-              <div class="d-flex align-items-center">
-                <mat-icon matListItemIcon class="">business</mat-icon>
-                <span matListItemTitle class="ms-12">ADM</span>
-              </div>
-
-              <mat-icon matListItemIcon class="fs-13 fw-bold"
-                >arrow_forward_ios</mat-icon
+        <!-- Item with submenu -->
+        <mat-expansion-panel
+          *ngIf="item.children"
+          [expanded]="isRouteActive(item)"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon matListItemIcon class="text-gray-70 me-20">{{
+                item.icon
+              }}</mat-icon>
+              <span matListItemTitle class="bold-13 text-gray-70">
+                {{ item.label }}</span
               >
-            </div>
-            <div
-              class="d-flex align-items-center justify-content-between cursor-pointer mb-12"
-              routerLink="/ram"
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <a
+            mat-list-item
+            *ngFor="let subItem of item.children"
+            [routerLink]="subItem.route"
+            routerLinkActive="bg-primary"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <mat-icon
+              matListItemIcon
+              [ngClass]="isRouteActive(subItem) ? 'text-white' : 'text-gray-70'"
+              >{{ subItem.icon }}</mat-icon
             >
-              <div class="d-flex align-items-center">
-                <mat-icon matListItemIcon>sync</mat-icon>
-                <span matListItemTitle class="ms-12">RAM</span>
-              </div>
-
-              <mat-icon matListItemIcon class="fs-13 fw-bold"
-                >arrow_forward_ios</mat-icon
-              >
-            </div>
-            <div
-              class="d-flex align-items-center justify-content-between cursor-pointer mb-12"
-              routerLink="/agis"
+            <span
+              matListItemTitle
+              class="medium-13"
+              [ngClass]="isRouteActive(subItem) ? 'text-white' : 'text-gray-70'"
             >
-              <div class="d-flex align-items-center">
-                <mat-icon matListItemIcon>assignment</mat-icon>
-                <span matListItemTitle class="ms-12">RSA</span>
-              </div>
-
-              <mat-icon matListItemIcon class="fs-13 fw-bold"
-                >arrow_forward_ios</mat-icon
-              >
-            </div>
-            <div
-              class="d-flex align-items-center justify-content-between cursor-pointer"
-              routerLink="/rim"
+              {{ subItem.label }}</span
             >
-              <div class="d-flex align-items-center">
-                <mat-icon matListItemIcon>edit</mat-icon>
-                <span matListItemTitle class="ms-12">RIM</span>
-              </div>
+          </a>
+        </mat-expansion-panel>
+      </ng-container>
+    </mat-nav-list>
 
-              <mat-icon matListItemIcon class="fs-13 fw-bold"
-                >arrow_forward_ios</mat-icon
-              >
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div></mat-card-content
-    >
-  </mat-card>
-
-  <div class="all-apps-section mb-4">
-    <button mat-stroked-button class="w-100">
-      <mat-icon>apps</mat-icon>
-      <span class="ms-2 fs-13 fw-bold">All Applications</span>
-    </button>
+    <h3 class="black-12 mb-3 text-gray-70 mb-3">Resources</h3>
+    <mat-nav-list class="nav-items">
+      <ng-container *ngFor="let item of resources">
+        <a
+          mat-list-item
+          class="nav-item"
+          [routerLink]="item.route"
+          routerLinkActive="bg-primary"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <mat-icon
+            matListItemIcon
+            [ngClass]="isRouteActive(item) ? 'text-white' : 'text-gray-70'"
+            >{{ item.icon }}</mat-icon
+          >
+          <span
+            matListItemTitle
+            class="bold-13"
+            [ngClass]="isRouteActive(item) ? 'text-white' : 'text-gray-70'"
+          >
+            {{ item.label }}</span
+          >
+        </a>
+      </ng-container>
+    </mat-nav-list>
   </div>
 
-  <div class="resources-section">
-    <h3 class="section-title mb-3">Resources</h3>
-    <mat-nav-list class="resource-items">
-      <a mat-list-item class="resource-item">
-        <mat-icon matListItemIcon>help</mat-icon>
-        <span matListItemTitle>Help Desk</span>
-      </a>
-      <a mat-list-item class="resource-item">
-        <mat-icon matListItemIcon>description</mat-icon>
-        <span matListItemTitle>Documents & Downloads</span>
-      </a>
-      <a mat-list-item class="resource-item">
-        <mat-icon matListItemIcon>menu_book</mat-icon>
-        <span matListItemTitle>Users Guides</span>
-      </a>
+  <!-- Minimized view showing only icons -->
+  <div class="minimized-nav" *ngIf="isMinimized">
+    <mat-nav-list class="nav-items">
+      <ng-container *ngFor="let item of navItems">
+        <!-- Item without children -->
+        <a
+          mat-list-item
+          class="nav-item"
+          *ngIf="!item.children"
+          [routerLink]="item.route"
+          routerLinkActive="bg-primary"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [matTooltip]="item.label"
+        >
+          <mat-icon
+            matListItemIcon
+            class="me-0"
+            [ngClass]="isRouteActive(item) ? 'text-white' : 'text-gray-70'"
+            >{{ item.icon }}</mat-icon
+          >
+        </a>
+
+        <!-- Item with children -->
+        <a
+          mat-list-item
+          class="nav-item"
+          *ngIf="item.children"
+          [routerLink]="item.children[0].route"
+          [ngClass]="isRouteActive(item) ? 'bg-primary' : ''"
+          [matTooltip]="item.label"
+        >
+          <mat-icon
+            matListItemIcon
+            [ngClass]="isRouteActive(item) ? 'text-white' : 'text-gray-70'"
+            >{{ item.icon }}</mat-icon
+          >
+        </a>
+      </ng-container>
+    </mat-nav-list>
+
+    <mat-nav-list class="nav-items">
+      <ng-container *ngFor="let item of resources">
+        <!-- Item without children -->
+        <a
+          mat-list-item
+          class="nav-item"
+          [routerLink]="item.route"
+          routerLinkActive="bg-primary"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [matTooltip]="item.label"
+        >
+          <mat-icon
+            matListItemIcon
+            class="me-0"
+            [ngClass]="isRouteActive(item) ? 'text-white' : 'text-gray-70'"
+            >{{ item.icon }}</mat-icon
+          >
+        </a>
+      </ng-container>
     </mat-nav-list>
   </div>
 </div>

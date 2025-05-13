@@ -1,7 +1,11 @@
-import { Routes } from '@angular/router';
-import { TodoListModule } from './todo-list/todo-list.module';
+import { Routes } from "@angular/router";
+import { ProjectListComponent } from "./pages/project-list/project-list.component";
 
 export const routes: Routes = [
-    { path: '', component: TodoListModule },
-    { path: 'home', component: TodoListModule },
+  { path: "", component: ProjectListComponent },
+  {
+    path: "ram",
+    loadChildren: () =>
+      import("./modules/ram/ram.module").then((m) => m.RamModule),
+  },
 ];

@@ -87,9 +87,9 @@ export const routes: Routes = [
       loadRemoteModule({
         remoteEntry: MFE_APP_RAM_URL,
         remoteName: "ramApp",
-        exposedModule: "./TodoListModule",
+        exposedModule: "./RamModule",
       })
-        .then((m) => m.TodoListModule)
+        .then((m) => m.RamModule)
         .catch((err) => console.error("Error loading ram App", err)),
   },
 
