@@ -52,6 +52,28 @@ export class SidebarComponent {
   navItems = [
     { label: "Dashboard", route: "/dashboard", icon: "dashboard" },
     {
+      label: "RAM",
+      icon: "sync",
+      children: [
+        { label: "My Projects", route: "/ram/projects", icon: "dashboard" },
+        {
+          label: "Create New Project",
+          route: "/ram/create-project",
+          icon: "dashboard",
+        },
+        {
+          label: "Airport Project History",
+          route: "/ram/airport-project-history",
+          icon: "dashboard",
+        },
+        {
+          label: "Update Wildlife Survey",
+          route: "/ram/update-wildlife-survey",
+          icon: "dashboard",
+        },
+      ],
+    },
+    {
       label: "ADM",
       icon: "business",
       children: [
@@ -78,28 +100,7 @@ export class SidebarComponent {
         },
       ],
     },
-    {
-      label: "RAM",
-      icon: "sync",
-      children: [
-        { label: "My Projects", route: "/ram/projects", icon: "dashboard" },
-        {
-          label: "Create New Project",
-          route: "/ram/create-project",
-          icon: "dashboard",
-        },
-        {
-          label: "Airport Project History",
-          route: "/ram/airport-project-history",
-          icon: "dashboard",
-        },
-        {
-          label: "Update Wildlife Survey",
-          route: "/ram/update-wildlife-survey",
-          icon: "dashboard",
-        },
-      ],
-    },
+
     {
       label: "RSA",
       icon: "assignment",

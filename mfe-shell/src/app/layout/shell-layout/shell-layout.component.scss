@@ -18,12 +18,12 @@
 }
 
 .shell-sidebar {
-  width: 360px;
+  width: 330px;
   transition: width 0.3s ease;
   margin-top: 100px;
 
   &.mat-drawer-side {
-    width: 360px;
+    width: 330px;
   }
 
   &.mat-drawer-side.minimized {
@@ -34,7 +34,7 @@
 .shell-main {
   padding: 20px;
   transition: margin-left 0.3s ease;
-  margin-left: 360px !important;
+  margin-left: 330px !important;
 
   .mat-drawer-side.minimized ~ & {
     margin-left: 80px !important;

@@ -325,6 +325,19 @@ body {
   cursor: pointer !important;
 }
 
+.dialog-header {
+  padding: 20px 25px;
+  border-bottom: 2px solid var(--gray-94, #ebecf0);
+  background: var(--gray-98, #f7f8fa);
+}
+
+.mat-mdc-input-element {
+  &::placeholder {
+    color: var(--gray-80, #adb8cc) !important;
+    opacity: 1;
+  }
+}
+
 // .mat-mdc-form-field {
 //   line-height: 45px; // Match the height
 

@@ -5,13 +5,14 @@
       mat-raised-button
       color="primary"
       class="create-project-button bold-12"
-      routerLink="/ram/create-project"
+      (click)="openCreateProjectDialog()"
     >
       <mat-icon matPrefix class="text-white">add_circle</mat-icon>
       Create RAM Project
     </button>
   </mat-card-content>
 </mat-card>
+
 <div class="mb-40">
   <mat-card appearance="outlined" class="project-card mt-30">
     <mat-card-content>
@@ -23,47 +24,34 @@
         </div>
       </div>
       <div class="row mt-20">
-        <div class="col-md-6 col-12">
-          <button
-            mat-raised-button
-            color=""
-            class="bold-12 text-gray-60 me-10 mt-1"
-          >
-            All
-          </button>
-          <button mat-raised-button color="primary" class="bold-12 me-10 mt-1">
-            Active
-          </button>
-          <button
-            mat-raised-button
-            color=""
-            class="bold-12 text-gray-60 me-10 mt-1"
-          >
-            Completed
-          </button>
-          <button
-            mat-raised-button
-            color=""
-            class="bold-12 text-gray-60 me-10 mt-1"
-          >
-            Partial Completed
-          </button>
-          <button
-            mat-raised-button
-            color=""
-            class="bold-12 text-gray-60 me-10 mt-1"
-          >
-            Terminated
-          </button>
+        <div class="col-md-6 col-12 filter-buttons">
+          <mat-chip-set>
+            <mat-chip
+              *ngFor="let button of filterButtons"
+              color="primary"
+              [class.selected-chip]="selectedFilterStatus === button.value"
+              class="bold-12 cursor-pointer badge"
+              (click)="onFilterStatusChange(button.value)"
+            >
+              {{ button.label }}
+              <mat-icon
+                *ngIf="selectedFilterStatus === button.value"
+                class="ms-1 fs-20"
+                >check</mat-icon
+              >
+            </mat-chip>
+          </mat-chip-set>
         </div>
         <div class="col-md-6 col-12 d-flex justify-content-end fs-1">
           <mat-form-field appearance="outline">
             <mat-select
+              class="bold-12 text-gray-60"
               placeholder="Filter By"
               [(ngModel)]="selectedFilter"
               (ngModelChange)="onFilterByChange()"
             >
               <mat-option
+                class="regular-12"
                 *ngFor="let option of filterOptions"
                 [value]="option.value"
               >
@@ -75,7 +63,10 @@
               <strong>Field</strong>
             </mat-label> -->
           </mat-form-field>
-          <mat-form-field appearance="outline" class="custom-height-form-field">
+          <mat-form-field
+            appearance="outline"
+            class="custom-height-form-field bold-12 text-gray-60"
+          >
             <input
               matInput
               placeholder="Filter Text"
@@ -115,7 +106,7 @@
             mat-raised-button
             color="primary"
             [disabled]="!filterText"
-            class="bold-12 ms-2"
+            class="bold-12 ms-2 text-nowrap"
           >
             Apply Filter
           </button>
@@ -143,7 +134,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-primary"
+                  class="bold-12 text-primary text-nowrap"
                 >
                   {{ element.ramId }}
                 </td>
@@ -162,7 +153,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   {{ element.facilityId }}
                 </td>
@@ -181,7 +172,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   {{ element.facilityName }}
                 </td>
@@ -200,7 +191,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   {{ element.state }}
                 </td>
@@ -219,7 +210,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   {{ element.type }}
                 </td>
@@ -238,7 +229,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   {{ element.totalObjects }}
                 </td>
@@ -257,7 +248,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   {{ element.createdBy }}
                 </td>
@@ -276,7 +267,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   {{ element.createdOn }}
                 </td>
@@ -295,7 +286,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   {{ element.lastUpdatedBy }}
                 </td>
@@ -314,7 +305,7 @@
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   {{ element.lastModified }}
                 </td>
@@ -326,14 +317,14 @@
                   mat-header-cell
                   *matHeaderCellDef
                   mat-sort-header
-                  class="bold-12 text-gray-70"
+                  class="bold-12 text-gray-70 text-nowrap"
                 >
                   Workflow Status
                 </th>
                 <td
                   mat-cell
                   *matCellDef="let element"
-                  class="bold-12 text-gray-50"
+                  class="regular-12 text-gray-50"
                 >
                   <button mat-stroked-button class="bold-12 text-gray-60">
                     {{ element.workflowStatus }}
@@ -350,6 +341,7 @@
     </mat-card-content>
   </mat-card>
   <mat-paginator
+    class="medium-12 text-gray-60"
     [pageSizeOptions]="[5, 10, 25, 100]"
     aria-label="Select page of projects"
   ></mat-paginator>

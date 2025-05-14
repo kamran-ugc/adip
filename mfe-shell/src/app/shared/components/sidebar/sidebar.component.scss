@@ -39,6 +39,20 @@
     .mat-expansion-panel-header {
       padding: 1rem !important;
     }
+    .sidebar-expansion-panel {
+      .mat-expansion-panel-body {
+        margin: 0px 24px 16px;
+        background: var(--gray-90, #f6f6f6);
+        padding: 10px;
+        gap: 5px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        .mat-mdc-list-item {
+          // background: var(--gray-90, #f6f6f6);
+        }
+      }
+    }
     .minimized-nav {
       .mdc-list-item__content {
         display: none;

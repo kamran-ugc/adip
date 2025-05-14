@@ -10,13 +10,18 @@
 }
 
 .header {
-  background-image: url("/assets/images/dashboard_Banner.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  // border-radius: 16px;
-  overflow: hidden;
-  object-fit: cover;
+  background: linear-gradient(
+    to bottom,
+    #39539d 0%,
+    #344879 20%,
+    #2e3d66 40%,
+    #28355b 60%,
+    #232f52 80%,
+    #1e2849 100%
+  );
+  background-blend-mode: multiply;
+
+  border-radius: 8px;
 }
 
 .inner-content {

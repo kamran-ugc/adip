@@ -180,7 +180,7 @@ html {
   --mdc-outlined-text-field-label-text-color: rgba(0, 0, 0, 0.6);
   --mdc-outlined-text-field-hover-label-text-color: rgba(0, 0, 0, 0.6);
   --mdc-outlined-text-field-disabled-label-text-color: rgba(0, 0, 0, 0.38);
-  --mdc-outlined-text-field-input-text-color: rgba(0, 0, 0, 0.87);
+  --mdc-outlined-text-field-input-text-color: var(--gray-60)
   --mdc-outlined-text-field-disabled-input-text-color: rgba(0, 0, 0, 0.38);
   --mdc-outlined-text-field-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
   --mdc-outlined-text-field-error-caret-color: #f44336;

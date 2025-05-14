@@ -11,6 +11,11 @@ import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
 import { MatSort, MatSortModule } from "@angular/material/sort";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { CreateRamProjectDialogComponent } from "../../shared/components/create-ram-project-dialog/create-ram-project-dialog.component";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatChipsModule } from "@angular/material/chips";
+
 interface RamProject {
   ramId: string;
   facilityId: string;
@@ -41,6 +46,9 @@ interface RamProject {
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatChipsModule,
   ],
   templateUrl: "./project-list.component.html",
   styleUrl: "./project-list.component.scss",
@@ -52,6 +60,15 @@ export class ProjectListComponent {
   dataSource: MatTableDataSource<RamProject>;
   selectedFilter = "ramId";
   filterText = "";
+  selectedFilterStatus = "all";
+
+  filterButtons = [
+    { label: "All", value: "all" },
+    { label: "Active", value: "active" },
+    { label: "Completed", value: "completed" },
+    { label: "Partial Completed", value: "partial" },
+    { label: "Terminated", value: "terminated" },
+  ];
 
   filterOptions = [
     { value: "ramId", viewValue: "RAM ID" },
@@ -81,7 +98,7 @@ export class ProjectListComponent {
     "workflowStatus",
   ];
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
     this.dataSource = new MatTableDataSource(this.data);
   }
 
@@ -266,5 +283,25 @@ export class ProjectListComponent {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  openCreateProjectDialog(): void {
+    const dialogRef = this.dialog.open(CreateRamProjectDialogComponent, {
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // Handle the new project data here
+        console.log("New project data:", result);
+        // You can add the new project to your data source here
+      }
+    });
+  }
+
+  onFilterStatusChange(status: string) {
+    this.selectedFilterStatus = status;
+    console.log("Filter status changed to:", status);
+    // You can update your dataSource.filter here based on the status
   }
 }

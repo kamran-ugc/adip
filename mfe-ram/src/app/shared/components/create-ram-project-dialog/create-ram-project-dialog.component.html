@@ -1,0 +1,99 @@
+<div class="d-flex justify-content-between dialog-header align-items-center">
+  <mat-icon matPrefix class="text-gray-70">flight</mat-icon>
+  <h2 class="text-gray-50 medium-18 mb-0">RAM Facility Selection</h2>
+  <mat-icon matPrefix class="text-gray-70" mat-dialog-close>close</mat-icon>
+</div>
+
+<mat-dialog-content class="mat-typography facilities-container">
+  <h3 class="bold-14 text-gray-50">Favorite Facilities</h3>
+  <div class="favorite-facilities-pills mb-2">
+    <mat-chip-set>
+      <mat-chip
+        *ngFor="let facility of favoriteFacilities"
+        color="primary"
+        selected
+        class="favorite-chip cursor-pointer"
+        (click)="selectFacilityFromFavorite(facility)"
+      >
+        <mat-icon class="regular-14">flight</mat-icon>
+        <span class="regular-10"
+          >{{ facility.code }} | {{ facility.name }}</span
+        >
+      </mat-chip>
+    </mat-chip-set>
+  </div>
+  <mat-divider class="my-4"></mat-divider>
+  <h3 class="bold-14 text-gray-50">Search Facility</h3>
+  <mat-form-field appearance="outline" class="w-100">
+    <input
+      matInput
+      class="regular-12"
+      placeholder="Facility Name or LOC ID"
+      [(ngModel)]="facilitySearch"
+      [matAutocomplete]="auto"
+      (ngModelChange)="onSearchChange($event)"
+    />
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      panelClass="autocomplete-inside-dialog"
+      (optionSelected)="selectFacility($event.option.value)"
+    >
+      <ng-container *ngIf="facilitySearch">
+        <mat-option
+          class="facility-option"
+          *ngFor="let facility of filteredFacilities"
+          [value]="facility"
+        >
+          <span
+            [innerHTML]="
+              highlightMatch(
+                facility.id +
+                  ' - ' +
+                  facility.name +
+                  (facility.code ? ' ' + facility.code : '')
+              )
+            "
+          ></span>
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-card appearance="outlined" class="mt-32 d-none">
+    <mat-card-content>
+      <h3 class="bold-14 text-gray-50">Search Facility</h3>
+      <mat-form-field appearance="outline" class="w-100">
+        <input
+          matInput
+          class="regular-12"
+          placeholder="Facility Name or LOC ID"
+          [(ngModel)]="facilitySearch"
+          [matAutocomplete]="auto"
+          (ngModelChange)="onSearchChange($event)"
+        />
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          panelClass="autocomplete-inside-dialog"
+          (optionSelected)="selectFacility($event.option.value)"
+        >
+          <ng-container *ngIf="facilitySearch">
+            <mat-option
+              *ngFor="let facility of filteredFacilities"
+              [value]="facility"
+            >
+              <span
+                [innerHTML]="
+                  highlightMatch(
+                    facility.id +
+                      ' - ' +
+                      facility.name +
+                      (facility.code ? ' ' + facility.code : '')
+                  )
+                "
+              ></span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>

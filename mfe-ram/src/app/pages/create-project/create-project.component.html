@@ -126,9 +126,8 @@
         <mat-tab-group>
           <mat-tab>
             <ng-template mat-tab-label>
-              <span class="bold-12" matBadge="16" matBadgeOverlap="false">
-                Migrations
-              </span>
+              <span class="bold-14"> Migrations </span>
+              <mat-chip class="text-white bg-primary ms-1">78</mat-chip>
             </ng-template>
             <div class="filters">
               <div class="mt-20">
@@ -179,7 +178,7 @@
                       <td
                         mat-cell
                         *matCellDef="let element"
-                        class="bold-12 text-gray-50"
+                        class="regular-12 text-gray-50"
                       >
                         {{ element.type }}
                       </td>
@@ -197,7 +196,7 @@
                       <td
                         mat-cell
                         *matCellDef="let element"
-                        class="bold-12 text-gray-50"
+                        class="regular-12 text-gray-50"
                       >
                         {{ element.amsl }}
                       </td>
@@ -215,7 +214,7 @@
                       <td
                         mat-cell
                         *matCellDef="let element"
-                        class="bold-12 text-gray-50"
+                        class="regular-12 text-gray-50"
                       >
                         {{ element.mitigationAction }}
                       </td>
@@ -258,8 +257,9 @@
 
           <mat-tab>
             <ng-template mat-tab-label>
-              <span class="bold-12" matBadge="15" matBadgeOverlap="false">
+              <span class="bold-14">
                 Objects
+                <mat-chip class="text-white bg-primary ms-1">78</mat-chip>
               </span>
             </ng-template>
             <div class="filters">
@@ -311,7 +311,7 @@
                       <td
                         mat-cell
                         *matCellDef="let element"
-                        class="bold-12 text-gray-50"
+                        class="regular-12 text-gray-50"
                       >
                         {{ element.type }}
                       </td>
@@ -329,7 +329,7 @@
                       <td
                         mat-cell
                         *matCellDef="let element"
-                        class="bold-12 text-gray-50"
+                        class="regular-12 text-gray-50"
                       >
                         {{ element.amsl }}
                       </td>
@@ -347,7 +347,7 @@
                       <td
                         mat-cell
                         *matCellDef="let element"
-                        class="bold-12 text-gray-50"
+                        class="regular-12 text-gray-50"
                       >
                         {{ element.mitigationAction }}
                       </td>
