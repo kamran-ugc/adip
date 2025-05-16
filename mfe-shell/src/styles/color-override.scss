@@ -1008,3 +1008,27 @@ html {
   --mat-tree-container-background-color: white;
   --mat-tree-node-text-color: rgba(0, 0, 0, 0.87);
 }
+
+/* Remove background from paginator row */
+.mat-mdc-paginator {
+  --mat-paginator-container-background-color: transparent;
+}
+
+/* Fix letter spacing in Material buttons */
+.mdc-button__label {
+  letter-spacing: normal !important;
+}
+
+/* Style menu items in dropdown menus */
+.mat-mdc-menu-item {
+  .mat-mdc-menu-item-text {
+    color: var(--gray-70, #8c99b3) !important;
+    font-size: 0.75rem !important; /* 12px */
+    font-weight: 400 !important;
+  }
+  
+  .mat-icon {
+    color: var(--gray-70, #8c99b3) !important;
+    margin-right: 8px !important;
+  }
+}

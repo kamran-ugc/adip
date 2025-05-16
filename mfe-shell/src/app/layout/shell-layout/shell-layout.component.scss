@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .shell-header {
@@ -15,26 +16,33 @@
 .shell-container {
   flex: 1;
   margin-top: 100px; // Height of the toolbar
+  overflow-x: hidden; // Prevent horizontal scrolling
 }
 
 .shell-sidebar {
-  width: 330px;
+  width: var(--sidebar-width, 330px);
   transition: width 0.3s ease;
   margin-top: 100px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 
   &.mat-drawer-side {
-    width: 330px;
+    width: var(--sidebar-width, 330px);
+    min-width: 80px;
   }
 
   &.mat-drawer-side.minimized {
-    width: 80px;
+    width: 80px !important;
+    min-width: 80px;
+    max-width: 80px;
   }
 }
 
 .shell-main {
   padding: 20px;
   transition: margin-left 0.3s ease;
-  margin-left: 330px !important;
+  margin-left: var(--sidebar-width, 330px) !important;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 
   .mat-drawer-side.minimized ~ & {
     margin-left: 80px !important;

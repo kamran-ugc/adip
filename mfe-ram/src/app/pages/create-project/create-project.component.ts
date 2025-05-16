@@ -61,7 +61,7 @@ export class CreateProjectComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  migrationFilters: FilterButton[] = [
+  mitigationFilters: FilterButton[] = [
     { label: "Bridge", isActive: false },
     { label: "Completed", isActive: true },
     { label: "Building", isActive: false },
@@ -79,7 +79,7 @@ export class CreateProjectComponent implements AfterViewInit {
 
   toggleFilter(filter: FilterButton, filterType: "migration" | "object"): void {
     const filterArray =
-      filterType === "migration" ? this.migrationFilters : this.objectFilters;
+      filterType === "migration" ? this.mitigationFilters : this.objectFilters;
     filterArray.forEach((f) => (f.isActive = f === filter));
   }
 

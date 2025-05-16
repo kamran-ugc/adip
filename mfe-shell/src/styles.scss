@@ -1,2 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+:root {
+  --sidebar-width: 330px;
+}
+
+body {
+  &.sidebar-resizing {
+    cursor: ew-resize;
+    user-select: none;
+    
+    * {
+      pointer-events: none;
+    }
+  }
+}

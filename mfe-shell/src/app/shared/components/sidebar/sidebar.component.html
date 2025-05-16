@@ -1,4 +1,5 @@
-<div class="sidebar" [class.minimized]="isMinimized">
+<div class="sidebar" [class.minimized]="isMinimized" #sidebarElement>
+  <div class="resize-handle" (mousedown)="startResize($event)"></div>
   <button
     mat-mini-fab
     color="text-gray-70"
@@ -13,15 +14,17 @@
   <div class="sidebar-content" *ngIf="!isMinimized">
     <h3 class="bold-12 mb-3 text-gray-70">Facility Search</h3>
 
-    <mat-form-field class="custom-search-field mb-20">
-      <mat-icon matPrefix class="text-gray-80">flight</mat-icon>
-      <input
-        matInput
-        class="text-gray-70 bold-12"
-        placeholder="Facility Name or LOC ID"
-      />
-      <mat-icon matSuffix class="text-gray-80">search</mat-icon>
-    </mat-form-field>
+    <div class="search-container">
+      <mat-form-field class="custom-search-field mb-20" appearance="outline">
+        <mat-icon matPrefix class="text-gray-80">flight</mat-icon>
+        <input
+          matInput
+          class="text-gray-70 regular-12"
+          placeholder="Facility Name or LOC ID"
+        />
+        <mat-icon matSuffix class="text-gray-80">search</mat-icon>
+      </mat-form-field>
+    </div>
 
     <mat-nav-list class="nav-items d-flex flex-column gap-3">
       <ng-container *ngFor="let item of navItems">
@@ -52,14 +55,17 @@
         <mat-expansion-panel
           class="sidebar-expansion-panel"
           *ngIf="item.children"
-          [expanded]="isRouteActive(item)"
+          [expanded]="expandedItem === item.label || (isRouteActive(item) && !expandedItem)"
+          (opened)="onPanelOpened(item.label)"
+          (closed)="onPanelClosed(item.label)"
+          [attr.data-panel-label]="item.label"
         >
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <mat-icon matListItemIcon class="text-gray-70 me-20">{{
+              <mat-icon matListItemIcon [ngClass]="isRouteActive(item) || expandedItem === item.label ? 'text-primary' : 'text-gray-70'" class="me-20">{{
                 item.icon
               }}</mat-icon>
-              <span matListItemTitle class="bold-13 text-gray-70">
+              <span matListItemTitle class="bold-13" [ngClass]="isRouteActive(item) || expandedItem === item.label ? 'text-primary' : 'text-gray-70'">
                 {{ item.label }}</span
               >
             </mat-panel-title>
@@ -144,12 +150,12 @@
           class="nav-item"
           *ngIf="item.children"
           [routerLink]="item.children[0].route"
-          [ngClass]="isRouteActive(item) ? 'bg-primary' : ''"
+          [ngClass]="isRouteActive(item) ? '' : ''"
           [matTooltip]="item.label"
         >
           <mat-icon
             matListItemIcon
-            [ngClass]="isRouteActive(item) ? 'text-white' : 'text-gray-70'"
+            [ngClass]="isRouteActive(item) ? 'text-primary' : 'text-gray-70'"
             >{{ item.icon }}</mat-icon
           >
         </a>

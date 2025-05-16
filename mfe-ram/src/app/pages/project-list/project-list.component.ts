@@ -61,6 +61,7 @@ export class ProjectListComponent {
   selectedFilter = "ramId";
   filterText = "";
   selectedFilterStatus = "all";
+  headingText = "All RAM Projects";
 
   filterButtons = [
     { label: "All", value: "all" },
@@ -302,6 +303,13 @@ export class ProjectListComponent {
   onFilterStatusChange(status: string) {
     this.selectedFilterStatus = status;
     console.log("Filter status changed to:", status);
+    
+    // Update the heading text based on the selected filter
+    const selectedFilter = this.filterButtons.find(button => button.value === status);
+    if (selectedFilter) {
+      this.headingText = `${selectedFilter.label} RAM Projects`;
+    }
+    
     // You can update your dataSource.filter here based on the status
   }
 }

@@ -14,8 +14,8 @@
   border-bottom: 2px solid var(--Gray-Gray-94, #ebecf0);
 }
 
-.header-left {
-  gap: 32px;
+.logo-container {
+  margin-right: 10px;
 }
 
 .logo-image {
@@ -31,11 +31,33 @@
 }
 
 .main-nav {
+  flex: 1;
   gap: 24px;
+  justify-content: center;
+  
+  a.mat-button {
+    letter-spacing: normal;
+  }
 }
 
 .header-right {
   display: flex;
   align-items: center;
   gap: 24px;
+}
+
+/* Style for menu items in user dropdown */
+::ng-deep .mat-menu-content {
+  .mat-mdc-menu-item {
+    .mdc-list-item__primary-text {
+      color: var(--gray-70, #8c99b3);
+      font-size: 0.75rem; /* 12px */
+      font-weight: 400;
+    }
+    
+    .mat-icon {
+      color: var(--gray-70, #8c99b3);
+      margin-right: 8px;
+    }
+  }
 }

@@ -1,49 +1,47 @@
 <mat-toolbar class="header">
-  <div class="header-left d-flex align-items-center">
-    <div class="d-flex align-items-center">
-      <img
-        src="assets/images/FAA Logo.svg"
-        alt="ADIP Logo"
-        class="logo-image"
-      />
-      <div class="">
-        <h4 class="logo-text text-gray-50 mb-1 text-truncate text-center">
-          ADIP
-        </h4>
-        <p class="mb-0 text-center bold-8 text-gray-50">
-          Airport Data and Information Portal
-        </p>
-      </div>
+  <div class="logo-container d-flex align-items-center">
+    <img
+      src="assets/images/FAA Logo.svg"
+      alt="ADIP Logo"
+      class="logo-image"
+    />
+    <div class="">
+      <h4 class="logo-text text-gray-50 mb-1 text-truncate text-center">
+        ADIP
+      </h4>
+      <p class="mb-0 text-center bold-8 text-gray-50">
+        Airport Data and Information Portal
+      </p>
     </div>
-
-    <nav class="main-nav d-flex align-items-center">
-      <a mat-button class="bold-13 text-gray-60" routerLink="/home"
-        >Portal Home</a
-      >
-      <a mat-button class="bold-13 text-gray-60" routerLink="/dashboard"
-        >Facility Dashboard</a
-      >
-      <a mat-button class="bold-13 text-gray-60" routerLink="/checklist"
-        >GA Airport Checklist</a
-      >
-      <a mat-button class="bold-13 text-gray-60" routerLink="/admin">Admin</a>
-      <a mat-button class="bold-13 text-gray-60">
-        <mat-icon color="secondary" [matMenuTriggerFor]="moreMenu"
-          >more_horiz</mat-icon
-        ></a
-      >
-      <mat-menu #moreMenu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>person</mat-icon>
-          <span>Profile</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span>Settings</span>
-        </button>
-      </mat-menu>
-    </nav>
   </div>
+
+  <nav class="main-nav d-flex align-items-center justify-content-center">
+    <a mat-button class="bold-13 text-gray-60" routerLink="/home"
+      >Portal Home</a
+    >
+    <a mat-button class="bold-13 text-gray-60" routerLink="/dashboard"
+      >Facility Dashboard</a
+    >
+    <a mat-button class="bold-13 text-gray-60" routerLink="/checklist"
+      >GA Airport Checklist</a
+    >
+    <a mat-button class="bold-13 text-gray-60" routerLink="/admin">Admin</a>
+    <a mat-button class="bold-13 text-gray-60">
+      <mat-icon color="secondary" [matMenuTriggerFor]="moreMenu"
+        >more_horiz</mat-icon
+      ></a
+    >
+    <mat-menu #moreMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+    </mat-menu>
+  </nav>
 
   <div class="header-right d-flex align-items-center">
     <!-- <mat-form-field appearance="outline" class="search-container me-3">

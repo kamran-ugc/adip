@@ -113,9 +113,24 @@ export class TodoListComponent implements AfterViewInit {
   chartData: ChartConfiguration<"line">["data"] = {
     labels: ["January", "February", "March"],
     datasets: [
-      { data: [6, 100, 80], label: "Blocked Items" },
-      { data: [1, 23, 90], label: "Revisions Needed" },
-      { data: [3, 48, 50], label: "Submissions in Progress" },
+      { 
+        data: [6, 100, 80], 
+        label: "Blocked Items",
+        borderColor: '#e62e2e',
+        backgroundColor: 'rgba(230, 46, 46, 0.1)',
+      },
+      { 
+        data: [1, 23, 90], 
+        label: "Revisions Needed",
+        borderColor: '#8833ff',
+        backgroundColor: 'rgba(136, 51, 255, 0.1)',
+      },
+      { 
+        data: [3, 48, 50], 
+        label: "Submissions in Progress",
+        borderColor: '#ffcb33',
+        backgroundColor: 'rgba(255, 203, 51, 0.1)',
+      },
     ],
   };
 
@@ -127,7 +142,52 @@ export class TodoListComponent implements AfterViewInit {
       legend: {
         display: false,
       },
+      tooltip: {
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        titleColor: '#4d5e80', // gray-50
+        bodyColor: '#8c99b3', // gray-70
+        borderColor: '#ebecf0', // gray-94
+        borderWidth: 1,
+        padding: 10,
+        displayColors: true,
+        titleFont: {
+          family: 'Roboto, "Helvetica Neue", sans-serif',
+          size: 14
+        },
+        bodyFont: {
+          family: 'Roboto, "Helvetica Neue", sans-serif',
+          size: 12
+        }
+      }
     },
+    scales: {
+      x: {
+        grid: {
+          display: false
+        },
+        ticks: {
+          color: '#8c99b3', // Explicit gray-70 color
+          font: {
+            family: 'Roboto, "Helvetica Neue", sans-serif',
+            size: 12,
+            weight: '400'
+          }
+        }
+      },
+      y: {
+        grid: {
+          display: false
+        },
+        ticks: {
+          color: '#8c99b3', // Explicit gray-70 color
+          font: {
+            family: 'Roboto, "Helvetica Neue", sans-serif',
+            size: 12,
+            weight: '400'
+          }
+        }
+      }
+    }
   };
 
   chartType: "line" = "line";
