@@ -1,0 +1,435 @@
+.create-project-card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+  max-width: 250px;
+  .create-project-button {
+    height: 60px;
+  }
+}
+
+.dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.dropdown-field {
+  min-width: 120px;
+  color: white;
+
+  ::ng-deep .mat-select-value {
+    color: white; // ensure text is white in dark headers
+  }
+
+  ::ng-deep .mat-form-field-outline {
+    color: white;
+  }
+}
+.project-card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+
+  .input-group {
+    max-width: 500px;
+    .btn-outline-secondary {
+      border: 2px solid var(--Gray-Gray-94, #ebecf0);
+      &:hover {
+        background: none;
+      }
+    }
+    .form-control {
+      height: 38.48px;
+      border: 2px solid var(--Gray-Gray-94, #ebecf0);
+    }
+  }
+}
+
+/* Set fixed height for the form field */
+::ng-deep .mat-mdc-form-field {
+  height: 36px;
+}
+
+/* Text field wrapper height */
+::ng-deep .mat-mdc-form-field .mdc-text-field {
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+/* Input wrapper height */
+::ng-deep .mat-mdc-form-field .mat-mdc-text-field-wrapper {
+  height: 100%;
+}
+
+/* Infix padding reduced */
+::ng-deep .mat-mdc-form-field-infix {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Input height and font */
+::ng-deep .mat-mdc-form-field .mdc-text-field__input {
+  padding: 8px 12px;
+  height: 20px;
+  box-sizing: content-box;
+}
+
+/* Label default state */
+::ng-deep .mat-mdc-form-field .mdc-floating-label {
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Label when floating */
+::ng-deep .mat-mdc-form-field .mdc-floating-label--float-above {
+  top: 4px !important;
+  transform: none !important;
+}
+
+/* Outline height */
+::ng-deep .mat-mdc-form-field .mdc-notched-outline {
+  height: 36px;
+}
+::ng-deep .mat-mdc-select-min-line {
+  font-size: 12px;
+}
+::ng-deep {
+  .mat-mdc-notch-piece {
+    border-color: #eaeaea !important;
+  }
+}
+
+::ng-deep {
+  .mat-mdc-chip {
+    background-color: white !important;
+    border: 1px solid #eaeaea !important;
+
+    .mdc-evolution-chip__text-label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      color: var(--gray-70, #8c99b3) !important;
+      font-size: 0.75rem !important; /* 12px */
+      font-weight: 400 !important;
+    }
+  }
+  .selected-chip {
+    background-color: white !important;
+    border: 1px solid var(--primary) !important;
+
+    .mdc-evolution-chip__text-label {
+      color: var(--primary) !important;
+      font-size: 0.75rem !important; /* 12px */
+      font-weight: 400 !important;
+    }
+  }
+  .mat-mdc-select-panel {
+    padding: 3px !important;
+    .mdc-list-item {
+      border-radius: 3px !important;
+    }
+  }
+}
+
+mat-chip {
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// MOS ID link styling (adapted from RAM)
+.mos-id-link {
+  color: var(--primary, #3361ff) !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  
+  &:hover {
+    color: var(--primary-dark-1, #194dff) !important;
+    background-color: var(--primary-5p, rgba(51, 97, 255, 0.05)) !important;
+    text-decoration: underline !important;
+  }
+  
+  &:focus {
+    outline: 2px solid var(--primary-20p, rgba(51, 97, 255, 0.2));
+    outline-offset: 1px;
+  }
+  
+  &:active {
+    color: var(--primary-dark-2, #0039ff) !important;
+    background-color: var(--primary-10p, rgba(51, 97, 255, 0.1)) !important;
+  }
+}
+
+// Additional RAM-matching classes
+.mb-10 {
+  margin-bottom: 10px !important;
+}
+
+.mt-20 {
+  margin-top: 20px !important;
+}
+
+.mt-30 {
+  margin-top: 30px !important;
+}
+
+.mb-40 {
+  margin-bottom: 40px !important;
+}
+
+.text-gray-80 {
+  color: #6b7280 !important;
+}
+
+.fs-20 {
+  font-size: 20px !important;
+}
+
+.fs-1 {
+  font-size: 1rem !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+// Additional Bootstrap utility classes for complete original spec compliance
+.col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+  padding-right: calc(1.5rem * 0.5);
+  padding-left: calc(1.5rem * 0.5);
+}
+
+.col-md-2 {
+  flex: 0 0 auto;
+  width: 16.666667%;
+  padding-right: calc(1.5rem * 0.5);
+  padding-left: calc(1.5rem * 0.5);
+}
+
+@media (max-width: 768px) {
+  .col-md-2 {
+    width: 100%;
+  }
+}
+
+.col-md-3 {
+  flex: 0 0 auto;
+  width: 25%;
+  padding-right: calc(1.5rem * 0.5);
+  padding-left: calc(1.5rem * 0.5);
+}
+
+@media (max-width: 768px) {
+  .col-md-3 {
+    width: 100%;
+  }
+}
+
+.col-md-5 {
+  flex: 0 0 auto;
+  width: 41.666667%;
+  padding-right: calc(1.5rem * 0.5);
+  padding-left: calc(1.5rem * 0.5);
+}
+
+@media (max-width: 768px) {
+  .col-md-5 {
+    width: 100%;
+  }
+}
+
+.g-3 > * {
+  margin-bottom: 1rem;
+}
+
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.ms-1 {
+  margin-left: 0.25rem !important;
+}
+
+.ms-2 {
+  margin-left: 0.5rem !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.p-4 {
+  padding: 1.5rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+// Custom form field height for proper alignment
+.custom-height-form-field {
+  height: 40px;
+  
+  .mat-mdc-form-field-wrapper {
+    height: 40px;
+  }
+  
+  .mat-mdc-form-field-flex {
+    align-items: center;
+    height: 40px;
+  }
+}
+
+// Table hover effects matching RAM
+.hover-row:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  cursor: pointer;
+}
+
+// Project card styling to match original spec
+.project-card {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+// Checkbox theming for light and dark modes
+::ng-deep .mat-mdc-checkbox {
+  .mdc-checkbox {
+    .mdc-checkbox__native-control {
+      &:enabled:not(:checked):not(:indeterminate):not([data-indeterminate="true"]) ~ .mdc-checkbox__background {
+        border-color: var(--gray-80, #adb8cc) !important;
+        background-color: transparent !important;
+      }
+      
+      &:enabled:checked ~ .mdc-checkbox__background,
+      &:enabled:indeterminate ~ .mdc-checkbox__background,
+      &:enabled[data-indeterminate="true"] ~ .mdc-checkbox__background {
+        border-color: var(--primary, #3361ff) !important;
+        background-color: var(--primary, #3361ff) !important;
+      }
+      
+      &:hover:not(:checked):not(:indeterminate):not([data-indeterminate="true"]) ~ .mdc-checkbox__background {
+        border-color: var(--gray-70, #8c99b3) !important;
+        background-color: rgba(51, 97, 255, 0.04) !important;
+      }
+      
+      &:hover:checked ~ .mdc-checkbox__background,
+      &:hover:indeterminate ~ .mdc-checkbox__background,
+      &:hover[data-indeterminate="true"] ~ .mdc-checkbox__background {
+        border-color: var(--primary-dark-1, #194dff) !important;
+        background-color: var(--primary-dark-1, #194dff) !important;
+      }
+      
+      // Fix focus states - remove red outlines
+      &:focus ~ .mdc-checkbox__background {
+        border-color: var(--primary, #3361ff) !important;
+      }
+      
+      &:focus:not(:checked):not(:indeterminate):not([data-indeterminate="true"]) ~ .mdc-checkbox__background {
+        border-color: var(--primary, #3361ff) !important;
+        background-color: transparent !important;
+      }
+    }
+    
+    .mdc-checkbox__checkmark {
+      color: white !important;
+    }
+    
+    .mdc-checkbox__mixedmark {
+      border-color: white !important;
+    }
+  }
+  
+  // Remove red ripple effects
+  .mdc-checkbox__ripple {
+    color: var(--primary, #3361ff) !important;
+  }
+  
+  // Fix focus indicator
+  .mdc-checkbox__focus-ring {
+    border-color: var(--primary, #3361ff) !important;
+  }
+}
+
+// Dark theme specific checkbox styling
+.dark-theme ::ng-deep .mat-mdc-checkbox {
+  .mdc-checkbox {
+    .mdc-checkbox__native-control {
+      &:enabled:not(:checked):not(:indeterminate):not([data-indeterminate="true"]) ~ .mdc-checkbox__background {
+        border-color: var(--gray-80) !important;
+        background-color: var(--gray-98-bg, #f7f8fa) !important;
+      }
+      
+      &:hover:not(:checked):not(:indeterminate):not([data-indeterminate="true"]) ~ .mdc-checkbox__background {
+        border-color: var(--gray-70) !important;
+        background-color: var(--gray-96-bg, #fafbfc) !important;
+      }
+      
+      // Dark theme focus states
+      &:focus ~ .mdc-checkbox__background {
+        border-color: var(--primary) !important;
+      }
+      
+      &:focus:not(:checked):not(:indeterminate):not([data-indeterminate="true"]) ~ .mdc-checkbox__background {
+        border-color: var(--primary) !important;
+        background-color: var(--gray-98-bg) !important;
+      }
+    }
+  }
+  
+  // Dark theme ripple effects
+  .mdc-checkbox__ripple {
+    color: var(--primary) !important;
+  }
+  
+  // Dark theme focus ring
+  .mdc-checkbox__focus-ring {
+    border-color: var(--primary) !important;
+  }
+}
+
+// Global override for any remaining red checkbox states
+::ng-deep .mat-checkbox-anim-unchecked-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-anim-unchecked-indeterminate .mat-checkbox-background,
+::ng-deep .mat-checkbox-anim-checked-unchecked .mat-checkbox-background,
+::ng-deep .mat-checkbox-anim-checked-indeterminate .mat-checkbox-background,
+::ng-deep .mat-checkbox-anim-indeterminate-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-anim-indeterminate-unchecked .mat-checkbox-background {
+  background-color: var(--primary, #3361ff) !important;
+}
+
+// Override any Material Design theme colors that might be red
+::ng-deep .mat-mdc-checkbox.mat-accent {
+  --mdc-checkbox-selected-icon-color: white !important;
+  --mdc-checkbox-selected-hover-icon-color: white !important;
+  --mdc-checkbox-selected-focus-icon-color: white !important;
+  --mdc-checkbox-selected-pressed-icon-color: white !important;
+  --mdc-checkbox-unselected-icon-color: var(--gray-80, #adb8cc) !important;
+  --mdc-checkbox-disabled-selected-icon-color: var(--gray-90, #e8eaed) !important;
+  --mdc-checkbox-disabled-unselected-icon-color: var(--gray-90, #e8eaed) !important;
+  --mdc-checkbox-selected-checkmark-color: white !important;
+  --mdc-checkbox-selected-focus-state-layer-color: var(--primary, #3361ff) !important;
+  --mdc-checkbox-selected-hover-state-layer-color: var(--primary, #3361ff) !important;
+  --mdc-checkbox-selected-pressed-state-layer-color: var(--primary, #3361ff) !important;
+  --mdc-checkbox-unselected-focus-state-layer-color: var(--gray-70, #8c99b3) !important;
+  --mdc-checkbox-unselected-hover-state-layer-color: var(--gray-70, #8c99b3) !important;
+  --mdc-checkbox-unselected-pressed-state-layer-color: var(--gray-70, #8c99b3) !important;
+}
