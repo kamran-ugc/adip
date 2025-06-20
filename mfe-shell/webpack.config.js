@@ -9,6 +9,17 @@ sharedMappings.register(path.join(__dirname, "./tsconfig.json"), [
 ]);
 
 module.exports = {
+  mode: "development",
+  devServer: {
+    port: 4000, // Shell port
+    host: '0.0.0.0', // Docker-style host binding
+    allowedHosts: 'all',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+    }
+  },
   output: {
     uniqueName: "hostApp",
     publicPath: "auto",
@@ -37,6 +48,7 @@ module.exports = {
         amrApp: "http://localhost:4500/remoteEntry.js",
         ramApp: "http://localhost:4600/remoteEntry.js",
         rimApp: "http://localhost:4700/remoteEntry.js",
+        mosApp: "http://localhost:4800/remoteEntry.js",
       },
       shared: share({
         "@angular/core": {
