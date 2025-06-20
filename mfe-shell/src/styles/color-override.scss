@@ -1,28 +1,236 @@
 @import "./light_variables.scss";
+
+// Light theme variables (default)
 :root {
   --primary: #{$primary};
-  // /* Change this HEX color to whatever primary color you want */
-  // --mat-primary: var(--primary);
+  --primary-dark: #{$primary-dark-1};
+  --primary-5p: #{$primary-5p};
+  
+  // Gray scale for light theme
+  --gray-10: #{$gray-10};
+  --gray-50: #{$gray-50};
+  --gray-60: #{$gray-60};
+  --gray-70: #{$gray-70};
+  --gray-80: #{$gray-80};
+  --gray-90: #{$gray-90};
+  --gray-94: #{$gray-94};
+  --gray-98: #{$gray-98};
+  --gray-100: #{$gray-100};
+  
+  // Background colors for light theme
+  --white-bg: #{$white-bg};
+  --gray-99-bg: #{$gray-99-bg};
+  --gray-98-bg: #{$gray-98-bg};
+  --gray-97-bg: #{$gray-97-bg};
+  --gray-96-bg: #{$gray-96-bg};
+  --gray-95-bg: #{$gray-95-bg};
+  
+  // Semantic colors
+  --success: #4caf50;
+  --warning: #ff9800;
+  --error: #f44336;
+}
 
-  // /* Override Angular Material primary color variables */
-  // --mdc-filled-button-container-color: var(--mat-primary);
-  // --mdc-filled-button-focus-container-color: var(--mat-primary);
-  // --mdc-filled-button-hover-container-color: var(--mat-primary);
-  // --mdc-filled-button-disabled-container-color: rgba(0, 0, 0, 0.12);
+// Dark theme class override
+.dark-theme {
+  // Background colors - ChatGPT-style neutral grays
+  --white-bg: #171717;
+  --gray-99-bg: #1a1a1a;
+  --gray-98-bg: #1e1e1e;
+  --gray-97-bg: #262626;
+  --gray-96-bg: #2d2d30;
+  --gray-95-bg: #343541;
+  
+  // Text colors for dark theme - neutral grays without blue tint
+  --gray-10: #ffffff;
+  --gray-50: #f7f7f8;
+  --gray-60: #ececf1;
+  --gray-70: #9b9b9f;
+  --gray-80: #6e6e80;
+  --gray-90: #4a4a55;
+  --gray-94: #40414f;
+  --gray-98: #2d2d30;
+  --gray-100: #212121;
+  
+  // Primary colors adjusted for dark theme
+  --primary: #4d75ff;
+  --primary-dark: #3361ff;
+  --primary-5p: rgba(77, 117, 255, 0.05);
+  
+  // Updated border and divider colors
+  --gray-94: var(--gray-90);
+  --gray-95: var(--gray-90);
+  
+  // Material Design overrides for dark theme
+  --mat-app-background-color: var(--white-bg);
+  --mat-app-text-color: var(--gray-60);
+  
+  // Toolbar colors
+  --mat-toolbar-container-background-color: var(--gray-98-bg);
+  --mat-toolbar-container-text-color: var(--gray-60);
+  
+  // Card colors
+  --mdc-elevated-card-container-color: var(--gray-98-bg);
+  --mdc-outlined-card-container-color: var(--gray-98-bg);
+  --mat-card-subtitle-text-color: var(--gray-70);
+  
+  // Form field colors
+  --mdc-filled-text-field-container-color: var(--gray-96-bg);
+  --mdc-filled-text-field-label-text-color: var(--gray-70);
+  --mdc-filled-text-field-input-text-color: var(--gray-60);
+  --mdc-outlined-text-field-label-text-color: var(--gray-70);
+  --mdc-outlined-text-field-input-text-color: var(--gray-60);
+  --mdc-outlined-text-field-outline-color: var(--gray-90);
+  --mdc-outlined-text-field-outline-width: 1px;
+  --mdc-outlined-text-field-focus-outline-width: 2px;
+  --mdc-outlined-text-field-hover-outline-color: var(--gray-80);
+  --mdc-outlined-text-field-focus-outline-color: var(--primary);
+  --mdc-outlined-text-field-disabled-outline-color: var(--gray-94);
+  --mdc-filled-text-field-active-indicator-color: var(--gray-90);
+  --mdc-filled-text-field-hover-active-indicator-color: var(--gray-80);
+  --mdc-filled-text-field-focus-active-indicator-color: var(--primary);
+  --mdc-filled-text-field-disabled-active-indicator-color: var(--gray-94);
+  
+  // Button colors
+  --mdc-text-button-label-text-color: var(--gray-60);
+  --mdc-filled-button-container-color: var(--primary);
+  --mdc-outlined-button-label-text-color: var(--gray-60);
+  --mdc-outlined-button-outline-color: var(--gray-90);
+  
+  // Menu colors
+  --mat-select-panel-background-color: var(--gray-98-bg);
+  --mat-select-enabled-trigger-text-color: var(--gray-60);
+  --mat-autocomplete-background-color: var(--gray-98-bg);
+  
+  // Dialog colors
+  --mdc-dialog-container-color: var(--gray-98-bg);
+  --mdc-dialog-subhead-color: var(--gray-60);
+  --mdc-dialog-supporting-text-color: var(--gray-70);
+  
+  // Sidenav colors
+  --mat-sidenav-container-background-color: var(--gray-98-bg);
+  --mat-sidenav-container-text-color: var(--gray-60);
+  --mat-sidenav-content-background-color: var(--white-bg);
+  --mat-sidenav-content-text-color: var(--gray-60);
+  
+  // Table colors
+  --mat-table-background-color: var(--gray-98-bg);
+  --mat-table-header-headline-color: var(--gray-60);
+  --mat-table-row-item-label-text-color: var(--gray-60);
+  --mat-table-row-item-outline-color: var(--gray-90);
+  --mat-table-header-container-color: var(--gray-96-bg);
+  --mat-table-row-hover-state-color: var(--gray-97-bg);
+  
+  // Divider color
+  --mat-divider-color: var(--gray-90);
+  
+  // Expansion panel colors
+  --mat-expansion-container-background-color: var(--gray-98-bg);
+  --mat-expansion-container-text-color: var(--gray-60);
+  --mat-expansion-actions-divider-color: var(--gray-90);
+  --mat-expansion-header-text-color: var(--gray-60);
+  --mat-expansion-header-description-color: var(--gray-70);
+  
+  // Stepper colors
+  --mat-stepper-container-color: var(--gray-98-bg);
+  --mat-stepper-header-label-text-color: var(--gray-70);
+  --mat-stepper-header-selected-state-label-text-color: var(--gray-60);
+  --mat-stepper-line-color: var(--gray-90);
+  
+  // Tree colors
+  --mat-tree-container-background-color: var(--gray-98-bg);
+  --mat-tree-node-text-color: var(--gray-60);
+  
+  // Bottom sheet colors
+  --mat-bottom-sheet-container-background-color: var(--gray-98-bg);
+  --mat-bottom-sheet-container-text-color: var(--gray-60);
+  
+  // Snackbar colors
+  --mdc-snackbar-container-color: var(--gray-95-bg);
+  --mdc-snackbar-supporting-text-color: var(--gray-60);
+  
+  // Tooltip colors
+  --mdc-plain-tooltip-container-color: var(--gray-95-bg);
+  --mdc-plain-tooltip-supporting-text-color: var(--gray-60);
+  
+  // FAB button colors for dark theme
+  --mdc-fab-container-color: var(--gray-95-bg);
+  --mat-fab-foreground-color: var(--gray-60);
+  --mat-fab-state-layer-color: var(--gray-96-bg);
+  --mat-fab-ripple-color: rgba(255, 255, 255, 0.1);
+  --mdc-fab-small-container-color: var(--gray-95-bg);
+  --mat-fab-small-foreground-color: var(--gray-60);
+  --mat-fab-small-state-layer-color: var(--gray-96-bg);
+  --mat-fab-small-ripple-color: rgba(255, 255, 255, 0.1);
+  
+  // Badge colors for dark theme
+  --mat-badge-background-color: var(--error);
+  --mat-badge-text-color: white;
+  
+  // Chip colors for dark theme - override all Material Design chip styles
+  --mdc-chip-elevated-container-color: var(--gray-98-bg);
+  --mdc-chip-elevated-selected-container-color: var(--primary-5p);
+  --mdc-chip-label-text-color: var(--gray-60);
+  --mdc-chip-selected-label-text-color: var(--primary);
+  --mdc-chip-outline-color: var(--gray-90);
+  --mdc-chip-selected-outline-color: var(--primary);
+  --mdc-chip-with-icon-icon-color: var(--gray-70);
+  --mdc-chip-with-icon-selected-icon-color: var(--primary);
+  --mdc-chip-hover-state-layer-color: var(--gray-96-bg);
+  --mdc-chip-focus-state-layer-color: var(--gray-96-bg);
+  --mdc-chip-disabled-label-text-color: var(--gray-80);
+  --mdc-chip-elevated-disabled-container-color: var(--gray-95-bg);
+  --mdc-chip-flat-disabled-selected-container-color: var(--gray-95-bg);
+  --mdc-chip-selected-hover-state-layer-color: var(--primary-5p);
+  --mdc-chip-selected-focus-state-layer-color: var(--primary-5p);
+  --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: var(--gray-80);
+  --mdc-chip-with-trailing-icon-trailing-icon-color: var(--gray-70);
+  --mat-chip-selected-disabled-trailing-icon-color: var(--gray-80);
+  --mat-chip-selected-trailing-icon-color: var(--primary);
+}
 
-  // /* For outlined/text buttons */
-  // --mdc-outlined-button-outline-color: var(--mat-primary);
-  // --mdc-text-button-label-text-color: var(--mat-primary);
-
-  // /* For form controls */
-  // --mdc-checkbox-selected-icon-color: var(--mat-primary);
-  // --mdc-radio-selected-icon-color: var(--mat-primary);
-  // --mdc-switch-selected-track-color: var(--mat-primary);
-  // --mdc-switch-selected-handle-color: var(--mat-primary);
-
-  // /* For progress indicators */
-  // --mdc-linear-progress-active-indicator-color: var(--mat-primary);
-  // --mdc-circular-progress-active-indicator-color: var(--mat-primary);
+// Dark theme Material chip overrides
+.dark-theme {
+  .mat-mdc-standard-chip {
+    --mdc-chip-elevated-container-color: var(--gray-98-bg);
+    --mdc-chip-elevated-selected-container-color: var(--gray-98-bg);
+    --mdc-chip-elevated-disabled-container-color: var(--gray-95-bg);
+    --mdc-chip-flat-disabled-selected-container-color: var(--gray-95-bg);
+    --mdc-chip-hover-state-layer-color: var(--gray-96-bg);
+    --mdc-chip-selected-hover-state-layer-color: var(--gray-96-bg);
+    --mdc-chip-selected-focus-state-layer-color: var(--gray-96-bg);
+    --mdc-chip-label-text-color: var(--gray-60);
+    --mdc-chip-selected-label-text-color: var(--gray-60);
+    --mdc-chip-disabled-label-text-color: var(--gray-80);
+    --mdc-chip-with-icon-icon-color: var(--gray-70);
+    --mdc-chip-with-icon-disabled-icon-color: var(--gray-80);
+    --mdc-chip-with-icon-selected-icon-color: var(--gray-70);
+    --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: var(--gray-80);
+    --mdc-chip-with-trailing-icon-trailing-icon-color: var(--gray-70);
+    --mat-chip-selected-disabled-trailing-icon-color: var(--gray-80);
+    --mat-chip-selected-trailing-icon-color: var(--gray-70);
+    
+    &.mat-mdc-chip-selected.mat-primary,
+    &.mat-mdc-chip-highlighted.mat-primary {
+      --mdc-chip-elevated-container-color: var(--primary-5p);
+      --mdc-chip-elevated-selected-container-color: var(--primary-5p);
+      --mdc-chip-label-text-color: var(--primary);
+      --mdc-chip-selected-label-text-color: var(--primary);
+      --mdc-chip-with-icon-icon-color: var(--primary);
+      --mdc-chip-with-icon-selected-icon-color: var(--primary);
+      --mdc-chip-with-trailing-icon-trailing-icon-color: var(--primary);
+      --mat-chip-selected-trailing-icon-color: var(--primary);
+    }
+  }
+  
+  // Global submenu theming for dark theme
+  .mat-mdc-menu-panel,
+  .mat-mdc-select-panel,
+  .mat-mdc-autocomplete-panel {
+    --mat-menu-container-color: var(--gray-98-bg);
+    --mat-select-panel-background-color: var(--gray-98-bg);
+    --mat-autocomplete-background-color: var(--gray-98-bg);
+  }
 }
 .mat-ripple-element {
   background-color: var(--mat-ripple-color, rgba(0, 0, 0, 0.1));

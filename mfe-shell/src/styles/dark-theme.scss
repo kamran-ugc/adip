@@ -1,0 +1,916 @@
+// Dark Theme Global Styles
+.dark-theme {
+  // Global text colors - better contrast
+  color: var(--gray-60) !important;
+  
+  // Body and main containers
+  body, html {
+    background-color: var(--white-bg) !important;
+    color: var(--gray-60) !important;
+  }
+  
+  // Headers and typography
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--gray-10) !important;
+  }
+  
+  p, span, div {
+    color: var(--gray-60) !important;
+  }
+  
+  // Links
+  a {
+    color: var(--primary) !important;
+    
+    &:hover {
+      color: var(--primary-dark) !important;
+    }
+  }
+  
+  // Text color utility classes - override for dark theme with better contrast
+  .text-gray-50 {
+    color: var(--gray-10) !important;
+  }
+  
+  .text-gray-60 {
+    color: var(--gray-60) !important;
+  }
+  
+  .text-gray-70 {
+    color: var(--gray-70) !important;
+  }
+  
+  .text-gray-80 {
+    color: var(--gray-80) !important;
+  }
+  
+  .text-gray-90 {
+    color: var(--gray-90) !important;
+  }
+  
+  // Background utility classes for dark theme
+  .bg-white {
+    background-color: var(--gray-98-bg) !important;
+  }
+  
+  .bg-gray-50 {
+    background-color: var(--gray-95-bg) !important;
+  }
+  
+  .bg-gray-100 {
+    background-color: var(--gray-96-bg) !important;
+  }
+  
+  // Cards and containers
+  .card, .mat-card {
+    background-color: var(--gray-98-bg) !important;
+    color: var(--gray-60) !important;
+    border-color: var(--gray-90) !important;
+  }
+  
+  // Forms
+  .form-control {
+    background-color: var(--gray-96-bg) !important;
+    border: 1px solid var(--gray-90) !important;
+    color: var(--gray-60) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    
+    &:hover {
+      border-color: var(--gray-80) !important;
+    }
+    
+    &:focus {
+      border-color: var(--primary) !important;
+      border-width: 2px !important;
+      box-shadow: 0 0 0 0.1rem rgba(77, 117, 255, 0.15) !important;
+      outline: none !important;
+    }
+    
+    &:disabled {
+      background-color: var(--gray-97-bg) !important;
+      border-color: var(--gray-94) !important;
+      color: var(--gray-80) !important;
+    }
+  }
+  
+  .form-label {
+    color: var(--gray-70) !important;
+  }
+  
+  .form-select {
+    background-color: var(--gray-96-bg) !important;
+    border: 1px solid var(--gray-90) !important;
+    color: var(--gray-60) !important;
+    
+    &:hover {
+      border-color: var(--gray-80) !important;
+    }
+    
+    &:focus {
+      border-color: var(--primary) !important;
+      border-width: 2px !important;
+      box-shadow: 0 0 0 0.1rem rgba(77, 117, 255, 0.15) !important;
+    }
+  }
+  
+  .form-check-input {
+    border: 1px solid var(--gray-90) !important;
+    background-color: var(--gray-96-bg) !important;
+    
+    &:checked {
+      background-color: var(--primary) !important;
+      border-color: var(--primary) !important;
+    }
+    
+    &:focus {
+      border-color: var(--primary) !important;
+      box-shadow: 0 0 0 0.1rem rgba(77, 117, 255, 0.15) !important;
+    }
+  }
+  
+  .input-group {
+    .form-control {
+      border-right: none !important;
+      
+      &:not(:last-child) {
+        border-right: 1px solid var(--gray-90) !important;
+      }
+    }
+    
+    .input-group-text {
+      background-color: var(--gray-95-bg) !important;
+      border: 1px solid var(--gray-90) !important;
+      color: var(--gray-70) !important;
+    }
+  }
+  
+  // Angular Material form fields
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      .mat-mdc-form-field-flex {
+        .mat-mdc-form-field-infix {
+          border-color: var(--gray-90) !important;
+        }
+      }
+      
+      &.mdc-text-field--outlined {
+        .mdc-notched-outline {
+          .mdc-notched-outline__leading,
+          .mdc-notched-outline__notch,
+          .mdc-notched-outline__trailing {
+            border-color: var(--gray-90) !important;
+            border-width: 1px !important;
+          }
+        }
+        
+        &:hover .mdc-notched-outline {
+          .mdc-notched-outline__leading,
+          .mdc-notched-outline__notch,
+          .mdc-notched-outline__trailing {
+            border-color: var(--gray-80) !important;
+          }
+        }
+        
+        &.mdc-text-field--focused .mdc-notched-outline {
+          .mdc-notched-outline__leading,
+          .mdc-notched-outline__notch,
+          .mdc-notched-outline__trailing {
+            border-color: var(--primary) !important;
+            border-width: 2px !important;
+          }
+        }
+      }
+      
+      &.mdc-text-field--filled {
+        background-color: var(--gray-96-bg) !important;
+        
+        &::before {
+          border-bottom: 1px solid var(--gray-90) !important;
+        }
+        
+        &:hover::before {
+          border-bottom: 1px solid var(--gray-80) !important;
+        }
+        
+        &.mdc-text-field--focused::before {
+          border-bottom: 2px solid var(--primary) !important;
+        }
+      }
+    }
+    
+    .mat-mdc-form-field-error {
+      color: var(--error) !important;
+    }
+    
+    .mat-mdc-form-field-hint {
+      color: var(--gray-70) !important;
+    }
+  }
+  
+  // Tables
+  .table {
+    background-color: var(--gray-98-bg) !important;
+    color: var(--gray-60) !important;
+    border: none !important;
+    
+    th {
+      background-color: var(--gray-96-bg) !important;
+      color: var(--gray-10) !important;
+      border: none !important;
+      border-bottom: 1px solid var(--gray-90) !important;
+    }
+    
+    td {
+      border: none !important;
+      border-bottom: 1px solid var(--gray-90) !important;
+      color: var(--gray-60) !important;
+    }
+    
+    &.table-striped tbody tr:nth-of-type(odd) {
+      background-color: var(--gray-97-bg) !important;
+    }
+    
+    &.table-hover tbody tr:hover {
+      background-color: var(--gray-95-bg) !important;
+    }
+    
+    &.table-bordered {
+      border: none !important;
+      
+      th, td {
+        border: none !important;
+        border-bottom: 1px solid var(--gray-90) !important;
+      }
+    }
+  }
+  
+  // Angular Material Tables
+  .mat-mdc-table {
+    background-color: var(--gray-98-bg) !important;
+    color: var(--gray-60) !important;
+    
+    .mat-mdc-header-row {
+      background-color: var(--gray-96-bg) !important;
+      border-bottom: 1px solid var(--gray-90) !important;
+      
+      .mat-mdc-header-cell {
+        color: var(--gray-10) !important;
+        border-right: none !important;
+        font-weight: 600 !important;
+      }
+    }
+    
+    .mat-mdc-row {
+      border-bottom: 1px solid var(--gray-90) !important;
+      
+      &:hover {
+        background-color: var(--gray-97-bg) !important;
+      }
+      
+      .mat-mdc-cell {
+        color: var(--gray-60) !important;
+        border-right: none !important;
+      }
+    }
+    
+    .mat-mdc-footer-row {
+      border-top: 1px solid var(--gray-90) !important;
+      
+      .mat-mdc-footer-cell {
+        color: var(--gray-70) !important;
+        border-right: none !important;
+      }
+    }
+  }
+  
+  // Project list specific styling
+  .project-list {
+    .mat-mdc-card {
+      border: 1px solid var(--gray-90) !important;
+      background-color: var(--gray-98-bg) !important;
+    }
+    
+    .filter-section {
+      border-bottom: 1px solid var(--gray-90) !important;
+      background-color: var(--gray-97-bg) !important;
+    }
+    
+    .table-container {
+      border: 1px solid var(--gray-90) !important;
+      border-radius: 8px !important;
+      overflow: hidden !important;
+    }
+  }
+  
+  // Navigation
+  .nav-link {
+    color: var(--gray-70) !important;
+    
+    &:hover, &.active {
+      color: var(--primary) !important;
+    }
+  }
+  
+  .navbar {
+    background-color: var(--gray-98-bg) !important;
+    border-color: var(--gray-80) !important;
+  }
+  
+  // Modals
+  .modal-content {
+    background-color: var(--gray-98-bg) !important;
+    color: var(--gray-60) !important;
+    border: 1px solid var(--gray-90) !important;
+    
+    .form-control {
+      border: 1px solid var(--gray-90) !important;
+      
+      &:focus {
+        border-width: 2px !important;
+        border-color: var(--primary) !important;
+      }
+    }
+    
+    .form-select {
+      border: 1px solid var(--gray-90) !important;
+      
+      &:focus {
+        border-width: 2px !important;
+        border-color: var(--primary) !important;
+      }
+    }
+  }
+  
+  .modal-header {
+    border-bottom: 1px solid var(--gray-90) !important;
+    
+    .modal-title {
+      color: var(--gray-10) !important;
+    }
+    
+    .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+  }
+  
+  .modal-footer {
+    border-top: 1px solid var(--gray-90) !important;
+  }
+  
+  // Dropdowns and submenus
+  .dropdown-menu {
+    background-color: var(--gray-98-bg) !important;
+    border-color: var(--gray-90) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+    
+    .dropdown-item {
+      color: var(--gray-60) !important;
+      
+      &:hover, &:focus {
+        background-color: rgba(77, 117, 255, 0.007) !important;
+        color: var(--primary) !important;
+      }
+      
+      &.active {
+        background-color: var(--primary) !important;
+        color: white !important;
+      }
+    }
+    
+    .dropdown-divider {
+      border-color: var(--gray-90) !important;
+    }
+  }
+  
+  // Material Design Menu overrides
+  .mat-mdc-menu-panel {
+    background-color: var(--gray-98-bg) !important;
+    border: 1px solid var(--gray-90) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+    
+    .mat-mdc-menu-item {
+      color: var(--gray-60) !important;
+      
+      &:hover {
+        background-color: rgba(77, 117, 255, 0.007) !important;
+        color: var(--primary) !important;
+      }
+      
+      .mat-icon {
+        color: var(--gray-70) !important;
+      }
+      
+      &:hover .mat-icon {
+        color: var(--primary) !important;
+      }
+    }
+  }
+  
+  // Angular Material Select dropdown
+  .mat-mdc-select-panel {
+    background-color: var(--gray-98-bg) !important;
+    border: 1px solid var(--gray-90) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+    
+    .mat-mdc-option {
+      color: var(--gray-60) !important;
+      
+      &:hover {
+        background-color: rgba(77, 117, 255, 0.007) !important;
+        color: var(--primary) !important;
+      }
+      
+      &.mdc-list-item--selected {
+        background-color: rgba(77, 117, 255, 0.007) !important;
+        color: var(--primary) !important;
+      }
+    }
+  }
+  
+  // Autocomplete dropdown
+  .mat-mdc-autocomplete-panel {
+    background-color: var(--gray-98-bg) !important;
+    border: 1px solid var(--gray-90) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+    
+    .mat-mdc-option {
+      color: var(--gray-60) !important;
+      
+      &:hover {
+        background-color: rgba(77, 117, 255, 0.007) !important;
+        color: var(--primary) !important;
+      }
+      
+      &.mdc-list-item--selected {
+        background-color: rgba(77, 117, 255, 0.007) !important;
+        color: var(--primary) !important;
+      }
+    }
+  }
+  
+  // Tooltip backgrounds
+  .mat-mdc-tooltip {
+    background-color: var(--gray-95-bg) !important;
+    color: var(--gray-60) !important;
+    border: 1px solid var(--gray-90) !important;
+  }
+  
+  // Dialog backgrounds
+  .mat-mdc-dialog-container {
+    background-color: var(--gray-98-bg) !important;
+    color: var(--gray-60) !important;
+    border: 1px solid var(--gray-90) !important;
+  }
+  
+  // Bottom sheet backgrounds
+  .mat-mdc-bottom-sheet-container {
+    background-color: var(--gray-98-bg) !important;
+    color: var(--gray-60) !important;
+    border-top: 1px solid var(--gray-90) !important;
+  }
+  
+  // Snackbar backgrounds
+  .mat-mdc-snack-bar-container {
+    background-color: var(--gray-95-bg) !important;
+    color: var(--gray-60) !important;
+    border: 1px solid var(--gray-90) !important;
+  }
+  
+  // Alerts
+  .alert {
+    &.alert-primary {
+      background-color: var(--primary-5p) !important;
+      border-color: var(--primary) !important;
+      color: var(--primary) !important;
+    }
+    
+    &.alert-success {
+      background-color: rgba(76, 175, 80, 0.1) !important;
+      border-color: var(--success) !important;
+      color: var(--success) !important;
+    }
+    
+    &.alert-warning {
+      background-color: rgba(255, 152, 0, 0.1) !important;
+      border-color: var(--warning) !important;
+      color: var(--warning) !important;
+    }
+    
+    &.alert-danger {
+      background-color: rgba(244, 67, 54, 0.1) !important;
+      border-color: var(--error) !important;
+      color: var(--error) !important;
+    }
+  }
+  
+  // Badges
+  .badge {
+    &.bg-primary {
+      background-color: var(--primary) !important;
+    }
+    
+    &.bg-secondary {
+      background-color: var(--gray-80) !important;
+    }
+    
+    &.bg-success {
+      background-color: var(--success) !important;
+    }
+    
+    &.bg-warning {
+      background-color: var(--warning) !important;
+    }
+    
+    &.bg-danger {
+      background-color: var(--error) !important;
+    }
+  }
+  
+  // Progress bars
+  .progress {
+    background-color: var(--gray-96-bg) !important;
+    
+    .progress-bar {
+      background-color: var(--primary) !important;
+    }
+  }
+  
+  // Borders - darker and subtler for dark theme
+  .border {
+    border-color: var(--gray-90) !important;
+    border-width: 1px !important;
+  }
+  
+  .border-top {
+    border-top-color: var(--gray-90) !important;
+    border-top-width: 1px !important;
+  }
+  
+  .border-bottom {
+    border-bottom-color: var(--gray-90) !important;
+    border-bottom-width: 1px !important;
+  }
+  
+  .border-left {
+    border-left-color: var(--gray-90) !important;
+    border-left-width: 1px !important;
+  }
+  
+  .border-right {
+    border-right-color: var(--gray-90) !important;
+    border-right-width: 1px !important;
+  }
+  
+  // Scrollbars (webkit)
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--gray-96-bg);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--gray-80);
+    border-radius: 4px;
+    
+    &:hover {
+      background-color: var(--gray-70);
+    }
+  }
+  
+  // Custom classes that might be used in the application
+  .sidebar {
+    background-color: var(--gray-98-bg) !important;
+    color: var(--gray-50) !important;
+    border-color: var(--gray-80) !important;
+    
+    // Dark mode submenu background - much darker
+    .mat-expansion-panel-body {
+      background: var(--gray-95-bg) !important;
+    }
+    
+    // Dark mode expansion indicator (caret) theming
+    .mat-expansion-indicator {
+      color: var(--gray-60) !important;
+      
+      &::after {
+        color: var(--gray-60) !important;
+      }
+    }
+    
+    // Dark mode styles for Facility Search form fields
+    .custom-search-field {
+      ::ng-deep {
+        // Override the custom white background
+        .mat-mdc-form-field-flex {
+          background: var(--gray-96-bg) !important;
+          border: 1px solid var(--gray-90) !important;
+          box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        // Target outline appearance specifically
+        &.mat-mdc-form-field-appearance-outline {
+          .mdc-notched-outline {
+            .mdc-notched-outline__leading,
+            .mdc-notched-outline__notch,
+            .mdc-notched-outline__trailing {
+              border-color: var(--gray-90) !important;
+              background: var(--gray-96-bg) !important;
+            }
+          }
+          
+          &:hover .mdc-notched-outline {
+            .mdc-notched-outline__leading,
+            .mdc-notched-outline__notch,
+            .mdc-notched-outline__trailing {
+              border-color: var(--gray-80) !important;
+            }
+          }
+          
+          &.mat-focused .mdc-notched-outline {
+            .mdc-notched-outline__leading,
+            .mdc-notched-outline__notch,
+            .mdc-notched-outline__trailing {
+              border-color: var(--primary) !important;
+              border-width: 2px !important;
+            }
+          }
+        }
+        
+        .mat-mdc-input-element {
+          color: var(--gray-60) !important;
+          
+          &::placeholder {
+            color: var(--gray-70) !important;
+          }
+        }
+        
+        .mat-mdc-form-field-icon-prefix .mat-icon,
+        .mat-mdc-form-field-icon-suffix .mat-icon {
+          color: var(--gray-70) !important;
+        }
+      }
+    }
+  }
+  
+  .main-content {
+    background-color: var(--white-bg) !important;
+    color: var(--gray-50) !important;
+  }
+  
+  .header {
+    background-color: var(--gray-100) !important;
+    color: var(--gray-50) !important;
+    border-color: var(--gray-80) !important;
+  }
+  
+  .footer {
+    background-color: var(--gray-98-bg) !important;
+    color: var(--gray-70) !important;
+    border-color: var(--gray-80) !important;
+  }
+  
+  // Input placeholders
+  ::placeholder {
+    color: var(--gray-70) !important;
+    opacity: 1;
+  }
+  
+  :-ms-input-placeholder {
+    color: var(--gray-70) !important;
+  }
+  
+  ::-ms-input-placeholder {
+    color: var(--gray-70) !important;
+  }
+  
+  // Chips and Filter Pills
+  .mat-mdc-chip {
+    background-color: var(--gray-98-bg) !important;
+    color: var(--gray-60) !important;
+    border-color: var(--gray-90) !important;
+    
+    &:hover {
+      background-color: var(--gray-96-bg) !important;
+      color: var(--gray-50) !important;
+    }
+    
+    &.selected-chip,
+    &.mat-mdc-chip-selected {
+      background-color: var(--primary-5p) !important;
+      color: var(--primary) !important;
+      border-color: var(--primary) !important;
+      
+      .mat-icon {
+        color: var(--primary) !important;
+      }
+    }
+    
+    .mdc-evolution-chip__text-label {
+      color: inherit !important;
+    }
+    
+    .mat-icon {
+      color: var(--gray-70) !important;
+    }
+  }
+  
+  .mat-mdc-chip-set {
+    .mat-mdc-chip {
+      margin: 2px !important;
+    }
+  }
+  
+  // Shared component chips
+  .chip {
+    &.chip-outlined {
+      background-color: transparent !important;
+      border-color: var(--gray-90) !important;
+      color: var(--gray-60) !important;
+      
+      &:hover {
+        background-color: var(--gray-97-bg) !important;
+        border-color: var(--gray-80) !important;
+        color: var(--gray-50) !important;
+      }
+    }
+    
+    &.chip-filled {
+      background-color: var(--gray-96-bg) !important;
+      color: var(--gray-60) !important;
+      border-color: var(--gray-90) !important;
+      
+      &:hover {
+        background-color: var(--gray-95-bg) !important;
+        color: var(--gray-50) !important;
+      }
+    }
+    
+    &.chip-selected {
+      background-color: var(--primary) !important;
+      color: white !important;
+      border-color: var(--primary) !important;
+      
+      &:hover {
+        background-color: var(--primary-dark) !important;
+      }
+    }
+  }
+  
+  // Tag components
+  .tag {
+    &.tag-primary {
+      background-color: var(--primary) !important;
+      color: white !important;
+    }
+    
+    &.tag-success {
+      background-color: var(--success) !important;
+      color: white !important;
+    }
+    
+    &.tag-danger,
+    &.tag-warning {
+      background-color: var(--error) !important;
+      color: white !important;
+    }
+    
+    &.tag-gray {
+      background-color: var(--gray-90) !important;
+      color: var(--gray-60) !important;
+    }
+  }
+  
+  // Filter buttons container
+  .filter-buttons {
+    .mat-mdc-chip {
+      margin: 4px 8px 4px 0 !important;
+    }
+  }
+  
+  // Notification button and FAB buttons
+  .mat-mdc-fab {
+    &[color="secondary"] {
+      background-color: var(--gray-96-bg) !important;
+      color: var(--gray-60) !important;
+      
+      &:hover {
+        background-color: var(--gray-95-bg) !important;
+        color: var(--gray-50) !important;
+      }
+      
+      .mat-icon {
+        color: var(--gray-70) !important;
+      }
+    }
+    
+    &[color="primary"] {
+      background-color: var(--primary) !important;
+      color: white !important;
+      
+      &:hover {
+        background-color: var(--primary-dark) !important;
+      }
+    }
+  }
+  
+  .mat-mdc-mini-fab {
+    &[color="secondary"] {
+      background-color: var(--gray-96-bg) !important;
+      color: var(--gray-60) !important;
+      
+      &:hover {
+        background-color: var(--gray-95-bg) !important;
+        color: var(--gray-50) !important;
+      }
+      
+      .mat-icon {
+        color: var(--gray-70) !important;
+      }
+    }
+    
+    &[color="primary"] {
+      background-color: var(--primary) !important;
+      color: white !important;
+      
+      &:hover {
+        background-color: var(--primary-dark) !important;
+      }
+    }
+  }
+  
+  // Badge styling for dark theme
+  .mat-badge {
+    .mat-badge-content {
+      background-color: var(--error) !important;
+      color: white !important;
+      font-weight: 500 !important;
+    }
+    
+    &.mat-badge-warn .mat-badge-content {
+      background-color: var(--error) !important;
+    }
+    
+    &.mat-badge-accent .mat-badge-content {
+      background-color: #ff4081 !important;
+    }
+  }
+  
+  // Header specific styling
+  .header {
+    background-color: var(--gray-98-bg) !important;
+    border-bottom: 1px solid var(--gray-90) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+    
+    .user-profile {
+      .mat-mdc-fab {
+        &[color="secondary"] {
+          background-color: var(--gray-95-bg) !important;
+          border: 1px solid var(--gray-90) !important;
+          
+          &:hover {
+            background-color: var(--gray-94) !important;
+            border-color: var(--gray-80) !important;
+          }
+          
+          .mat-icon {
+            color: var(--gray-70) !important;
+          }
+        }
+      }
+    }
+    
+    .logo-text {
+      color: var(--gray-10) !important;
+    }
+    
+    .text-gray-50 {
+      color: var(--gray-10) !important;
+    }
+  }
+  
+  // Footer specific styling
+  .footer {
+    background-color: var(--gray-98-bg) !important;
+    border-top: 1px solid var(--gray-95) !important;
+    color: var(--gray-60) !important;
+  }
+  
+  // Selection
+  ::selection {
+    background-color: var(--primary-5p) !important;
+    color: var(--primary) !important;
+  }
+  
+  ::-moz-selection {
+    background-color: var(--primary-5p) !important;
+    color: var(--primary) !important;
+  }
+  
+  // Table elements border radius
+  tbody, td, tfoot, th, thead, tr {
+    border-radius: 6px;
+  }
+}

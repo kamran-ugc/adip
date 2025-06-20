@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "./light_variables.scss";
 @import "./typography.scss";
+@import "./dark-theme.scss";
 
 // Mixins
 @mixin respond-to($breakpoint) {
@@ -307,7 +308,9 @@ body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: #f6f6f6;
+  background: var(--white-bg, #f6f6f6);
+  color: var(--gray-50, #000);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 // Material theme customization

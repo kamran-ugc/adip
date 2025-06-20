@@ -26,6 +26,8 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { MatSidenav } from "@angular/material/sidenav";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { filter, Subscription } from "rxjs";
+import { trigger, state, style, transition, animate } from "@angular/animations";
+import { ThemeToggleComponent } from "../theme-toggle/theme-toggle.component";
 
 @Component({
   selector: "app-sidebar",
@@ -44,7 +46,19 @@ import { filter, Subscription } from "rxjs";
     MatCardModule,
     MatExpansionModule,
     MatTooltipModule,
+    ThemeToggleComponent,
   ],
+  animations: [
+    trigger('flyoutAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(-10px)' }),
+        animate('200ms ease-in', style({ opacity: 1, transform: 'translateX(0)' }))
+      ]),
+      transition(':leave', [
+        animate('150ms ease-out', style({ opacity: 0, transform: 'translateX(-10px)' }))
+      ])
+    ])
+  ]
 })
 export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   // Current sidebar width for tracking changes
@@ -56,8 +70,11 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() sidenav!: MatSidenav;
   @ViewChild("sidebarElement") sidebarElement!: ElementRef;
 
-  isMinimized = false;
+  isMinimized = true;
   expandedItem: string | null = null;
+  hoveredItem: string | null = null;
+  submenuTop: number = 0;
+  private hideSubmenuTimeout: any = null;
 
   private resizing = false;
   private startX = 0;
@@ -146,7 +163,12 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   navItems = [
-    { label: "Dashboard", route: "/dashboard", icon: "home" },
+    { label: "Home", route: "/dashboard", icon: "home" },
+    {
+      label: "MOS",
+      icon: "build",
+      children: [{ label: "My Projects", route: "/mos/projects", icon: "folder" }],
+    },
     {
       label: "RAM",
       icon: "center_focus_strong",
@@ -189,6 +211,76 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
           route: "/adm/update-wildlife-survey",
           icon: "update",
         },
+        {
+          label: "User Management",
+          route: "/administration/user-management",
+          icon: "people",
+        },
+        {
+          label: "User Management Activity",
+          route: "/administration/user-management-activity",
+          icon: "assignment",
+        },
+        {
+          label: "Active Sessions",
+          route: "/administration/active-sessions",
+          icon: "access_time",
+        },
+        {
+          label: "System Transactions",
+          route: "/administration/system-transactions",
+          icon: "receipt_long",
+        },
+        {
+          label: "Administrator Tools",
+          route: "/administration/administrator-tools",
+          icon: "build",
+        },
+        {
+          label: "System Stats & Reports",
+          route: "/administration/system-stats-reports",
+          icon: "bar_chart",
+        },
+        {
+          label: "Notification Manager",
+          route: "/administration/notification-manager",
+          icon: "notifications",
+        },
+        {
+          label: "Notification Queue",
+          route: "/administration/notification-queue",
+          icon: "queue",
+        },
+        {
+          label: "BDE File Parsing",
+          route: "/administration/bde-file-parsing",
+          icon: "file_upload",
+        },
+        {
+          label: "Survey Admin Tools",
+          route: "/administration/survey-admin-tools",
+          icon: "poll",
+        },
+        {
+          label: "All Survey Uploads",
+          route: "/administration/all-survey-uploads",
+          icon: "cloud_upload",
+        },
+        {
+          label: "18B Feature/Attributes",
+          route: "/administration/18b-feature-attributes",
+          icon: "category",
+        },
+        {
+          label: "Supported Coordinate Systems",
+          route: "/administration/supported-coordinate-systems",
+          icon: "map",
+        },
+        {
+          label: "FME Node Status",
+          route: "/administration/fme-node-status",
+          icon: "computer",
+        },
       ],
     },
 
@@ -202,16 +294,6 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: "edit",
       children: [{ label: "My Projects", route: "/rim", icon: "folder" }],
     },
-  ];
-
-  resources = [
-    { label: "Help Desk", route: "/help-desk", icon: "help" },
-    {
-      label: "Documents & Downloads",
-      route: "/documents-downloads",
-      icon: "description",
-    },
-    { label: "Users Guides", route: "/users-guides", icon: "menu_book" },
   ];
 
   constructor(
@@ -249,14 +331,25 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    // Initialize default sidebar width and store original width
-    this.currentWidth = this.sidebarElement.nativeElement.offsetWidth;
-    this.maxWidth = this.currentWidth; // Set the max width to the initial width
-    this.originalWidth = this.currentWidth; // Store the original width for toggling
-    document.documentElement.style.setProperty(
-      "--sidebar-width",
-      `${this.currentWidth}px`,
-    );
+    // Initialize default sidebar width values without changing DOM yet
+    this.currentWidth = 330;  // Default width
+    this.maxWidth = 330;     // Maximum width
+    this.originalWidth = 330; // Original width for toggling
+    
+    // Set the appropriate initial state
+    if (this.isMinimized) {
+      // Set minimized state
+      document.documentElement.style.setProperty("--sidebar-width", "80px");
+      if (this.sidebarElement && this.sidebarElement.nativeElement) {
+        this.renderer.setStyle(this.sidebarElement.nativeElement, "width", "80px");
+      }
+    } else {
+      // Set expanded state with proper width
+      document.documentElement.style.setProperty("--sidebar-width", "330px");
+      if (this.sidebarElement && this.sidebarElement.nativeElement) {
+        this.renderer.setStyle(this.sidebarElement.nativeElement, "width", "330px");
+      }
+    }
 
     // Check if we're on the RAM create project page and collapse sidebar if so
     setTimeout(() => {
@@ -269,6 +362,12 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     // Clean up event listeners
     this.removeMouseListeners();
+
+    // Clear any pending hide timeout
+    if (this.hideSubmenuTimeout) {
+      clearTimeout(this.hideSubmenuTimeout);
+      this.hideSubmenuTimeout = null;
+    }
 
     // Unsubscribe from router events
     if (this.routerSubscription) {
@@ -353,5 +452,48 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.mouseUpListener();
       this.mouseUpListener = null;
     }
+  }
+
+  showSubmenu(item: any, event: MouseEvent): void {
+    if (this.isMinimized && item.children) {
+      // Clear any pending hide timeout
+      if (this.hideSubmenuTimeout) {
+        clearTimeout(this.hideSubmenuTimeout);
+        this.hideSubmenuTimeout = null;
+      }
+      
+      this.hoveredItem = item.label;
+      
+      // Calculate position based on the hovered element
+      const target = event.target as HTMLElement;
+      const rect = target.getBoundingClientRect();
+      this.submenuTop = rect.top;
+    }
+  }
+
+  hideSubmenu(): void {
+    // Add a small delay before hiding to allow for mouse movement between elements
+    this.hideSubmenuTimeout = setTimeout(() => {
+      this.hoveredItem = null;
+      this.submenuTop = 0;
+    }, 150);
+  }
+
+  keepSubmenuOpen(): void {
+    // Clear any pending hide timeout when hovering over the submenu
+    if (this.hideSubmenuTimeout) {
+      clearTimeout(this.hideSubmenuTimeout);
+      this.hideSubmenuTimeout = null;
+    }
+  }
+
+  getHoveredItemChildren(): any[] {
+    if (!this.hoveredItem) return [];
+    const item = this.navItems.find(nav => nav.label === this.hoveredItem);
+    return item?.children || [];
+  }
+
+  getSubmenuPosition(): number {
+    return this.submenuTop;
   }
 }

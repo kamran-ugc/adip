@@ -51,9 +51,32 @@
 
     .minimized-nav {
       width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      .minimized-nav-items {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+      }
+
+      .minimized-bottom-sticky {
+        position: sticky;
+        bottom: 35px;
+        background-color: inherit;
+        padding: 20px 0 12px 0;
+        border-top: 1px solid var(--gray-94, #ebecf0);
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        z-index: 10;
+        margin-bottom: 8px;
+      }
 
       .nav-item {
         padding: 8px;
@@ -65,13 +88,80 @@
           margin: 0;
         }
       }
+
+      .nav-item-single {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+
+        .nav-item {
+          margin-bottom: 4px;
+        }
+
+        .parent-label {
+          font-size: 0.8125rem;
+          font-weight: 600;
+          color: var(--gray-70, #8c99b3);
+          text-align: center;
+          line-height: 1;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+
+      .nav-item-with-children {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+
+        .nav-item {
+          margin-bottom: 4px;
+        }
+
+        .parent-label {
+          font-size: 0.8125rem;
+          font-weight: 600;
+          color: var(--gray-70, #8c99b3);
+          text-align: center;
+          line-height: 1;
+          margin-bottom: 8px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+      }
     }
   }
 
   .sidebar-content {
     flex: 1;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    height: 100%;
+    
+    .sidebar-scrollable-content {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    
+    .sidebar-bottom-sticky {
+      position: sticky;
+      bottom: 35px;
+      background-color: inherit;
+      padding: 24px 0 16px 0;
+      border-top: 1px solid var(--gray-94, #ebecf0);
+      display: flex;
+      justify-content: center;
+      z-index: 10;
+      margin-bottom: 8px;
+    }
   }
 
   ::ng-deep {
@@ -81,8 +171,63 @@
     .mat-expansion-panel {
       box-shadow: none !important;
     }
+    
+    // Global hover styles for navigation items
+    .mat-mdc-list-item:hover,
+    .nav-item:hover {
+      background-color: var(--primary-5p, rgba(51, 97, 255, 0.05)) !important;
+      
+      .mdc-list-item__primary-text,
+      .mdc-list-item__content,
+      .mat-mdc-list-item-title,
+      .mat-icon,
+      span {
+        color: var(--primary, #3361ff) !important;
+      }
+    }
     .mat-expansion-panel-header {
       padding: 1rem !important;
+      
+      &:hover {
+        background-color: var(--primary-5p, rgba(51, 97, 255, 0.05)) !important;
+        
+        .mat-expansion-panel-header-title,
+        .mat-icon,
+        span {
+          color: var(--primary, #3361ff) !important;
+        }
+      }
+      
+      // Active state for parent navigation items
+      &.mat-expanded {
+        background-color: var(--primary-5p, rgba(51, 97, 255, 0.05)) !important;
+        
+        .mat-expansion-panel-header-title,
+        .mat-icon,
+        span {
+          color: var(--primary, #3361ff) !important;
+        }
+      }
+      
+      // Expansion indicator (caret) theming
+      .mat-expansion-indicator {
+        color: var(--gray-70, #8c99b3) !important;
+        
+        &::after {
+          color: var(--gray-70, #8c99b3) !important;
+        }
+      }
+    }
+    
+    // Active state when any child route is active
+    .sidebar-expansion-panel.parent-active .mat-expansion-panel-header {
+      background-color: var(--primary-5p, rgba(51, 97, 255, 0.05)) !important;
+      
+      .mat-expansion-panel-header-title,
+      .mat-icon,
+      span {
+        color: var(--primary, #3361ff) !important;
+      }
 
       .mat-expansion-panel-header-title {
         // Use ellipsis for text that doesn't fit
@@ -99,8 +244,8 @@
       overflow-x: hidden;
 
       .mat-expansion-panel-body {
-        margin: 0px 24px 16px;
-        background: var(--gray-90, #f6f6f6);
+        margin: 8px 24px 16px;
+        background: var(--gray-96, #f2f3f5);
         padding: 10px;
         gap: 5px;
         display: flex;
@@ -117,6 +262,21 @@
             overflow: hidden;
             text-overflow: ellipsis;
           }
+          
+          // Force active submenu items to use regular primary color - max specificity
+          &.bg-primary,
+          &.mat-mdc-list-item.bg-primary {
+            background-color: #3361ff !important;
+            background: #3361ff !important;
+            
+            .mdc-list-item__primary-text,
+            .mdc-list-item__content,
+            .mat-mdc-list-item-title,
+            .mat-icon,
+            span {
+              color: #ffffff !important;
+            }
+          }
         }
       }
     }
@@ -125,7 +285,86 @@
         display: none;
       }
     }
+    
+    // Fix for active navigation text color to be white - regular primary
+    .bg-primary,
+    .mat-mdc-list-item.bg-primary,
+    a.bg-primary,
+    .sidebar-expansion-panel .bg-primary {
+      background-color: var(--primary, #3361ff) !important;
+      
+      // Target all possible text elements in Material list items
+      .mdc-list-item__primary-text,
+      .mdc-list-item__content,
+      .mat-mdc-list-item-title,
+      .mat-icon,
+      span,
+      a,
+      * {
+        color: #ffffff !important;
+      }
+      
+      // Override any Material component specific styles
+      &.mat-mdc-list-item {
+        .mdc-list-item__primary-text,
+        .mdc-list-item__content {
+          color: #ffffff !important;
+        }
+      }
+    }
+    
+    // Additional rule for active router links - regular primary
+    a.bg-primary,
+    .mat-mdc-list-item.bg-primary {
+      background-color: var(--primary, #3361ff) !important;
+      
+      .mdc-list-item__primary-text,
+      .mdc-list-item__content,
+      .mat-mdc-list-item-title,
+      .mat-icon,
+      span,
+      * {
+        color: #ffffff !important;
+      }
+    }
+    
+    // Force white color on text-white class
+    .text-white {
+      color: #ffffff !important;
+    }
+    
+    // Hover styles for minimized navigation items
+    .minimized-nav .nav-item:hover,
+    .nav-item-with-children:hover .nav-item,
+    .nav-item-single:hover .nav-item {
+      background-color: var(--primary-5p, rgba(51, 97, 255, 0.05)) !important;
+      
+      .mat-icon {
+        color: var(--primary, #3361ff) !important;
+      }
+    }
+    
+    // Active styles for minimized navigation parent items
+    .minimized-nav .nav-item-with-children.parent-active .nav-item {
+      background-color: var(--primary-5p, rgba(51, 97, 255, 0.05)) !important;
+      
+      .mat-icon {
+        color: var(--primary, #3361ff) !important;
+      }
+    }
+    
+    .minimized-nav .nav-item-with-children.parent-active .parent-label {
+      color: var(--primary, #3361ff) !important;
+    }
   }
+}
+
+// Global override for any bg-primary class in sidebar - highest priority
+.sidebar ::ng-deep .bg-primary,
+.sidebar ::ng-deep .mat-mdc-list-item.bg-primary,
+.sidebar ::ng-deep a.bg-primary {
+  background-color: #3361ff !important;
+  background: #3361ff !important;
 }
 
 .custom-search-field {
@@ -140,6 +379,38 @@
       background: var(--gray-gray-100-white, #fff);
       box-shadow: 0px 2px 5px 0px rgba(38, 51, 77, 0.03);
       width: 100%; /* Ensure inner content takes full width */
+    }
+    
+    // Dark theme overrides
+    :host-context(.dark-theme) & {
+      .mat-mdc-form-field-flex {
+        background: var(--gray-96-bg, #2d2d30) !important;
+        border: 1px solid var(--gray-90, #4a4a55) !important;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3) !important;
+      }
+      
+      .mat-mdc-input-element {
+        color: var(--gray-60, #ececf1) !important;
+        
+        &::placeholder {
+          color: var(--gray-70, #9b9b9f) !important;
+        }
+      }
+      
+      .mat-mdc-form-field-icon-prefix .mat-icon,
+      .mat-mdc-form-field-icon-suffix .mat-icon {
+        color: var(--gray-70, #9b9b9f) !important;
+      }
+      
+      &:hover .mat-mdc-form-field-flex {
+        border-color: var(--gray-80, #6e6e80) !important;
+      }
+      
+      &.mat-focused .mat-mdc-form-field-flex {
+        border-color: var(--primary, #4d75ff) !important;
+        border-width: 2px !important;
+        box-shadow: 0 0 0 0.1rem rgba(77, 117, 255, 0.15) !important;
+      }
     }
 
     .mat-mdc-text-field-wrapper {
@@ -183,6 +454,63 @@
       text-overflow: ellipsis;
       overflow: hidden;
       width: 100%;
+    }
+  }
+}
+
+// Global submenu flyout - rendered outside sidebar container
+.global-submenu-flyout {
+  position: fixed;
+  background: var(--gray-98-bg, white);
+  border: 1px solid var(--gray-90, #ebecf0);
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.3);
+  min-width: 180px;
+  z-index: 9999;
+  padding: 8px;
+  // Add equal padding all around for better spacing
+
+
+  .submenu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 8px;
+    text-decoration: none;
+    color: var(--gray-60, #8c99b3);
+    font-size: 12px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    min-height: 48px;
+    // Remove margin since we now have equal padding all around
+    margin-left: 0;
+
+    mat-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      color: var(--gray-70, #8c99b3);
+    }
+
+    &:hover {
+      background-color: var(--primary-5p, rgba(51, 97, 255, 0.05));
+      color: var(--primary, #3361ff);
+      border-radius: 4px;
+
+      mat-icon {
+        color: var(--primary, #3361ff);
+      }
+    }
+
+    &.active {
+      background-color: var(--primary, #3361ff);
+      color: white;
+      border-radius: 4px;
+
+      mat-icon {
+        color: white;
+      }
     }
   }
 }

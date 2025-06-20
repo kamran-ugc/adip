@@ -6,6 +6,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { ShellLayoutComponent } from "./layout/shell-layout/shell-layout.component";
+import { ThemeService } from "./shared/services/theme.service";
 
 @Component({
   selector: "app-root",
@@ -74,7 +75,7 @@ export class AppComponent {
     },
   ];
 
-  constructor() {
+  constructor(private themeService: ThemeService) {
     this.currentNavItem = this.navItems;
   }
 

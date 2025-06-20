@@ -10,6 +10,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
+import { ThemeToggleComponent } from "../theme-toggle/theme-toggle.component";
 
 @Component({
   selector: "app-header",
@@ -28,6 +29,7 @@ import { CommonModule } from "@angular/common";
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    ThemeToggleComponent,
   ],
 })
 export class HeaderComponent {}

@@ -21,6 +21,24 @@
     <a mat-button class="bold-13 text-gray-60" routerLink="/checklist"
       >GA Airport Checklist</a
     >
+    <a mat-button class="bold-13 text-gray-60" [matMenuTriggerFor]="resourcesMenu">
+      Resources
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </a>
+    <mat-menu #resourcesMenu="matMenu">
+      <a mat-menu-item routerLink="/help-desk">
+        <mat-icon>help</mat-icon>
+        <span>Help Desk</span>
+      </a>
+      <a mat-menu-item routerLink="/documents-downloads">
+        <mat-icon>description</mat-icon>
+        <span>Documents & Downloads</span>
+      </a>
+      <a mat-menu-item routerLink="/users-guides">
+        <mat-icon>menu_book</mat-icon>
+        <span>Users Guides</span>
+      </a>
+    </mat-menu>
     <a mat-button class="bold-13 text-gray-60" routerLink="/admin">Admin</a>
     <a mat-button class="bold-13 text-gray-60">
       <mat-icon color="secondary" [matMenuTriggerFor]="moreMenu"
@@ -54,12 +72,13 @@
         color="secondary"
         mat-fab
         [matBadge]="45"
-        matBadgeColor="primary"
+        matBadgeColor="warn"
         matBadgeOverlap="true"
         class="me-4"
       >
         <mat-icon class="text-gray-70">notifications</mat-icon>
       </button>
+
 
       <button mat-fab color="primary" [matMenuTriggerFor]="userMenu">SA</button>
       <span class="text-gray-50 bold-13 ms-2">Stephane Azevedo</span>
