@@ -1,6 +1,8 @@
 .sidebar {
   padding: 20px;
-  transition: width 0.3s ease, padding 0.3s ease;
+  transition:
+    width 0.3s ease,
+    padding 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -9,12 +11,12 @@
   min-width: 80px; /* Minimum width is minimized size */
   width: var(--sidebar-width, 330px);
   overflow: hidden;
-  
+
   .search-container {
     width: 100%;
     margin-bottom: 20px;
   }
-  
+
   .resize-handle {
     position: absolute;
     top: 0;
@@ -25,17 +27,17 @@
     background-color: transparent;
     transition: background-color 0.2s ease;
     z-index: 10;
-    
+
     &:hover {
       background-color: rgba(0, 87, 184, 0.3);
     }
   }
-  
+
   // Style for when resizing is active
   body.sidebar-resizing & .resize-handle {
     background-color: rgba(0, 87, 184, 0.5);
   }
-  
+
   &.minimized {
     padding: 20px 10px;
     align-items: center;
@@ -58,7 +60,7 @@
         justify-content: center;
         min-height: 48px;
         width: 100%;
-        
+
         mat-icon {
           margin: 0;
         }
@@ -81,11 +83,11 @@
     }
     .mat-expansion-panel-header {
       padding: 1rem !important;
-      
+
       .mat-expansion-panel-header-title {
         // Use ellipsis for text that doesn't fit
         overflow: hidden;
-        
+
         span {
           white-space: nowrap;
           overflow: hidden;
@@ -95,7 +97,7 @@
     }
     .sidebar-expansion-panel {
       overflow-x: hidden;
-      
+
       .mat-expansion-panel-body {
         margin: 0px 24px 16px;
         background: var(--gray-90, #f6f6f6);
@@ -105,11 +107,11 @@
         flex-direction: column;
         border-radius: 6px;
         overflow-x: hidden;
-        
+
         .mat-mdc-list-item {
           // background: var(--gray-90, #f6f6f6);
           white-space: nowrap;
-          
+
           .mdc-list-item__primary-text {
             white-space: nowrap;
             overflow: hidden;
@@ -129,7 +131,7 @@
 .custom-search-field {
   width: 100%; /* Ensure search field takes full width of its container */
   max-width: 100%; /* Prevent overflow */
-  
+
   ::ng-deep {
     /* These styles apply to Angular Material form field internal elements */
     .mat-mdc-form-field-flex {
@@ -139,35 +141,35 @@
       box-shadow: 0px 2px 5px 0px rgba(38, 51, 77, 0.03);
       width: 100%; /* Ensure inner content takes full width */
     }
-    
+
     .mat-mdc-text-field-wrapper {
       width: 100%; /* Full width for the wrapper */
       padding: 0 8px; /* Add padding to prevent text touching the edges */
     }
-    
+
     .mat-mdc-form-field-infix {
       width: auto !important; /* Allow the infix to adjust size */
       min-width: 0; /* Allow shrinking below default min-width */
       padding: 12px 0 12px 0; /* Adjust padding for better spacing */
     }
-    
+
     /* Hide outline elements */
     .mat-mdc-form-field-outline {
       display: none;
     }
-    
+
     .mdc-notched-outline__leading {
       display: none;
     }
-    
+
     .mdc-notched-outline__trailing {
       display: none;
     }
-    
+
     .mat-mdc-form-field-subscript-wrapper {
       display: none;
     }
-    
+
     /* Adjust icon placement */
     .mat-mdc-form-field-icon-prefix > .mat-icon,
     .mat-mdc-form-field-icon-suffix > .mat-icon {
@@ -175,7 +177,7 @@
       display: flex;
       align-items: center;
     }
-    
+
     /* Ensure input text doesn't overflow */
     input.mat-mdc-input-element {
       text-overflow: ellipsis;

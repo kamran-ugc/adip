@@ -85,8 +85,10 @@
           "defaultConfiguration": "development",
           "options": {
             "port": 4000,
+            "host": "0.0.0.0",
             "publicHost": "http://localhost:4000",
-            "extraWebpackConfig": "webpack.config.js"
+            "extraWebpackConfig": "webpack.config.js",
+            "disableHostCheck": true
           }
         },
         "extract-i18n": {
@@ -108,11 +110,18 @@
             "styles": ["src/styles/styles.scss"],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "59d7f4b2-df57-4891-879a-5bf3d8c3bc9c"
+    "analytics": "59d7f4b2-df57-4891-879a-5bf3d8c3bc9c",
+    "schematicCollections": ["angular-eslint"]
   }
 }

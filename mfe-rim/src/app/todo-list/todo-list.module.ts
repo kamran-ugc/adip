@@ -1,9 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { TodoListComponent } from './todo-list.component';
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { TodoListComponent } from "./todo-list.component";
 
 @NgModule({
   declarations: [],
@@ -11,10 +9,10 @@ import { TodoListComponent } from './todo-list.component';
     CommonModule,
     RouterModule.forChild([
       {
-        path: '',
-        component: TodoListComponent
-      }
-    ])
-  ]
+        path: "",
+        component: TodoListComponent,
+      },
+    ]),
+  ],
 })
-export class TodoListModule { }
+export class TodoListModule {}

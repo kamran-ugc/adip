@@ -1,0 +1,140 @@
+services:
+  shell:
+    container_name: micro-frontends-shell
+    build:
+      context: ./mfe-shell
+      dockerfile: ../Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./mfe-shell:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4000
+    networks:
+      - mfe-network
+
+  dashboard:
+    container_name: micro-frontends-dashboard
+    build:
+      context: ./mfe-dashboard
+      dockerfile: ../Dockerfile
+    ports:
+      - "4100:4100"
+    volumes:
+      - ./mfe-dashboard:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4100
+    networks:
+      - mfe-network
+
+  adm:
+    container_name: micro-frontends-adm
+    build:
+      context: ./mfe-adm
+      dockerfile: ../Dockerfile
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./mfe-adm:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4200
+    networks:
+      - mfe-network
+
+  administration:
+    container_name: micro-frontends-administration
+    build:
+      context: ./mfe-administration
+      dockerfile: ../Dockerfile
+    ports:
+      - "4300:4300"
+    volumes:
+      - ./mfe-administration:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4300
+    networks:
+      - mfe-network
+
+  agis:
+    container_name: micro-frontends-agis
+    build:
+      context: ./mfe-agis
+      dockerfile: ../Dockerfile
+    ports:
+      - "4400:4400"
+    volumes:
+      - ./mfe-agis:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4400
+    networks:
+      - mfe-network
+
+  amr:
+    container_name: micro-frontends-amr
+    build:
+      context: ./mfe-amr
+      dockerfile: ../Dockerfile
+    ports:
+      - "4500:4500"
+    volumes:
+      - ./mfe-amr:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4500
+    networks:
+      - mfe-network
+
+  ram:
+    container_name: micro-frontends-ram
+    build:
+      context: ./mfe-ram
+      dockerfile: ../Dockerfile
+    ports:
+      - "4600:4600"
+    volumes:
+      - ./mfe-ram:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4600
+    networks:
+      - mfe-network
+
+  rim:
+    container_name: micro-frontends-rim
+    build:
+      context: ./mfe-rim
+      dockerfile: ../Dockerfile
+    ports:
+      - "4700:4700"
+    volumes:
+      - ./mfe-rim:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4700
+    networks:
+      - mfe-network
+
+networks:
+  mfe-network:
+    driver: bridge

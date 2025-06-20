@@ -9,6 +9,4 @@ import { ProjectListComponent } from "../../pages/project-list/project-list.comp
   standalone: true,
   imports: [RouterModule, ProjectListComponent],
 })
-export class RamComponent {
-  constructor() {}
-}
+export class RamComponent {}

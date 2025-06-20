@@ -10,7 +10,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { SelectionModel } from "@angular/cdk/collections";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { NgChartsModule } from "ng2-charts";
-import { ChartConfiguration, ChartType } from "chart.js";
+import { ChartConfiguration } from "chart.js";
 
 export interface ProjectData {
   id: string;
@@ -64,7 +64,7 @@ const STATUS: string[] = [
   "Delayed",
 ];
 
-const STATUS_STYLES: { [key: string]: StatusStyle } = {
+const STATUS_STYLES: Record<string, StatusStyle> = {
   "In Progress": { color: "#FF9800", background: "#FFF3E0" },
   Completed: { color: "#4CAF50", background: "#E8F5E9" },
   "On Hold": { color: "#9C27B0", background: "#F3E5F5" },
@@ -113,23 +113,23 @@ export class TodoListComponent implements AfterViewInit {
   chartData: ChartConfiguration<"line">["data"] = {
     labels: ["January", "February", "March"],
     datasets: [
-      { 
-        data: [6, 100, 80], 
+      {
+        data: [6, 100, 80],
         label: "Blocked Items",
-        borderColor: '#e62e2e',
-        backgroundColor: 'rgba(230, 46, 46, 0.1)',
+        borderColor: "#e62e2e",
+        backgroundColor: "rgba(230, 46, 46, 0.1)",
       },
-      { 
-        data: [1, 23, 90], 
+      {
+        data: [1, 23, 90],
         label: "Revisions Needed",
-        borderColor: '#8833ff',
-        backgroundColor: 'rgba(136, 51, 255, 0.1)',
+        borderColor: "#8833ff",
+        backgroundColor: "rgba(136, 51, 255, 0.1)",
       },
-      { 
-        data: [3, 48, 50], 
+      {
+        data: [3, 48, 50],
         label: "Submissions in Progress",
-        borderColor: '#ffcb33',
-        backgroundColor: 'rgba(255, 203, 51, 0.1)',
+        borderColor: "#ffcb33",
+        backgroundColor: "rgba(255, 203, 51, 0.1)",
       },
     ],
   };
@@ -143,54 +143,54 @@ export class TodoListComponent implements AfterViewInit {
         display: false,
       },
       tooltip: {
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        titleColor: '#4d5e80', // gray-50
-        bodyColor: '#8c99b3', // gray-70
-        borderColor: '#ebecf0', // gray-94
+        backgroundColor: "rgba(255, 255, 255, 0.9)",
+        titleColor: "#4d5e80", // gray-50
+        bodyColor: "#8c99b3", // gray-70
+        borderColor: "#ebecf0", // gray-94
         borderWidth: 1,
         padding: 10,
         displayColors: true,
         titleFont: {
           family: 'Roboto, "Helvetica Neue", sans-serif',
-          size: 14
+          size: 14,
         },
         bodyFont: {
           family: 'Roboto, "Helvetica Neue", sans-serif',
-          size: 12
-        }
-      }
+          size: 12,
+        },
+      },
     },
     scales: {
       x: {
         grid: {
-          display: false
+          display: false,
         },
         ticks: {
-          color: '#8c99b3', // Explicit gray-70 color
+          color: "#8c99b3", // Explicit gray-70 color
           font: {
             family: 'Roboto, "Helvetica Neue", sans-serif',
             size: 12,
-            weight: '400'
-          }
-        }
+            weight: "400",
+          },
+        },
       },
       y: {
         grid: {
-          display: false
+          display: false,
         },
         ticks: {
-          color: '#8c99b3', // Explicit gray-70 color
+          color: "#8c99b3", // Explicit gray-70 color
           font: {
             family: 'Roboto, "Helvetica Neue", sans-serif',
             size: 12,
-            weight: '400'
-          }
-        }
-      }
-    }
+            weight: "400",
+          },
+        },
+      },
+    },
   };
 
-  chartType: "line" = "line";
+  chartType = "line" as const;
 
   constructor() {
     // Create 100 users

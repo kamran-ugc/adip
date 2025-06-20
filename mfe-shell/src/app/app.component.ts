@@ -1,14 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { Routes, RouterOutlet, Router, RouterModule } from "@angular/router";
+import { Component } from "@angular/core";
+import { RouterOutlet, RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import { Init } from "v8";
-import { SharedComponentsModule } from "shared-components";
 import { ShellLayoutComponent } from "./layout/shell-layout/shell-layout.component";
-const appRoutes: Routes = [];
 
 @Component({
   selector: "app-root",
@@ -20,7 +17,6 @@ const appRoutes: Routes = [];
     MatListModule,
     MatIconModule,
     MatToolbarModule,
-    SharedComponentsModule,
     ShellLayoutComponent,
   ],
   templateUrl: "./app.component.html",
@@ -28,7 +24,7 @@ const appRoutes: Routes = [];
 })
 export class AppComponent {
   currentNavItem: any[] = [];
-  currentActiveNavLabel: string = "";
+  currentActiveNavLabel = "";
 
   profileNavItems = [
     {
@@ -78,7 +74,6 @@ export class AppComponent {
     },
   ];
 
-  public async ngOnInit() {}
   constructor() {
     this.currentNavItem = this.navItems;
   }

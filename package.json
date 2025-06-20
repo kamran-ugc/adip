@@ -1,0 +1,30 @@
+{
+  "name": "adip",
+  "version": "1.0.0",
+  "description": "ADIP Frontends Project",
+  "scripts": {
+    "start": "concurrently \"npm run start:shell\" \"npm run start:ram\" \"npm run start:rim\" \"npm run start:dashboard\" \"npm run start:amr\" \"npm run start:agis\" \"npm run start:administration\" \"npm run start:adm\"",
+    "start:shell": "cd mfe-shell && npm run start",
+    "start:ram": "cd mfe-ram && npm run start",
+    "start:rim": "cd mfe-rim && npm run start",
+    "start:dashboard": "cd mfe-dashboard && npm run start",
+    "start:amr": "cd mfe-amr && npm run start",
+    "start:agis": "cd mfe-agis && npm run start",
+    "start:administration": "cd mfe-administration && npm run start",
+    "start:adm": "cd mfe-adm && npm run start",
+    "install:all": "npm install && concurrently \"cd mfe-shell && npm install\" \"cd mfe-ram && npm install\" \"cd mfe-rim && npm install\" \"cd mfe-dashboard && npm install\" \"cd mfe-amr && npm install\" \"cd mfe-agis && npm install\" \"cd mfe-administration && npm install\" \"cd mfe-adm && npm install\"",
+    "stop": "concurrently \"kill-port 4000 4100 4200 4300 4400 4500 4600 4700 4800\"",
+    "stop:shell": "kill-port 4000",
+    "stop:ram": "kill-port 4100",
+    "stop:rim": "kill-port 4200",
+    "stop:dashboard": "kill-port 4300",
+    "stop:amr": "kill-port 4400",
+    "stop:agis": "kill-port 4500",
+    "stop:administration": "kill-port 4600",
+    "stop:adm": "kill-port 4700"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "kill-port": "^2.0.1"
+  }
+}

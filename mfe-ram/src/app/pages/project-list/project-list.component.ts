@@ -1,4 +1,4 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component, ViewChild, OnInit, AfterViewInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
@@ -54,7 +54,7 @@ interface RamProject {
   styleUrl: "./project-list.component.scss",
   standalone: true,
 })
-export class ProjectListComponent {
+export class ProjectListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: MatTableDataSource<RamProject>;
@@ -253,12 +253,6 @@ export class ProjectListComponent {
         case "workflowStatus":
           dataValue = data.workflowStatus;
           break;
-        case "createdBy":
-          dataValue = data.createdBy;
-          break;
-        case "createdOn":
-          dataValue = data.createdOn;
-          break;
 
         default:
           dataValue = "";
@@ -303,13 +297,15 @@ export class ProjectListComponent {
   onFilterStatusChange(status: string) {
     this.selectedFilterStatus = status;
     console.log("Filter status changed to:", status);
-    
+
     // Update the heading text based on the selected filter
-    const selectedFilter = this.filterButtons.find(button => button.value === status);
+    const selectedFilter = this.filterButtons.find(
+      (button) => button.value === status,
+    );
     if (selectedFilter) {
       this.headingText = `${selectedFilter.label} RAM Projects`;
     }
-    
+
     // You can update your dataSource.filter here based on the status
   }
 }

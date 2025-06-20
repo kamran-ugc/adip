@@ -48,14 +48,14 @@ export class CreateRamProjectDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<CreateRamProjectDialogComponent>,
-    private router: Router
+    private router: Router,
   ) {}
 
   onSearchChange(value: string) {
     this.filteredFacilities = this.facilities.filter((f) =>
       (f.id + " - " + f.name + " " + f.code)
         .toLowerCase()
-        .includes(value.toLowerCase())
+        .includes(value.toLowerCase()),
     );
   }
 
@@ -80,7 +80,7 @@ export class CreateRamProjectDialogComponent {
     const search = this.facilitySearch.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // escape regex
     return text.replace(
       new RegExp(search, "gi"),
-      (match) => `<span class="highlight">${match}</span>`
+      (match) => `<span class="highlight">${match}</span>`,
     );
   }
 

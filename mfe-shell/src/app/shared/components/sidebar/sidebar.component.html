@@ -55,17 +55,35 @@
         <mat-expansion-panel
           class="sidebar-expansion-panel"
           *ngIf="item.children"
-          [expanded]="expandedItem === item.label || (isRouteActive(item) && !expandedItem)"
+          [expanded]="
+            expandedItem === item.label ||
+            (isRouteActive(item) && !expandedItem)
+          "
           (opened)="onPanelOpened(item.label)"
           (closed)="onPanelClosed(item.label)"
           [attr.data-panel-label]="item.label"
         >
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <mat-icon matListItemIcon [ngClass]="isRouteActive(item) || expandedItem === item.label ? 'text-primary' : 'text-gray-70'" class="me-20">{{
-                item.icon
-              }}</mat-icon>
-              <span matListItemTitle class="bold-13" [ngClass]="isRouteActive(item) || expandedItem === item.label ? 'text-primary' : 'text-gray-70'">
+              <mat-icon
+                matListItemIcon
+                [ngClass]="
+                  isRouteActive(item) || expandedItem === item.label
+                    ? 'text-primary'
+                    : 'text-gray-70'
+                "
+                class="me-20"
+                >{{ item.icon }}</mat-icon
+              >
+              <span
+                matListItemTitle
+                class="bold-13"
+                [ngClass]="
+                  isRouteActive(item) || expandedItem === item.label
+                    ? 'text-primary'
+                    : 'text-gray-70'
+                "
+              >
                 {{ item.label }}</span
               >
             </mat-panel-title>

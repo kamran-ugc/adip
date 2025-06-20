@@ -9,7 +9,7 @@ body {
   &.sidebar-resizing {
     cursor: ew-resize;
     user-select: none;
-    
+
     * {
       pointer-events: none;
     }

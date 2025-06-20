@@ -1,7 +1,6 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { loadRemoteModule } from "@angular-architects/module-federation";
-import { AppComponent } from "./app.component";
 
 const MFE_APP_DASHBOARD_URL = "http://localhost:4100/remoteEntry.js";
 const MFE_APP_GOALS_URL = "http://localhost:4200/remoteEntry.js";

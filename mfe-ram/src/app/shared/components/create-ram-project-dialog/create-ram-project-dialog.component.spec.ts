@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CreateRamProjectDialogComponent } from './create-ram-project-dialog.component';
+import { CreateRamProjectDialogComponent } from "./create-ram-project-dialog.component";
 
-describe('CreateRamProjectDialogComponent', () => {
+describe("CreateRamProjectDialogComponent", () => {
   let component: CreateRamProjectDialogComponent;
   let fixture: ComponentFixture<CreateRamProjectDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreateRamProjectDialogComponent]
-    })
-    .compileComponents();
+      imports: [CreateRamProjectDialogComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CreateRamProjectDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
