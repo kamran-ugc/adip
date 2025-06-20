@@ -10,7 +10,7 @@ import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
 import { MatSort, MatSortModule } from "@angular/material/sort";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
+import { Router, RouterModule, ActivatedRoute } from "@angular/router";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { CreateRamProjectDialogComponent } from "../../shared/components/create-ram-project-dialog/create-ram-project-dialog.component";
 import { MatDividerModule } from "@angular/material/divider";
@@ -55,8 +55,8 @@ interface RamProject {
   standalone: true,
 })
 export class ProjectListComponent implements OnInit, AfterViewInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatSort) sort: MatSort;
   dataSource: MatTableDataSource<RamProject>;
   selectedFilter = "ramId";
   filterText = "";
@@ -99,7 +99,11 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     "workflowStatus",
   ];
 
-  constructor(private dialog: MatDialog) {
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.dataSource = new MatTableDataSource(this.data);
   }
 
@@ -276,8 +280,8 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
 
   openCreateProjectDialog(): void {
@@ -307,5 +311,26 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     }
 
     // You can update your dataSource.filter here based on the status
+  }
+
+  /**
+   * Navigate to project detail page
+   * @param ramId - The RAM project ID
+   */
+  navigateToProject(ramId: string): void {
+    this.router.navigate(['../project', ramId], { relativeTo: this.route });
+  }
+
+  /**
+   * Handle RAM ID click (for programmatic navigation if needed)
+   * @param ramId - The RAM project ID
+   * @param event - Mouse event
+   */
+  onRamIdClick(ramId: string, event?: MouseEvent): void {
+    // Prevent default if using this method instead of routerLink
+    if (event) {
+      event.preventDefault();
+    }
+    this.navigateToProject(ramId);
   }
 }

@@ -400,28 +400,35 @@
         </mat-select>
       </mat-form-field>
       <div class="map-container mt-1 flex-grow-1">
-        <div class="d-flex justify-content-between p-2">
-          <div class="d-flex flex-column gap-2">
-            <button
-              mat-raised-button
-              aria-label="Example icon button with a delete icon"
-            >
-              <mat-icon class="m-0">add</mat-icon>
-            </button>
-            <button
-              mat-raised-button
-              aria-label="Example icon button with a delete icon"
-            >
-              <mat-icon class="m-0">remove</mat-icon>
-            </button>
-          </div>
-          <button
-            mat-raised-button
-            aria-label="Example icon button with a delete icon"
-          >
-            <mat-icon class="m-0">open_in_full</mat-icon>
-          </button>
-        </div>
+        <mat-card appearance="outlined" class="h-100">
+          <mat-card-content class="p-0 h-100 position-relative">
+            <div #mapContainer class="w-100" style="height: 400px;"></div>
+            <div class="position-absolute top-0 start-0 p-2 d-flex justify-content-between w-100">
+              <div class="d-flex flex-column gap-2">
+                <button
+                  mat-raised-button
+                  aria-label="Zoom in"
+                  (click)="zoomIn()"
+                >
+                  <mat-icon class="m-0">add</mat-icon>
+                </button>
+                <button
+                  mat-raised-button
+                  aria-label="Zoom out"
+                  (click)="zoomOut()"
+                >
+                  <mat-icon class="m-0">remove</mat-icon>
+                </button>
+              </div>
+              <button
+                mat-raised-button
+                aria-label="Fullscreen"
+              >
+                <mat-icon class="m-0">open_in_full</mat-icon>
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
   </div>

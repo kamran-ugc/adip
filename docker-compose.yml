@@ -1,6 +1,10 @@
+# ⚠️ IMPORTANT: Do not run Docker and local dev servers simultaneously!
+# This causes port conflicts and Module Federation issues.
+# Choose one: Either "docker-compose up" OR local "npm start" commands.
+
 services:
   shell:
-    container_name: micro-frontends-shell
+    container_name: adip-ui-parent
     build:
       context: ./mfe-shell
       dockerfile: ../Dockerfile
@@ -15,9 +19,18 @@ services:
       - PORT=4000
     networks:
       - mfe-network
+    depends_on:
+      - dashboard
+      - adm
+      - administration
+      - agis
+      - amr
+      - ram
+      - rim
+      - mos
 
   dashboard:
-    container_name: micro-frontends-dashboard
+    container_name: adip-ui-dashboard
     build:
       context: ./mfe-dashboard
       dockerfile: ../Dockerfile
@@ -34,7 +47,7 @@ services:
       - mfe-network
 
   adm:
-    container_name: micro-frontends-adm
+    container_name: adip-ui-adm
     build:
       context: ./mfe-adm
       dockerfile: ../Dockerfile
@@ -51,7 +64,7 @@ services:
       - mfe-network
 
   administration:
-    container_name: micro-frontends-administration
+    container_name: adip-ui-administration
     build:
       context: ./mfe-administration
       dockerfile: ../Dockerfile
@@ -68,7 +81,7 @@ services:
       - mfe-network
 
   agis:
-    container_name: micro-frontends-agis
+    container_name: adip-ui-agis
     build:
       context: ./mfe-agis
       dockerfile: ../Dockerfile
@@ -85,7 +98,7 @@ services:
       - mfe-network
 
   amr:
-    container_name: micro-frontends-amr
+    container_name: adip-ui-amr
     build:
       context: ./mfe-amr
       dockerfile: ../Dockerfile
@@ -102,7 +115,7 @@ services:
       - mfe-network
 
   ram:
-    container_name: micro-frontends-ram
+    container_name: adip-ui-ram
     build:
       context: ./mfe-ram
       dockerfile: ../Dockerfile
@@ -119,7 +132,7 @@ services:
       - mfe-network
 
   rim:
-    container_name: micro-frontends-rim
+    container_name: adip-ui-rim
     build:
       context: ./mfe-rim
       dockerfile: ../Dockerfile
@@ -132,6 +145,23 @@ services:
       - NODE_ENV=development
       - HOST=0.0.0.0
       - PORT=4700
+    networks:
+      - mfe-network
+
+  mos:
+    container_name: adip-ui-mos
+    build:
+      context: ./mfe-mos
+      dockerfile: ../Dockerfile
+    ports:
+      - "4800:4800"
+    volumes:
+      - ./mfe-mos:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4800
     networks:
       - mfe-network
 

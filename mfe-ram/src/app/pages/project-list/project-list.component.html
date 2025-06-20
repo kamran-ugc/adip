@@ -136,7 +136,13 @@
                   *matCellDef="let element"
                   class="bold-12 text-primary text-nowrap"
                 >
-                  {{ element.ramId }}
+                  <a
+                    [routerLink]="['../project', element.ramId]"
+                    class="ram-id-link bold-12 text-primary text-decoration-none"
+                    [title]="'View details for ' + element.ramId"
+                  >
+                    {{ element.ramId }}
+                  </a>
                 </td>
               </ng-container>
 

@@ -140,3 +140,30 @@ mat-chip {
     opacity: 0.9;
   }
 }
+
+// RAM ID link styling
+.ram-id-link {
+  color: var(--primary, #3361ff) !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  
+  &:hover {
+    color: var(--primary-dark-1, #194dff) !important;
+    background-color: var(--primary-5p, rgba(51, 97, 255, 0.05)) !important;
+    text-decoration: underline !important;
+  }
+  
+  &:focus {
+    outline: 2px solid var(--primary-20p, rgba(51, 97, 255, 0.2));
+    outline-offset: 1px;
+  }
+  
+  &:active {
+    color: var(--primary-dark-2, #0039ff) !important;
+    background-color: var(--primary-10p, rgba(51, 97, 255, 0.1)) !important;
+  }
+}

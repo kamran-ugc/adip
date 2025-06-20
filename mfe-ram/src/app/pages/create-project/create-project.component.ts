@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit } from "@angular/core";
+import { Component, ViewChild, AfterViewInit, OnInit, ElementRef } from "@angular/core";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
@@ -47,7 +47,7 @@ interface FilterButton {
   templateUrl: "./create-project.component.html",
   styleUrl: "./create-project.component.scss",
 })
-export class CreateProjectComponent implements AfterViewInit {
+export class CreateProjectComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = [
     "obstacleId",
     "type",
@@ -60,6 +60,7 @@ export class CreateProjectComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('mapContainer', { static: false }) mapContainer!: ElementRef;
 
   mitigationFilters: FilterButton[] = [
     { label: "Bridge", isActive: false },
@@ -83,9 +84,73 @@ export class CreateProjectComponent implements AfterViewInit {
     filterArray.forEach((f) => (f.isActive = f === filter));
   }
 
+  ngOnInit() {
+    // Map will be initialized after view init
+  }
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.initializeMap();
+  }
+
+  private initializeMap(): void {
+    // Temporary placeholder map implementation
+    // OpenLayers integration to be restored once module federation compatibility is resolved
+    if (this.mapContainer) {
+      const mapElement = this.mapContainer.nativeElement;
+      mapElement.innerHTML = `
+        <div style="
+          width: 100%; 
+          height: 100%; 
+          background: linear-gradient(45deg, #e8f4f8 25%, transparent 25%), 
+                      linear-gradient(-45deg, #e8f4f8 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #e8f4f8 75%), 
+                      linear-gradient(-45deg, transparent 75%, #e8f4f8 75%);
+          background-size: 20px 20px;
+          background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          border-radius: 4px;
+        ">
+          <div style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #FF0000;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+          "></div>
+          <div style="
+            text-align: center;
+            background: rgba(255,255,255,0.9);
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #666;
+          ">
+            Hawaii, USA<br>
+            <small>Lat: 21.3620, Lng: -157.5869</small><br>
+            <small style='color: #999;'>OpenLayers v5.3.3 ready - Module Federation compatibility pending</small>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  zoomIn(): void {
+    console.log('Zoom in - OpenLayers integration pending module federation fix');
+  }
+
+  zoomOut(): void {
+    console.log('Zoom out - OpenLayers integration pending module federation fix');
   }
 }
 

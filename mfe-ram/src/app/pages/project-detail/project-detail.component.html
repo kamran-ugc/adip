@@ -1,0 +1,62 @@
+<div class="project-detail-container">
+  <mat-card appearance="outlined" class="project-detail-card">
+    <mat-card-header>
+      <mat-card-title class="d-flex align-items-center">
+        <button
+          mat-icon-button
+          routerLink="../projects"
+          class="me-2"
+          aria-label="Back to projects"
+        >
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span class="bold-20 text-gray-50">Project Details: {{ ramId }}</span>
+      </mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content class="p-4">
+      <div class="placeholder-content">
+        <mat-icon class="placeholder-icon text-gray-70">construction</mat-icon>
+        <h2 class="bold-18 text-gray-60 mt-3 mb-2">Coming Soon</h2>
+        <p class="regular-14 text-gray-70 mb-4">
+          This is a placeholder page for RAM project details.
+        </p>
+        <div class="project-info-card">
+          <h3 class="bold-16 text-gray-50 mb-3">Project Information</h3>
+          <div class="info-row">
+            <span class="bold-12 text-gray-70">RAM ID:</span>
+            <span class="regular-12 text-gray-50">{{ ramId }}</span>
+          </div>
+          <div class="info-row">
+            <span class="bold-12 text-gray-70">Status:</span>
+            <span class="regular-12 text-gray-50">Under Development</span>
+          </div>
+          <div class="info-row">
+            <span class="bold-12 text-gray-70">Page Type:</span>
+            <span class="regular-12 text-gray-50">Placeholder</span>
+          </div>
+        </div>
+        
+        <div class="action-buttons mt-4">
+          <button
+            mat-raised-button
+            color="primary"
+            routerLink="../projects"
+            class="bold-12"
+          >
+            <mat-icon matPrefix>list</mat-icon>
+            Back to Projects
+          </button>
+          <button
+            mat-stroked-button
+            class="bold-12 ms-2"
+            disabled
+          >
+            <mat-icon matPrefix>edit</mat-icon>
+            Edit Project (Coming Soon)
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
