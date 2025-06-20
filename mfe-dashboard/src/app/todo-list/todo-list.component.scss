@@ -56,3 +56,59 @@
     background-color: var(--gray-100, #ffffff);
   }
 }
+
+/* Dashboard pills styling */
+.dashboard-pill {
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  margin: 0 !important;
+  display: inline-block;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+// Light theme pill styles
+.pill-revisions {
+  background-color: var(--purple-5p, rgba(138, 43, 226, 0.1));
+  color: var(--purple, #8a2be2);
+  border-color: var(--purple-20p, rgba(138, 43, 226, 0.2));
+}
+
+.pill-in-progress {
+  background-color: var(--warning-5p, rgba(255, 193, 7, 0.1));
+  color: var(--warning-dark, #f57c00);
+  border-color: var(--warning-20p, rgba(255, 193, 7, 0.2));
+}
+
+.pill-blocked {
+  background-color: var(--error-5p, rgba(244, 67, 54, 0.1));
+  color: var(--error, #f44336);
+  border-color: var(--error-20p, rgba(244, 67, 54, 0.2));
+}
+
+// Dark theme overrides
+:host-context(.dark-theme) {
+  .pill-revisions {
+    background-color: rgba(138, 43, 226, 0.15) !important;
+    color: #c477ff !important;
+    border-color: rgba(138, 43, 226, 0.3) !important;
+  }
+
+  .pill-in-progress {
+    background-color: rgba(255, 193, 7, 0.15) !important;
+    color: #ffca28 !important;
+    border-color: rgba(255, 193, 7, 0.3) !important;
+  }
+
+  .pill-blocked {
+    background-color: rgba(244, 67, 54, 0.15) !important;
+    color: #ff7961 !important;
+    border-color: rgba(244, 67, 54, 0.3) !important;
+  }
+
+  .dashboard-pill {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  }
+}

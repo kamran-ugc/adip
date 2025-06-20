@@ -7,6 +7,7 @@ import { TodoListComponent } from "./todo-list.component";
   declarations: [],
   imports: [
     CommonModule,
+    TodoListComponent,
     RouterModule.forChild([
       {
         path: "",
